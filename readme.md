@@ -18,4 +18,10 @@ Lucas Sonvico:
 - Es comun que sea el comic relief de las situaciones y no sabe cuando dejar de usar el spanglish (o dejar de hacer chistes. O ambos)
 - Odia las listas.
 
+Cynthia Lofer:
+- Arquitecta con experiencia en obra, interiorismo, diseño de muebles y hace un tiempo ya aburrida y desconectada de esta profesión.
+- Mi primer acercamiento a algo relacionado con una Web, fue en el 2010 con la creación y gestión de una tienda on line de productos y objetos de diseño, y donde el interes estaba puesto en la experiencia Web. Yo no participe en nada relacionado con la programación obviamente.
+- De curiosa incursioné sin conocimiento alguno hace poco en Wordpress, realizando un site para mi empresa, lo que me despertó el interes en este tema, luego hice dos más, siempre para mi y en Wordpress, las limitaciones que encontré en Wordpress me trajeron hasta acá...
+- Me gusta mucho viajar y leer.
+
 [Completar]
