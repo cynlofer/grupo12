@@ -10,7 +10,7 @@
 - Oferta de productos: 
 * pinturas, lienzos, acuarelas, pasta para modelar, accesorios de aerografia, cajas de pintor, herramientas para trabajar materiales, herramientas para dibujo tecnico (escalimetro, portaminas, compases, estilografos, mesas de dibujo), etc.
 
-- Integrantes. 
+-  Integrantes. 
 Lucas Sonvico:
 - SysAdmin con 14 años de experiencia en el rubro IT. 
 - Generalista. Web Server Admin en IIS y algo (poco) de Tomcat. 
@@ -24,4 +24,10 @@ Cynthia Lofer:
 - De curiosa incursioné sin conocimiento alguno hace poco en Wordpress, realizando un site para mi empresa, lo que me despertó el interes en este tema, luego hice dos más, siempre para mi y en Wordpress, las limitaciones que encontré en Wordpress me trajeron hasta acá...
 - Me gusta mucho viajar y leer.
 
+Sandy Perez: 
+- Artista visual dedicada especialmente a la pintura al oleo y el muralismo, políglota y enamorada del estudio sobre el comportamiento y la salud humana.  
+- Mi interés por la programación surge a partir de la necesidad de digitalizar el comercio de mis producciones artísticas y el próximo inicio de una carrera en el área de la salud, donde a futuro sera imprescindible el uso de nuevas tecnologías para el tratamiento de enfermedades y la relación con los pacientes. 
+- Trabajo de una forma un poco diferente a lo esperado, voy a mi ritmo, pero siempre llegando al punto indicado, no me interesa competir con otros sino autosuperarme, me gusta compartir mis conocimientos si puedo. Me considero muy responsable y empátia. 
+
+ 
 [Completar]
