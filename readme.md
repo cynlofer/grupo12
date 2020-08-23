@@ -25,9 +25,9 @@ Cynthia Lofer:
 - Me gusta mucho viajar y leer.
 
 Sandy Perez: 
-- Artista visual dedicada especialmente a la pintura al oleo y el muralismo, políglota y enamorada del estudio sobre el comportamiento y la salud humana.  
-- Mi interés por la programación surge a partir de la necesidad de digitalizar el comercio de mis producciones artísticas y el próximo inicio de una carrera en el área de la salud, donde a futuro sera imprescindible el uso de nuevas tecnologías para el tratamiento de enfermedades y la relación con los pacientes. 
-- Trabajo de una forma un poco diferente a lo esperado, voy a mi ritmo, pero siempre llegando al punto indicado, no me interesa competir con otros sino autosuperarme, me gusta compartir mis conocimientos si puedo. Me considero muy responsable y empátia. 
+- Artista visual dedicada especialmente a la pintura al óleo y el muralismo, políglota y enamorada del estudio sobre el comportamiento y la salud humana.
+-Mi interés por la programación surge a partir de la necesidad de digitalizar el comercio de mis producciones artísticas y el próximo inicio de una carrera en el área de la salud, donde a futuro sera imprescindible el uso de nuevas tecnologías para el tratamiento de enfermedades y la relación con los pacientes.
+-Trabajo de una forma un poco diferente a lo esperado, voy a mi ritmo, pero siempre llegando al punto indicado, no me interesa competir con otros sino auto superarme, me gusta compartir mis conocimientos si puedo. Me considero muy responsable y empática.
 
  
 [Completar]
