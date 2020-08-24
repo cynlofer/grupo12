@@ -1,14 +1,32 @@
-- ¿Qué productos o servicios brindará nuestro sitio?
-* El sitio [nombre] esta centrado a la comercializacion (por parte de la compañía) y a la calificacion (por parte de los usuarios) de productos destinados a al arte y el dibujo. 
+-Temática del MarketPlace
 
-- ¿Quién será nuestra audiencia objetivo? 
-* Artistas y profesionales del arte grafico, asi como cualquier persona que quiera adentrarse en el mundo del dibujo.
+¿Qué productos o servicios brindará nuestro sitio? 
 
-- ¿Cómo ajustaremos nuestra oferta a ese público?
-* [?????]
+El sitio web XXXXX se encarga de la venta online de productos artísticos al por mayor y menor, con envío al comprador a través de diferentes servicios de mensajería, a todo el país o retirando en la sucursal. Los métodos de pago pueden ser tarjeta de crédito, débito o transacciones bancarias.
 
-- Oferta de productos: 
-* pinturas, lienzos, acuarelas, pasta para modelar, accesorios de aerografia, cajas de pintor, herramientas para trabajar materiales, herramientas para dibujo tecnico (escalimetro, portaminas, compases, estilografos, mesas de dibujo), etc.
+¿Quién será nuestra audiencia objetivo?
+
+La audiencia objetivo se divide en 2 segmentos:
+Estudiantes de todos los niveles académicos (Desde primera infancia hasta universitarios). 
+Artistas (Amateur y profesionales). 
+
+¿Cómo ajustaremos nuestra oferta a ese público? 
+
+La oferta de productos se adapta a las necesidades de nuestro público, teniendo en cuenta las actividades que desempeñan y haciendo una investigación de mercado previa a la adquisición de productos para su venta. Siendo así; tendremos en cuenta la demanda en determinados tipos de productos y las marcas más utilizadas.  
+
+Para estudiantes de todos los niveles académicos: 
+
+Jardin de infantes, primaria, secundaria y universidades: Tenemos en cuenta los requerimientos de los colegios en las listas de útiles escolares, los usos  en determinadas profesiones y las marcas más populares en el momento. 
+
+Para Artistas: 
+En el arte existen muchos niveles de profesionalismo, técnicas y capacidad adquisitiva; es por ello; que es necesario hacer una división entre la oferta para profesionales y amateurs. 
+
+Amateurs: 
+Son productos con un valor y calidad menor, son utilizados en su mayoría por personas que están aprendiendo o utilizan el arte como un hobbie. 
+
+Profesionales: 
+Son productos más costosos, más especializados y empleados por profesionales en las diferentes ramas del arte.
+Las marcas que producen estos productos, por lo general  tienen siempre 2 líneas del mismo elemento, pero siempre con la diferencia amateur o profesional abarcando un mercado más grande de compradores. 
 
 -  Integrantes. 
 Lucas Sonvico:
