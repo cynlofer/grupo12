@@ -28,7 +28,8 @@ Profesionales:
 Son productos más costosos, más especializados y empleados por profesionales en las diferentes ramas del arte.
 Las marcas que producen estos productos, por lo general  tienen siempre 2 líneas del mismo elemento, pero siempre con la diferencia amateur o profesional abarcando un mercado más grande de compradores. 
 
--  Integrantes. 
+Integrantes
+
 Lucas Sonvico:
 - SysAdmin con 14 años de experiencia en el rubro IT. 
 - Generalista. Web Server Admin en IIS y algo (poco) de Tomcat. 
