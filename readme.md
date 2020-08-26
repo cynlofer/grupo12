@@ -66,11 +66,11 @@ El carrito de compra anclado a la derecha es interesante para el comprador, se p
 
 www.artisticarubens.com.ar/
 
-Se puede identificar una distribución bastante acertada de las funcionalidades en el home de la página, como el carrito de compra que es fácil de identificar, la organización del footer es llamativa; sin embargo, se perciben falencias como la ausencia de un formulario de contacto, los colores no son agradables a la vista y la experiencia al buscar requiere mejoras como la organización de las generalidades de un producto. 
+Se puede identificar una distribución bastante acertada de las funcionalidades en el home de la página, como el carrito de compra que es fácil de encontrar, la organización del footer es llamativa; sin embargo, se perciben falencias como la ausencia de un formulario de contacto, los colores no son agradables a la vista y la experiencia de busqueda requiere mejoras, como la organización de las generalidades de un producto. 
 
 https://www.artisticaaguilar.com.ar/
 
-Al ingresar a la página es llamativo el anuncio que hace referencia a los artículos que se encuentran en promoción durante el día, nuevas noticias sobre los cursos que ofrecen y la forma de envío y entrega. La forma de ver los productos de forma individual es poco intuitiva. Se podría mejorar la organización y la forma de buscar. La fuente de texto no es agradable a la vista. Donde dice contacto en realidad llega a suscribirse al Newsletter, generando confusión. 
+Al ingresar a la página es llamativo el anuncio que hace referencia a los artículos que se encuentran en promoción durante el día, nuevas noticias sobre los cursos que ofrecen y la forma de envío y entrega. El formato para ver los productos de forma individual es poco intuitiva. Se podría mejorar la organización y configuracion de busqueda. La fuente de texto no es agradable a la vista. Donde dice contacto en realidad llega a suscribirse al Newsletter, generando confusión. 
 
 https://www.artisticaleidi.com.ar
 
@@ -82,6 +82,6 @@ Desde la perspectiva de un artista, estudiante o comprador potencial, la búsque
 
 https://www.artisticafader.com/
 
-Es una plantilla de MercadoLibre que se caracteriza por ser simple, poco intuitiva y muy repetitiva para cada una de las tiendas que hacen parte de la misma y ofrecen productos o servicios relacionados. Se percibe en este caso desorganización en el footer y la necesidad de una fuente de texto más llamativa y agradable a la vista. 
+Es una plantilla de MercadoLibre que se caracteriza por ser simple, poco intuitiva y muy repetitiva para cada una de las tiendas que hacen parte de la misma y ofrecen productos o servicios relacionados. Se percibe en este caso desorganización en el footer y la necesidad de una fuente de texto más llamativa y agradable para quien visita la pagina. 
  
 [Completar]
