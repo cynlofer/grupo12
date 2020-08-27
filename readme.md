@@ -2,7 +2,7 @@
 
 ¿Qué productos o servicios brindará nuestro sitio? 
 
-El sitio web XXXXX se encarga de la venta online de productos artísticos al por mayor y menor, con envío al comprador a través de diferentes servicios de mensajería, a todo el país o retirando en la sucursal. Los métodos de pago pueden ser tarjeta de crédito, débito o transacciones bancarias.
+El sitio web LCS Supplies se encarga de la venta online de productos artísticos al por mayor y menor, con envío al comprador a través de diferentes servicios de mensajería, a todo el país o retirando en la sucursal. Los métodos de pago pueden ser tarjeta de crédito, débito o transacciones bancarias.
 
 ¿Quién será nuestra audiencia objetivo?
 
@@ -84,4 +84,4 @@ https://www.artisticafader.com/
 
 Es una plantilla de MercadoLibre que se caracteriza por ser simple, poco intuitiva y muy repetitiva para cada una de las tiendas que hacen parte de la misma y ofrecen productos o servicios relacionados. Se percibe en este caso desorganización en el footer y la necesidad de una fuente de texto más llamativa y agradable para quien visita la pagina. 
  
-[Completar]
+
