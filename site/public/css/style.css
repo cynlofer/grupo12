@@ -1,0 +1,39 @@
+h1 {
+    color: red;
+}
+
+section {
+  display: flex;
+}
+
+div {
+    padding: 1px;
+    border: 2px solid red;
+    background: yellow;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 900px;
+  }
+  .footer {
+    color: green;
+  }
+  .desplegables {
+    color: blue
+  }
+  div .flex {
+    -ms-flex-item-align: auto;
+  }
+  .Secciones {
+    color: purple
+  }
+  .ofertas {
+    color: lightblue;
+    display: flex;
+    width: 50%;
+  }
+  .marcas {
+    color: lightcoral
+  }
+  .BAyudas {
+    color: darkblue;
+  }
