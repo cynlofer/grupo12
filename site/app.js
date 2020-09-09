@@ -5,7 +5,6 @@ const app = express();
 //Serve static files for publishing 
 app.use(express.static(__dirname+"/site"))
 
-
 //Create server
 app.listen(8080, () => console.log("server up"));
 
