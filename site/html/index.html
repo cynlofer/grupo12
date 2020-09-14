@@ -2,23 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Windows -->
+    <meta name="MobileOptimized" content="320" />
+    <!-- Safari -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet"> 
     <title>LCS Supplies Home</title>
 </head>
 <body>
-    <div class=desplegables>secciones (desplegables)</div>
-    <section>   
-        <div>Productos relacionados (izquierda)</div>
-        <div>banner con ofertas (derecha)</div>
-    </section>
-    <div class=Secciones>Banner interactivo de secciones on click</div>
-    <div class=BAyudas>Botones de informacion de ayuda (amazon like)</div>
-    <div class=Marcas>Marcas reconocidas que nos eligen</div>
-    <div class=footer><footer>Footer</footer></div>
-    <a href="../html/myCart.html">Carrito</a>
-    <a href="../html/productDetail.html">Detalle de producto</a>
-    <a href="../html/register.html">Registrate!</a>
-    <a href="../html/userLogin.html">Inicia Sesion</a>
+    <!-- Main div del sitio. -->
+    <div class="container">
+
+        <!-- Header del sitio -->
+        <header class="header">
+            <img class="logo" src="../public/images/logo_2.png" alt="logotipo" class="logo">
+                <section class="main-nav">
+                <article class="nav-bar">
+                    <ul class="main-content">
+                        <li><a href="#">artistica</a></li>
+                        <li><a href="#">tecnico</a></li>
+                        <li><a href="#">decorativo</a></li>
+                        <li><a href="#">marcas</a></li>
+                        <li><a href="#">contacto</a></li>
+                    </ul>
+                </article>
+                <article class="login-bar">
+                    <ul class=login-content>
+                        <li><a href="#">ingresa</a></li>
+                        <li><a href="#">registrate</a></li>
+                    </ul>
+                </article>
+            </section>
+        </header>
+        <!-- Banner Ofertas -->
+        <section class="bannerOfertas">
+            <h2>BannerOfertas</h2>
+            <img src="../public/images/Placeholder.png" alt="placeholder">
+        </section>
+
+        <!-- Seccion productos y banner secciones -->
+        <section class="bannerCentral">
+            <article class="productosRelacionados">
+            <h2>Productos Relacionados</h2>
+            <img src="../public/images/Placeholder.png" alt="placeholder">
+            </article>
+            <article class="bannerSecciones">
+            <h2>Banner secciones</h2>
+            <img src="../public/images/Placeholder.png" alt="placeholder">
+            </article>
+        </section>
+
+        <!-- Botones de ayuda -->
+        <section class=bannerAyuda>
+            <H2>Banner ayuda</H2>
+            <img src="../public/images/Placeholder.png" alt="placeholder">
+        </section>
+
+        <!-- Marcas reconocidas -->
+        <section class=marcasReconocidas>
+            <h2>Confian en nosotros</h2>
+            <img src="../public/images/Placeholder.png" alt="placeholder">
+        </section>
+
+        <!-- Footer del sitio-->
+        <footer>
+            <section class=footer>
+
+            </section>
+        </footer>
+    </div>
 </body>
 </html>

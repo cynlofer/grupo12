@@ -147,7 +147,7 @@
     border:solid 1px #E97E5A;
     
 }
-}
+
 .descripcion{
     font-family:'Raleway', sans-serif;
     color: #36465d;
@@ -196,8 +196,6 @@
     font-family:'Raleway', sans-serif;
     font-size: 25px;
     color: #36465d;
-   
-    
 }
     
 .container__1 a{
@@ -285,4 +283,5 @@
     justify-content: center;
     display: flex;
 
+}
 }
