@@ -4,18 +4,14 @@
 
 .header__container{
     display: flexbox;
-    justify-content: space-between;
+    
    
 }
-.menu__1{
-    display: flexbox;
-    justify-content: space-between;
-    
-}
+
 .menu_2{
    
-    justify-content: center;
-    display: flex;
+    justify-content: left;
+
     
 
 }
@@ -40,7 +36,7 @@
     justify-content: space-between;
     border-bottom: solid 1px #E4D5B9;
 }
-Logo{
+.Logo{
     width: 100%;
 }
 .inicio__registro{
@@ -71,9 +67,7 @@ Logo{
     font-family:'Raleway', sans-serif;
     font-size: 16px;
     color: #36465d;
-    display: flex;
     width: 100%;
-    border-bottom: solid 1px #E4D5B9;
     padding: 0 10px;
     background-color:rgb(228, 213, 185,0.3);
     justify-content: space-between;
@@ -85,7 +79,6 @@ Logo{
     color: #36465d;
     display: flex;
     width: 100%;
-    border-bottom: solid 1px #E4D5B9;
     padding: 0 10px;
     background-color:rgb(228, 213, 185,0.3);
     
@@ -93,7 +86,6 @@ Logo{
 .detalle__compra{
     font-family:'Raleway', sans-serif;
     color: #36465d;
-    display: flex;
     width: 80%;
     padding: 0 10px;
     
@@ -101,16 +93,11 @@ Logo{
 .detalle__pago{
     font-family:'Raleway', sans-serif;
     color: #36465d;
-    display: flex;
     width: 20%;
     padding: 0 10px;
     align-items: center;
    
-    
 }
-
-
-
 
 .menu_2 a:hover{
     background:#E4D5B9;
@@ -119,25 +106,21 @@ Logo{
 }
 
   
-
-
-
 .titulo_producto{
-    display: flex;
+ 
     font-family:'Raleway', sans-serif;
     color: #3f88a2;
 
 }
 
 .detalle_producto{
-    text-align: center;
     font-family:'Raleway', sans-serif;
     color: #36465d;
-    flex-wrap: wrap;
     display: flex;
     padding:0px 10px;
     margin: 6px;
-    width: 25%;
+    text-align: center;
+    border-bottom: solid 1px #E4D5B9;
 }
 
 .seguir__comprando{
@@ -145,7 +128,6 @@ Logo{
     font-family:'Raleway', sans-serif;
     color: #36465d;
     display: flex;
-    flex-wrap: wrap;
     padding:0px 10px;
     background:#E4D5B9;
     margin: 20px;
@@ -153,15 +135,27 @@ Logo{
     border:solid 1px #E97E5A;
     
 }
+
+.eliminar{
+    font-family:'Raleway', sans-serif;
+    color: #36465d;
+    display: flex;
+    padding:0px 10px;
+    background:#E4D5B9;
+    margin: 20px;
+    text-align: center;
+    border:solid 1px #E97E5A;
+    
+}
+}
 .descripcion{
     font-family:'Raleway', sans-serif;
     color: #36465d;
     display: flex;
-    flex-wrap: wrap;
     padding:0px 10px;
     margin: 6px;
     text-align: center;
-    width: 40%;
+    border-bottom: solid 1px #E4D5B9;
     
 
 }
@@ -169,20 +163,19 @@ Logo{
     font-family:'Raleway', sans-serif;
     color: #36465d;
     display: flex;
-    flex-wrap: wrap;
     padding:0px 10px;
     margin: 6px;
     text-align: center;
-    
+    border-bottom: solid 1px #E4D5B9;
 }
 .cantidad{
     font-family:'Raleway', sans-serif;
     color: #36465d;
     display: flex;
-    flex-wrap: wrap;
     padding:0px 10px;
     margin: 6px;
     text-align: center;
+    border-bottom: solid 1px #E4D5B9;
 
   
 }
@@ -190,10 +183,10 @@ Logo{
     font-family:'Raleway', sans-serif;
     color: #36465d;
     display: flex;
-    flex-wrap: wrap;
     padding:0px 10px;
     margin: 6px;
     text-align: center;
+    border-bottom: solid 1px #E4D5B9;
    
     
 }
@@ -207,13 +200,13 @@ Logo{
     
 }
     
-.container__1 h2{
+.container__1 a{
     display: flex;
     font-family:'Raleway', sans-serif;
     color: #36465d;
 }
     
-.eliminar{
+.container__3 h1{
     font-family:'Raleway', sans-serif;
     color: #36465d;
     display: flex;
@@ -222,4 +215,74 @@ Logo{
     margin: 20px;
     text-align: center;
     border:solid 1px #E97E5A;
+    transition: all 1s;
+   display: inline;
+  
+}
+
+.container__3 h1:hover{
+
+    transform: scale(1.1);
+}
+
+
+
+
+
+/*condiciones para desktop*/
+@media(min-width:460px){
+
+    .detalle__compra{
+        display: flex;
+    }
+            
+    .detalle__pago{
+        display: flex;
+    }
+
+
+.titulo_producto{
+    display: flex;
+    flex-wrap: wrap;
+  
+}
+
+.detalle_producto{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.seguir__comprando{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.descripcion{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.precio{
+    display: flex;
+    flex-wrap: wrap;
+}
+.cantidad{
+    display: flex;
+    flex-wrap: wrap;
+}
+.cantidad{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container__2{
+    display: flex;
+}
+
+.menu_2{
+   
+    justify-content: center;
+    display: flex;
+
 }
