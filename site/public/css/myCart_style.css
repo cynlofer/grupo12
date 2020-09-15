@@ -2,6 +2,7 @@
     box-sizing: border-box;
 }
 
+
 .header__container{
     display: flexbox;
     
@@ -18,7 +19,7 @@
 .menu_2 a{
     font-family:'Raleway', sans-serif;
     color: #36465d;
-   font-size: 22px;
+    font-size: 20px;
    display: inline;
    padding: 3px;
    margin-left: 25px;
@@ -28,8 +29,9 @@
 }
 .body{
     display: flex;
-    width: 300px;
+    width: 500px;
    
+  
 }
 .body__container{
     display: flex;
@@ -38,6 +40,11 @@
 }
 .Logo{
     width: 100%;
+}
+.buscador{
+    width: 100%;
+    align-items: center;
+    display: flex;
 }
 .inicio__registro{
     display: flex;
@@ -72,8 +79,19 @@
     background-color:rgb(228, 213, 185,0.3);
     justify-content: space-between;
 }
-
 .container__3{
+    font-family:'Raleway', sans-serif;
+    font-size: 16px;
+    color: #36465d;
+    width: 100%;
+    padding: 0 10px;
+    background-color:rgb(228, 213, 185,0.3);
+    justify-content: space-between;
+}
+
+
+
+.container__4{
     font-family:'Raleway', sans-serif;
     font-size: 16px;
     color: #36465d;
@@ -204,7 +222,7 @@
     color: #36465d;
 }
     
-.container__3 h1{
+.container__4 h1{
     font-family:'Raleway', sans-serif;
     color: #36465d;
     display: flex;
@@ -218,7 +236,7 @@
   
 }
 
-.container__3 h1:hover{
+.container__4 h1:hover{
 
     transform: scale(1.1);
 }
@@ -228,7 +246,7 @@
 
 
 /*condiciones para desktop*/
-@media(min-width:460px){
+@media(min-width:600px){
 
     .detalle__compra{
         display: flex;
@@ -284,4 +302,8 @@
     display: flex;
 
 }
+.resumen_del_pago{
+    display: flex;
+    
+    
 }
