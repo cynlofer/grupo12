@@ -47,6 +47,7 @@
     padding-left: 25%;
     padding-top: 4vh;
     border-image: gray solid 2px;
+    padding-bottom: 4vh;
 
 }
 #contenedorImagenesInferior {
@@ -71,28 +72,21 @@
 }
 
 #contenedorNombre {
-    background-color: whitesmoke; 
+    background-color:white;   
     width: 39%;
     box-sizing: border-box;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
     
 }
 .nombreProducto{
-    background-color: rgb(226, 226, 226); 
+    background-color: whitesmoke; 
     text-align: center;
     font-size: 2.5em;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     position: relative;
 } 
-.contenedorRedes {
- width: 100%;
- background-color: teal;
- height: 20vh; 
- box-sizing: border-box;
- display: flex;
- flex-wrap: wrap;
- flex-direction: row;
- justify-content: space-between;
-}
+
 #form {
     width: 250px;
     margin: 0 auto;
@@ -113,22 +107,62 @@
   
   label {
     color: grey;
+    font-size: 2em;
+    padding: 0px;
+    margin: auto;
   }
+  .label1:hover,
+.label1:hover ~ label {
+  color: orange;
+}
   
   .clasificacion {
     direction: rtl;
     unicode-bidi: bidi-override;
-  }
-  
-  label:hover,
-  label:hover ~ label {
-    color: orange;
+    height: 10%;
+    text-align: left;
+    background-color: white; 
+    margin: 0px;
+    padding: 0px;
+
   }
   
   input[type="radio"]:checked ~ label {
     color: orange;
   }
-}
-.iconoCompartir {
-    width: 10%
-}
+ 
+  .contenedorRedes {
+      background-color:white; 
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-around;
+      
+   
+  }
+  .compartirImagen{
+      width: 20%;
+      height: 8vh;
+
+  }
+  .precio {
+      font-size: 2.5em;
+      background-color: whitesmoke;
+      text-align: center;
+      font-weight: bold;
+  }
+  .colores{
+      background-color: whitesmoke;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 10px;
+  }
+  .select{
+      background-color: white; 
+      font-size: 2em;
+      color: black;
+
+  }
+  .desplegable {
+      font-size: 1.5em;;
+  }
