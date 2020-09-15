@@ -1,6 +1,68 @@
 *{
     box-sizing: border-box;
 }
+.container {
+	width: 100%;
+	font-family:'Raleway', sans-serif;
+    color: #36465d;
+}
+.header {
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border:1px solid #E97E5A;
+	background-color: #E4D5B9;
+	border-radius: 2px;
+}
+
+.logo {
+  width: 100%;
+  display: flex;
+  background-color: white;
+  margin-top: -2px;
+}
+
+.main-nav {
+	display: flex;
+	flex-flow: column;
+}
+.main-nav a {
+	padding: 10px 15px;
+	text-transform: uppercase;
+	text-align: center;
+	display: block;
+	transition: all 1s;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+  }
+  
+  a {
+	  text-decoration: none;
+  }
+
+
+.main-content li{
+    border-top:1px solid #E97E5A;
+}
+.login-content li{
+    border-top:1px solid #E97E5A;
+    
+}
+.nav-bar {
+    order: 0;
+    padding: 2px;
+}
+
+.login-bar {
+    display: inline;
+    order: -1;
+    flex-wrap: wrap;
+    
+	
+}
+
 
 
 .header__container{
@@ -79,6 +141,15 @@
     background-color:rgb(228, 213, 185,0.3);
     justify-content: space-between;
 }
+
+
+.descripcion p{
+    font-family:'Raleway', sans-serif;
+    font-size: 16px;
+    color: #36465d;
+
+
+}
 .container__3{
     font-family:'Raleway', sans-serif;
     font-size: 16px;
@@ -137,7 +208,6 @@
     display: flex;
     padding:0px 10px;
     margin: 6px;
-    text-align: center;
     border-bottom: solid 1px #E4D5B9;
 }
 
@@ -165,6 +235,9 @@
     border:solid 1px #E97E5A;
     
 }
+.detalle__Producto img{
+    width: 100%;
+}
 
 .descripcion{
     font-family:'Raleway', sans-serif;
@@ -172,10 +245,11 @@
     display: flex;
     padding:0px 10px;
     margin: 6px;
-    text-align: center;
     border-bottom: solid 1px #E4D5B9;
-    
 
+}
+.descripcion p{
+    padding:0px 10px;
 }
 .precio{
     font-family:'Raleway', sans-serif;
@@ -183,8 +257,12 @@
     display: flex;
     padding:0px 10px;
     margin: 6px;
-    text-align: center;
     border-bottom: solid 1px #E4D5B9;
+}
+.precio p{
+    padding:0px 10px;
+    align-self: center;
+    text-align: center;
 }
 .cantidad{
     font-family:'Raleway', sans-serif;
@@ -192,10 +270,13 @@
     display: flex;
     padding:0px 10px;
     margin: 6px;
-    text-align: center;
+    
     border-bottom: solid 1px #E4D5B9;
+}
 
-  
+.cantidad p{
+    padding:0px 10px;
+    align-self: center;
 }
 .subtotal{
     font-family:'Raleway', sans-serif;
@@ -203,10 +284,12 @@
     display: flex;
     padding:0px 10px;
     margin: 6px;
-    text-align: center;
-    border-bottom: solid 1px #E4D5B9;
-   
     
+    border-bottom: solid 1px #E4D5B9;
+}
+.subtotal p{
+    padding:0px 10px;
+    align-self: center;
 }
    
 .container__1 h1{
@@ -245,8 +328,19 @@
 
 
 
-/*condiciones para desktop*/
-@media(min-width:600px){
+/* ================================= 
+  Media Queries
+==================================== */
+@media(min-width:769px){
+    .header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	.main-nav {
+		display: flex;
+	}
 
     .detalle__compra{
         display: flex;
@@ -266,6 +360,7 @@
 .detalle_producto{
     display: flex;
     flex-wrap: wrap;
+   
     
 }
 
@@ -277,19 +372,23 @@
 .descripcion{
     display: flex;
     flex-wrap: wrap;
+  
 }
 
 .precio{
     display: flex;
     flex-wrap: wrap;
+ 
 }
 .cantidad{
     display: flex;
     flex-wrap: wrap;
+   
 }
-.cantidad{
+.subtotal{
     display: flex;
     flex-wrap: wrap;
+    
 }
 
 .container__2{
@@ -304,6 +403,48 @@
 }
 .resumen_del_pago{
     display: flex;
+}
     
-    
+}
+
+@media (min-width: 1025px) {
+	.header {
+		display: flex; 
+	}
+
+	.logo {
+		width: 100%;
+		display: flex;
+		background-color: white;
+		margin-top: -2px;
+      }
+      .header img {
+		width: 50%
+	}
+
+	.main-nav {
+		display: flex;
+		flex-direction: row;
+		order: 0;
+	}
+
+	.main-content {
+		display: flex;
+	}
+	
+	.login-bar {
+		display: flex;
+		flex-direction: row;
+		order: 1;
+	}
+	
+	.login-content {
+		justify-content: flex-end;
+	}
+
+	.main-nav a:hover {
+		background:#EEC59A;
+		transform: scale(1.1);
+		border:1px solid #E4D5B9;
+	}
 }
