@@ -101,7 +101,7 @@ ul li {
   Media Queries
 ==================================== */
 
-@media (min-width: 769px) {
+@media (min-width: 600px) {
 	.header {
 		display: flex;
 		flex-direction: column;
@@ -140,6 +140,8 @@ ul li {
 @media (min-width: 1025px) {
 	.header {
 		display: flex; 
+		background-image: url("../images/fondo-header.png");
+		background-size: cover;
 	}
 
 	.logo {
@@ -170,7 +172,7 @@ ul li {
 	}
 	
 	.login-content {
-		justify-content: flex-end;
+		display: flex;;
 	}
 
 	.main-nav a:hover {
@@ -179,4 +181,34 @@ ul li {
 		border:1px solid #E4D5B9;
 	}
 
+	.bannerOfertas {
+		display: flex;
+		margin: auto; 
+		width: 100%;
+		flex-direction: column;
+	}
+
+	.bannerOfertas h2 {
+			width: 100%;
+			height: 10%;
+			position: relative;
+			animation-name: ofertas;
+			animation-duration: 2.7s;
+			animation-iteration-count: infinite;
+			animation-direction: normal;
+			text-decoration: underline;
+		}
+		  
+		  @keyframes example {
+			0%   {left:0px; top:0px;}
+			25%  {left:200px; top:0px;}
+			50%  {left:200px; top:0px;}
+			75%  {left:0px; top:0px;}
+			100% {left:0px; top:0px;}
+		  }
+	}
+	
+	.bannerOfertas img {
+		width: 100%;
+	}
 }

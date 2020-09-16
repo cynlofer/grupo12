@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red !important; */
+}
+
+.footerContainer {
+    background-image: url("../images/fondo-footer.png");
+    background-size: cover;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.topButton {
+    width: 100%;
+    color: #801111;
+    height: 50px;
+    border-bottom: 1px solid #BB9A9A;
+}
+
+.topButton h5 {
+    height: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.footerMenu {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.socialMedia {
+    width: 25%;
+    text-transform: capitalize;
+    color: #801111;
+}
+
+.footerMenu a {
+    text-decoration: none;
+    width: 100%;
+    color: #801111;
+}
+
+.aboutUs {
+    width: 25%;
+    text-transform: capitalize;
+    list-style-type: none;
+    color: #801111;
+}
+
+.aboutUs li {
+    width: 100%;
+    padding: 2px;
+    color: #801111;
+}
+
+.ayudaFooter {
+    width: 25%;
+    text-transform: capitalize;
+    list-style-type: none;
+    color: #801111;
+}
+
+.ayudaFooter li {
+    width: 100%;
+    padding: 2px;
+    color: #801111;
+}
+
+.pagosFooter {
+    width: 25%;
+    text-transform: capitalize;
+}
+
+.mediosPago {
+    width: 100%;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+.mediosPago img{
+    display: flex;
+    margin: 10px 0px 10px 45px;
+}
+
+.mediosEnvio{    
+    width: 100%;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+.mediosEnvio img{
+    display: flex;
+    margin: 10px 0px 10px 108px;
+}
