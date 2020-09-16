@@ -15,7 +15,7 @@
 
 .topButton {
     width: 100%;
-    color: #801111;
+    color: #36465d;
     height: 50px;
     border-bottom: 1px solid #BB9A9A;
 }
@@ -37,39 +37,39 @@
 .socialMedia {
     width: 25%;
     text-transform: capitalize;
-    color: #801111;
+    color: #36465d;
 }
 
 .footerMenu a {
     text-decoration: none;
     width: 100%;
-    color: #801111;
+    color: #36465d;
 }
 
 .aboutUs {
     width: 25%;
     text-transform: capitalize;
     list-style-type: none;
-    color: #801111;
+    color: #36465d;
 }
 
 .aboutUs li {
     width: 100%;
     padding: 2px;
-    color: #801111;
+    color: #36465d;
 }
 
 .ayudaFooter {
     width: 25%;
     text-transform: capitalize;
     list-style-type: none;
-    color: #801111;
+    color: #36465d;
 }
 
 .ayudaFooter li {
     width: 100%;
     padding: 2px;
-    color: #801111;
+    color: #36465d;
 }
 
 .pagosFooter {
