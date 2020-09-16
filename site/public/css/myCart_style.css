@@ -135,6 +135,19 @@ ul {
     background-color:rgb(228, 213, 185,0.3);
 
 }
+
+.container__1 h1{
+    display: flex;
+    font-family:'Raleway', sans-serif;
+    font-size: 25px;
+    color: #36465d;
+}
+    
+.container__1 a{
+    display: flex;
+    font-family:'Raleway', sans-serif;
+    color: #36465d;
+}
 .container__2{
     font-family:'Raleway', sans-serif;
     font-size: 16px;
@@ -145,14 +158,73 @@ ul {
     justify-content: space-between;
 }
 
+.detalle_producto{
+    font-family:'Raleway', sans-serif;
+    color: #36465d;
+    display: flex;
+    padding:0px 10px;
+    margin: 6px;
+    border-bottom: solid 1px #E4D5B9;
 
+}
+.descripcion{
+    font-family:'Raleway', sans-serif;
+    color: #36465d;
+    display: flex;
+    padding:0px 10px;
+    margin: 6px;
+    border-bottom: solid 1px #E4D5B9;
+    justify-content: space-between;
+}
 .descripcion p{
+    padding:0px 10px;
     font-family:'Raleway', sans-serif;
     font-size: 16px;
     color: #36465d;
 
-
 }
+.precio{
+    font-family:'Raleway', sans-serif;
+    color: #36465d;
+    display: flex;
+    padding:0px 10px;
+    margin: 6px;
+    border-bottom: solid 1px #E4D5B9;
+    justify-content: space-between;
+}
+.precio p{
+    padding:0px 10px;
+    align-self: center;
+    text-align: center;
+}
+.cantidad{
+    font-family:'Raleway', sans-serif;
+    color: #36465d;
+    display: flex;
+    padding:0px 10px;
+    margin: 6px;
+    justify-content: space-between;
+    border-bottom: solid 1px #E4D5B9;
+}
+
+.cantidad p{
+    padding:0px 10px;
+    align-self: center;
+}
+.subtotal{
+    font-family:'Raleway', sans-serif;
+    color: #36465d;
+    display: flex;
+    padding:0px 10px;
+    margin: 6px;
+    justify-content: space-between;
+    border-bottom: solid 1px #E4D5B9;
+}
+.subtotal p{
+    padding:0px 10px;
+    align-self: center;
+}
+   
 .container__3{
     font-family:'Raleway', sans-serif;
     font-size: 16px;
@@ -205,107 +277,17 @@ ul {
 
 }
 
-.detalle_producto{
-    font-family:'Raleway', sans-serif;
-    color: #36465d;
-    display: flex;
-    padding:0px 10px;
-    margin: 6px;
-    border-bottom: solid 1px #E4D5B9;
-}
 
-.seguir__comprando{
     
     font-family:'Raleway', sans-serif;
-    color: #36465d;
-    display: flex;
-    padding:0px 10px;
-    background:#E4D5B9;
-    margin: 20px;
-    text-align: center;
-    border:solid 1px #E97E5A;
-    
-}
-
-.eliminar{
-    font-family:'Raleway', sans-serif;
-    color: #36465d;
-    display: flex;
-    padding:0px 10px;
-    background:#E4D5B9;
-    margin: 20px;
-    text-align: center;
-    border:solid 1px #E97E5A;
-    
-}
+ 
 .detalle__Producto img{
     width: 100%;
 }
-
-.descripcion{
-    font-family:'Raleway', sans-serif;
-    color: #36465d;
+.resumen_de_pago{
     display: flex;
-    padding:0px 10px;
-    margin: 6px;
-    border-bottom: solid 1px #E4D5B9;
-
-}
-.descripcion p{
-    padding:0px 10px;
-}
-.precio{
-    font-family:'Raleway', sans-serif;
-    color: #36465d;
-    display: flex;
-    padding:0px 10px;
-    margin: 6px;
-    border-bottom: solid 1px #E4D5B9;
-}
-.precio p{
-    padding:0px 10px;
-    align-self: center;
-    text-align: center;
-}
-.cantidad{
-    font-family:'Raleway', sans-serif;
-    color: #36465d;
-    display: flex;
-    padding:0px 10px;
-    margin: 6px;
-    
-    border-bottom: solid 1px #E4D5B9;
-}
-
-.cantidad p{
-    padding:0px 10px;
-    align-self: center;
-}
-.subtotal{
-    font-family:'Raleway', sans-serif;
-    color: #36465d;
-    display: flex;
-    padding:0px 10px;
-    margin: 6px;
-    
-    border-bottom: solid 1px #E4D5B9;
-}
-.subtotal p{
-    padding:0px 10px;
-    align-self: center;
-}
-   
-.container__1 h1{
-    display: flex;
-    font-family:'Raleway', sans-serif;
-    font-size: 25px;
-    color: #36465d;
-}
-    
-.container__1 a{
-    display: flex;
-    font-family:'Raleway', sans-serif;
-    color: #36465d;
+    justify-content: space-between;
+    align-items: center;
 }
 .container__3 h2{
     padding: 0 10px;
@@ -314,8 +296,13 @@ ul {
     padding: 0 10px;
     display: flexbox;
 }    
-.codigo__promosion h3{
-    
+.codigo__promocion{
+    display: flex;
+    align-items: center;
+}
+.codigo__promocion input{
+    height: 18px;
+    margin-left:8px;
     
 }
 .codigo__promo{
@@ -336,7 +323,28 @@ ul {
    display: inline;
   
 }
-
+.seguir__comprando{
+    color: #36465d;
+     display: flex;
+     padding:0px 10px;
+     background:#E4D5B9;
+     margin: 20px;
+     text-align: center;
+     border:solid 1px #E97E5A;
+     
+ }
+ 
+.vaciar__carrito{
+     font-family:'Raleway', sans-serif;
+     color: #36465d;
+     display: flex;
+     padding:0px 10px;
+     background:#E4D5B9;
+     margin: 20px;
+     text-align: center;
+     border:solid 1px #E97E5A;
+     
+ }
 .container__4 h1:hover{
 
     transform: scale(1.1);
