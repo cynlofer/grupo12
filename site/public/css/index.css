@@ -23,8 +23,9 @@
 .logo {
   width: 100%;
   display: flex;
-  background-color: white;
   margin-top: -2px;
+  background-color: white;
+
 }
 
 .main-nav {
@@ -140,8 +141,10 @@ a {
 	.bannerSecciones img {
 		width: 100%;
 	}
+
 	
 }
+
 
 @media (min-width: 1025px) {
 	.header {
@@ -153,8 +156,9 @@ a {
 	.logo {
 		width: 100%;
 		display: flex;
-		background-color: white;
 		margin-top: -2px;
+		align-self: flex-start;
+		
 	}
 
 	.header img {
@@ -265,6 +269,9 @@ a {
 
 	.cajaMarcas img {
 		object-fit: none;
+	}
+	.logo{
+		background-color: transparent;
 	}
 
 }

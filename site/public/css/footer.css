@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     /* border: 1px solid red !important; */
+    font-family:'Raleway', sans-serif;
 }
 
 .footerContainer {
@@ -119,6 +120,8 @@
 .mediosPago img{
     display: flex;
     margin: 10px 0px 10px 45px;
+   
+
 }
 
 .mediosEnvio{    
@@ -130,4 +133,24 @@
 .mediosEnvio img{
     display: flex;
     margin: 10px 0px 10px 108px;
+}
+
+
+@media(max-width:600px){
+
+
+.mediosPago img{
+    display: flex;
+    margin: 1px 0px 10px 30px;
+    width: 60%;
+}
+.mediosEnvio img{
+    display: flex;
+    margin: 5px 0px 0px 45px;
+    width: 40%;
+}
+.footerContainer{
+    padding: 10px;
+}
+
 }

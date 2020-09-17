@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/myCart_style.css">
     <link rel="stylesheet" href="../public/css/footer.css">
+    <link rel="stylesheet" href="../public/css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet"> 
     
     <title>LCS Supplies My Cart</title>
@@ -15,60 +16,29 @@
 <body>
     <!-- Main div del sitio. -->
     <div class="container">
-
-    <!-- Header del sitio -->
-    <!--<header class="header">
-      <img class="logo" src="../public/images/logo_2.png" alt="logotipo" class="logo">
-          <section class="main-nav">
-           <article class="nav-bar">
+<!-- Header del sitio -->
+<header class="header">
+  <img class="logo" src="../public/images/logo_2.png" alt="logotipo" class="logo">
+      <section class="main-nav">
+          <article class="nav-bar">
               <ul class="main-content">
-                  <li><a href="#">artistica</a></li>
-                  <li><a href="#">tecnico</a></li>
-                  <li><a href="#">decorativo</a></li>
-                  <li><a href="#">marcas</a></li>
-                  <li><a href="#">contacto</a></li>
+                  <li class=liMenu><a href="#">artistica</a></li>
+                  <li class=liMenu><a href="#">tecnico</a></li>
+                  <li class=liMenu><a href="#">decorativo</a></li>
+                  <li class=liMenu><a href="#">marcas</a></li>
+                  <li class=liMenu><a href="#">contacto</a></li>
               </ul>
-           </article>
-
-           <article class="login-bar">
+          </article>
+          <article class="login-bar">
               <ul class=login-content>
-                  <li><a href="#">ingresa</a></li>
-                  <li><a href="#">registrate</a></li>
+                  <li class=liMenu><a href="userLogin.html">ingresa</a></li>
+                  <li class=liMenu><a href="register.html">registrate</a></li>
               </ul>
-           </article>
+          </article>
       </section>
-  </header>-->
+</header>
 
 
-
-
-    <!--<header class="header__container">
-      <div class="body__container">
-       <div class="body">
-              <img src="../public/images/logo_2.png"alt=Logo class="Logo">
-          <form class="buscador">
-          <input class = "buscador_site" autocomplete="off" type="search" placeholder="Buscar" aria-label="Buscador">
-          </form>    
-      
-           <nav class="inicio__registro">
-              <a href="Inicio/html">Inicio</a>
-              <a href="Registrarse/html">Registrarse</a>
-           </nav>
-       </div>
-      </div>
-           <section class="menu_2">
-              <a href="home/html">HOME</a>
-              <a href="artistica/html">ARTISTICA</a>
-              <a href="tecnico/html">TECNICO</a>
-              <a href="marcas/html">MARCAS</a>
-              <a href="contacto/html">CONTACTO</a>
-           </section>
-           <nav class="carrito">
-              <a href="carrito/html"><img src="../public/images/cart.svg" alt="carrito de compras"></a>
-           </nav>
-      </div>
-    </header>
-  </div>-->
   <!-- Detalle general de mi compra -->
    <div>
      <div class="container__0">
@@ -100,7 +70,7 @@
 
             <section class="cantidad">
               <h2>Cantidad</h2>
-              <input id="cantidad_compra" type="number" name= "cantidad" >
+              <input id="cantidad_compra" type="number" min="0" step="1" name= "cantidad" >
               
             </section>
 
@@ -119,7 +89,7 @@
          <p>$462</p>
       </section>
         <section class="total">
-        <h3>Total</h3>
+        <h2>Total</h2>
         <p>$462</p>
      </section>
 
@@ -215,6 +185,7 @@
                         <article class="mediosEnvio">
                             <h4>medios de envio</h4>
                             <img src="../public/images/logo-correo-argentino.png" alt="logo-correo-argentino">
+                        
                         </article>
                     </section>
                 </div>
