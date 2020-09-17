@@ -1,74 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle de Producto</title>
-    <link rel="stylesheet" href="../public/css/productDetail.css"> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../public/css/productDetail.css"> 
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet"> 
+  <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5f62b6a1f459360019a8e895&product=inline-share-buttons" async="async"></script>
 </head>
 <body class="body">
-  <h1 class="detallesDelProducto">Detalles del producto</h1>
-  <div>
-    <header>
+  <!--Header-->
+  
+    <header class="header">
+      <img class="logo" src="../public/images/logo_2.png" alt="logotipo" class="logo">
+          <section class="main-nav">
+           <article class="nav-bar">
+              <ul class="main-content">
+                  <li><a href="#">artistica</a></li>
+                  <li><a href="#">tecnico</a></li>
+                  <li><a href="#">decorativo</a></li>
+                  <li><a href="#">marcas</a></li>
+                  <li><a href="#">contacto</a></li>
+              </ul>
+           </article>
 
-    </header>
-  </div>
+           <article class="login-bar">
+              <ul class=login-content>
+                  <li><a href="#">ingresa</a></li>
+                  <li><a href="#">registrate</a></li>
+              </ul>
+           </article>
+      </section>
+  </header>
+
+
+  <!--Caja principal Product Detail-->
+  <div class="contenedorPrincipalSuperior">
+    <!--Contenedor Lateral Izquierdo-->
+    <section class="contenedorLateralIzquierdo">
+      <article class="contenedorImagenPrincipal">
+        <img id="imagenPrincipal" src="../public/images/Brochas.jpg" alt="Set de Brochas x 20 unidades de diferentes espesores">
+      </article >
+      <article class="contenedorImagenesSecundarias">
+        <img  id="imagenSecundaria" src="../public/images/Brochas2.jpg" alt="Set de Brochas x 8 unidades de diferentes espesores">
+        <img  id="imagenSecundaria" src="../public/images/Brochas3.jpg" alt="Set de Brochas x 5 unidades de diferentes espesores">
+        <img  id="imagenSecundaria" src="../public/images/Brochas4.jpg" alt="Set de Brochas x 3 unidades de diferentes espesores">
+        <img  id="imagenSecundaria" src="../public/images/Brochas.jpg" alt="Set de Brochas x 2 unidades de diferentes espesores">
+      </article>
+
+    </section>
+    <!--Contenedor Lateral Derecho-->
+    <div class="contenedorLateralDerecho">
+
+      <section id="nombreProducto">
+        <h1 class="h1">
+          Nombre del Producto
+          <div class="sharethis-inline-share-buttons"></div>
+        </h1>
+      </section>
     
-<div> 
-  <section class="contenedorSuperior">
-      <article id="contenedorImagenes">
-          <p id="contenedorImagenSuperior">
-            <img id="imagenGrande" src="../public/images/Brochas.jpg" alt="Fotografia del producto">
-          </p>
-          <p id="contenedorImagenesInferior">
-            <img id="imagenesPequenas" src="../public/images/brochas2.jpg" alt="Fotografia del producto"> 
-            <img id="imagenesPequenas" src="../public/images/brochas3.jpg" alt="Fotografia del producto"> 
-            <img id="imagenesPequenas" src="../public/images/brochas4.jpg" alt="Fotografia del producto"> 
-            <img id="imagenesPequenas" src="../public/images/brochas5.jpg" alt="Fotografia del producto"> 
-          </p>
-
       
-        </article>
-      <article id="contenedorNombre">
-           <h1 class="nombreProducto">Nombre del Producto</h1>
-      <article class="contenedorRedes">
-        <form>
+      <section class="contenedorPrecio">
+        <form id="form">
           <p class="clasificacion">
-            <input id="radio1" type="radio" name="estrellas" value="5"><!--
-            --><label class="label1" for="radio1">★</label><!--
-            --><input id="radio2" type="radio" name="estrellas" value="4"><!--
-            --><label class="label1" for="radio2">★</label><!--
-            --><input id="radio3" type="radio" name="estrellas" value="3"><!--
-            --><label class="label1" for="radio3">★</label><!--
-            --><input id="radio4" type="radio" name="estrellas" value="2"><!--
-            --><label class="label1" for="radio4">★</label><!--
-            --><input id="radio5" type="radio" name="estrellas" value="1"><!--
-            --><label class="label1" for="radio5">★</label>
+           <input id="radio1" type="radio" name="estrellas" value="5"><!--
+          --><label class="label1" for="radio1">★</label><!--
+          --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+          --><label class="label1" for="radio2">★</label><!--
+          --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+          --><label class="label1" for="radio3">★</label><!--
+          --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+          --><label class="label1" for="radio4">★</label><!--
+          --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+          --><label class="label1" for="radio5">★</label>
           </p>
         </form>
-          <img class="compartirImagen" src="../public/images/share.png" alt="Compartir">          
-    
-      </article>
-      <article>
-        <h2 class="precio">PRECIO</h2>
-      </article>
-      <article class="colores">
-        <label class="select" for="select">Colores</label>
-        <select class="desplegable" name="select">
-          <option value="Color1">Color 1</option> 
-          <option value="Color2" selected>Color 2</option>
-          <option value="Color3">Color 3</option>
-        </select>
-        <label class="select" for="select">Numeración</label>
-        <select class="desplegable" name="select">
-          <option value=" Numero1">#1</option> 
-          <option value="Numero2" selected>#2</option>
-          <option value="Numero3">#3</option>
-        </select>
-        
+          <h1 class="h1">$PRECIO</h1>
+      </section>
 
+      <section id="variacionesProducto">
+        <article class="colores">
+          <label class="select" for="select">Colores</label>
+          <select class="desplegable" name="select">
+            <option value="Color1">Color 1</option> 
+            <option value="Color2" selected>Color 2</option>
+            <option value="Color3">Color 3</option>
+          </select>
+    
         
-      </article>
-  </section>
+          <label class="select" for="select">Numeración</label>
+          <select class="desplegable" name="select">
+            <option value=" Numero1">#1</option> 
+            <option value="Numero2" selected>#2</option>
+            <option value="Numero3">#3</option>
+          </select>
+          <label class="select" for="select">Cantidad</label>
+          <select class="desplegable" name="select">
+            <option value="1">1</option> 
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option> 
+            <option value="5" selected>5</option>
+            <option value="6">6</option>
+            <option value="7">Mas de 6</option>
+          </select>
+        </article>  
+        
+     
+          <button type="button" class="botones">Agregar Al Carrito</button>
+          <button type="button" class="botones">COMPRAR</button>
+      
+
+    </div>
+  </div>
+  <div class="contenedorPrincipalSuperior">
+    <section class="contenedorLateralIzquierdo2">
+      <p class="h1">Detalles del Producto</p>
+    </section>
+    <section class="contenedorLateralDerecho2"> 
+      <p class="h1">Descripcion del Producto</p>
+    </section>
+    <section class="contenedorSimilares">
+      <p class="h1">Productos Relacionados</p>
+    </section>
+  </div>
+  
+
+  <!--footer-->
+    <footer>
+      <div class="footerContainer">
+          <div class=backToTop>
+              <section class=topButton>
+                  <h5>Volver arriba</h5>
+              </section>
+          </div>
+          <div class="footerMenu">
+              <section class="socialMedia">
+                  <h4>seguinos!</h4>
+                      <ul class="ulContacto">
+                          <li class="li contacto"><a href="http://www.facebook.com/LCSSupplies">Seguinos en Facebook!</a></li>
+                          <li class="li contacto"><a href="http://www.instagram.com/LCSSupplies">Instagram</a></li>
+                          <li class="li contacto"><a href="mailto:consultas@lcssupplies.com.ar?Subject=Tengo una consulta" target="_top">Envianos un email</a>
+                      </ul>
+              </section>
+              <section class="aboutUs">
+                  <h4>sobre nosotros</h4>
+                      <ul class="ulContacto">
+                          <li class="li aboutUs">quienes somos</li>
+                          <li class="li aboutUs">trabaja con nosotros</li>
+                      </ul>
+              </section>
+              <section class="ayudaFooter">
+                  <h4>necesitas ayuda?</h4>
+                      <ul>
+                          <li class="li ayudaFooter">preguntas frecuentes</li>
+                          <li class="li ayudaFooter">terminos de uso</li>
+                          <li class="li ayudaFooter">proceso de compra</li>
+                          <li class="li ayudaFooter">carta de colores</li>
+                      </ul>
+              </section>
+              <section class="pagosFooter">
+                  <article class="mediosPago">
+                      <h4>medios de pago</h4>
+                          <img src="../public/images/logo-tarjetas.png" alt="logo-tarjetas">
+                  </article>
+                  <article class="mediosEnvio">
+                      <h4>medios de envio</h4>
+                      <img src="../public/images/logo-correo-argentino.png" alt="logo-correo-argentino">
+                  </article>
+              </section>
+          </div>
+      </div>
+  </footer>
+  <!--Fin Footer-->
+  </body> 
+  
+ 
+ 
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
