@@ -7,7 +7,7 @@
 }
 
 .footerContainer {
-    background-image: url("../images/fondo-footer.png");
+    background-image: url("/images/fondo-footer.png");
     background-size: cover;
     display: block;
     width: 100%;
@@ -16,11 +16,7 @@
 
 .topButton {
     width: 100%;
-<<<<<<< HEAD
     color: #3f88a2;
-=======
-    color: #36465d;
->>>>>>> 80df3af7204f0a8f6a806e29107d01757e6ff48d
     height: 50px;
     border-bottom: 1px solid #E97E5A;
 }
@@ -47,63 +43,39 @@
 .socialMedia {
     width: 25%;
     text-transform: capitalize;
-<<<<<<< HEAD
     color: #36465D;
-=======
-    color: #36465d;
->>>>>>> 80df3af7204f0a8f6a806e29107d01757e6ff48d
 }
 
 .footerMenu a {
     text-decoration: none;
     width: 100%;
-<<<<<<< HEAD
     color: #36465D;
-=======
-    color: #36465d;
->>>>>>> 80df3af7204f0a8f6a806e29107d01757e6ff48d
 }
 
 .aboutUs {
     width: 25%;
     text-transform: capitalize;
     list-style-type: none;
-<<<<<<< HEAD
     color: #36465D;
-=======
-    color: #36465d;
->>>>>>> 80df3af7204f0a8f6a806e29107d01757e6ff48d
 }
 
 .aboutUs li {
     width: 100%;
     padding: 2px;
-<<<<<<< HEAD
     color: #36465D;
-=======
-    color: #36465d;
->>>>>>> 80df3af7204f0a8f6a806e29107d01757e6ff48d
 }
 
 .ayudaFooter {
     width: 25%;
     text-transform: capitalize;
     list-style-type: none;
-<<<<<<< HEAD
     color: #36465D;
-=======
-    color: #36465d;
->>>>>>> 80df3af7204f0a8f6a806e29107d01757e6ff48d
 }
 
 .ayudaFooter li {
     width: 100%;
     padding: 2px;
-<<<<<<< HEAD
     color: #36465D;
-=======
-    color: #36465d;
->>>>>>> 80df3af7204f0a8f6a806e29107d01757e6ff48d
 }
 
 .pagosFooter {
@@ -120,8 +92,6 @@
 .mediosPago img{
     display: flex;
     margin: 10px 0px 10px 45px;
-   
-
 }
 
 .mediosEnvio{    
