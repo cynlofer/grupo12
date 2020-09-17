@@ -132,7 +132,8 @@
 
 .mediosEnvio img{
     display: flex;
-    margin: 10px 0px 10px 108px;
+    margin: 10px 0px 10px 40px;
+    width: 60%;
 }
 
 
@@ -144,13 +145,10 @@
     margin: 1px 0px 10px 30px;
     width: 60%;
 }
-.mediosEnvio img{
-    display: flex;
-    margin: 5px 0px 0px 45px;
-    width: 40%;
-}
+
 .footerContainer{
     padding: 10px;
 }
 
 }
+
