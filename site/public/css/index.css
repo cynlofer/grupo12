@@ -1,11 +1,15 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .container {
 	width: 100%;
 	font-family:'Raleway', sans-serif;
-    color: #36465d;
+	color: #36465d;
+	background-image: url("../images/fondo-footer.png");
 }
 
 .header {
@@ -35,17 +39,17 @@
 	transition: all 1s;
 }
 
-ul {
+.main-content {
 	margin: 0;
 	padding: 0;
 	list-style: none;
   }
   
-  a {
-	  text-decoration: none;
+a {
+	text-decoration: none;
   }
 
-ul li {
+.liMenu{
 	border-top:1px solid #E97E5A;
 }
 
@@ -80,12 +84,11 @@ ul li {
 }
 
 .bannerAyuda {
-	display: flex;
-	flex-flow: row wrap;
+	display: none;
 }
 
-.bannerAyuda img {
-	width: 100%;
+.cajaAyuda {
+	display: none;
 }
 
 .marcasReconocidas {
@@ -115,12 +118,14 @@ ul li {
 	.bannerCentral {
 		display: flex;
 		flex-flow: row wrap;
-		width: 100%
+		width: 100%;
+		justify-content: space-around;
+		margin-bottom: 15px;
 	}
 	
 	.productosRelacionados {
-		width: 40%;
-		margin: auto;
+		width: 48%;
+		border: 1px solid #E97E5A;
 	}
 	
 	.productosRelacionados img {
@@ -128,7 +133,8 @@ ul li {
 	}
 	
 	.bannerSecciones{
-		width: 40%;
+		width: 48%;
+		border: 1px solid #E97E5A;
 	}
 	
 	.bannerSecciones img {
@@ -149,7 +155,7 @@ ul li {
 		display: flex;
 		background-color: white;
 		margin-top: -2px;
-	  }
+	}
 
 	.header img {
 		width: 50%
@@ -172,7 +178,7 @@ ul li {
 	}
 	
 	.login-content {
-		display: flex;;
+		display: flex;
 	}
 
 	.main-nav a:hover {
@@ -186,29 +192,79 @@ ul li {
 		margin: auto; 
 		width: 100%;
 		flex-direction: column;
+		height: 400px;
 	}
 
 	.bannerOfertas h2 {
-			width: 100%;
-			height: 10%;
-			position: relative;
-			animation-name: ofertas;
-			animation-duration: 2.7s;
-			animation-iteration-count: infinite;
-			animation-direction: normal;
-			text-decoration: underline;
+		width: 100%;
+		height: 10%;
+		position: relative;
+		animation-name: ofertas;
+		animation-duration: 2.7s;
+		animation-iteration-count: infinite;
+		animation-direction: normal;
+		text-decoration: underline;
 		}
 		  
-		  @keyframes example {
-			0%   {left:0px; top:0px;}
-			25%  {left:200px; top:0px;}
-			50%  {left:200px; top:0px;}
-			75%  {left:0px; top:0px;}
-			100% {left:0px; top:0px;}
-		  }
-	}
-	
+		@keyframes example {
+		0%   {left:0px; top:0px;}
+		25%  {left:200px; top:0px;}
+		50%  {left:200px; top:0px;}
+		75%  {left:0px; top:0px;}
+		100% {left:0px; top:0px;}
+		}
+
 	.bannerOfertas img {
 		width: 100%;
+		height: auto;
+		object-fit: contain;
 	}
+
+	.bannerAyuda {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		margin-bottom: 15px;
+	}
+	
+	.cajaAyuda {
+		display: flex;
+		justify-content: space-evenly;
+		background-color: white;
+		margin-bottom: 15px;
+	}
+
+	.cajaAyuda img {
+		display:flex;
+		width: 15%;
+	}
+	
+	.marcasReconocidas {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		border: 1px solid #E97E5A;
+		margin-bottom: 15px;
+	}
+
+	.cajaMarcas {
+		list-style: none;
+	}
+
+	.ulMarcas { 
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+	.ilMarcas {
+		display: flex;
+		justify-content: space-evenly;
+		width: 20%;
+		height: 200px;
+	}
+
+	.cajaMarcas img {
+		object-fit: none;
+	}
+
 }
