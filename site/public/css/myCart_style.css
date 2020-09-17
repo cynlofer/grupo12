@@ -240,29 +240,21 @@
 
 .pagar{
     color: #36465d;
-     padding:0px 10px;
-    color: #36465d;
-    background: rgb(51, 153, 204, 0.6);
-     text-align: center;
+    padding:0px 10px;
+    text-align: center;
     padding: 2px;
      justify-content: right;
      align-items: center;
      margin: 25px;
+     font-size: 20px;
+    
 }
-
-.pagar h3{
-    align-items: center;
-    transition: all 1s;
-}
-
-.pagar h3:hover{
-
-    transform:scale(1.1);
+.pagar button{
+     background: rgb(51, 153, 204, 0.6);
 }
 
 .container__5{
     font-family:'Raleway', sans-serif;
-    font-size: 12px;
     color: #36465d;
     display: flex;
     width: 100%;
@@ -271,7 +263,30 @@
     
 }
 
-.container__5 h3{
+
+.seguir__comprando{
+    color: #36465d;
+     display: flex;
+     background:#E4D5B9;
+     margin: 20px;
+     text-align: center;
+     border:solid 1px #E97E5A;
+     font-size: 20px;
+     
+ }
+ 
+.vaciar__carrito{
+     font-family:'Raleway', sans-serif;
+     color: #36465d;
+     display: flex;
+     background:#E4D5B9;
+     margin: 20px;
+     text-align: center;
+     border:solid 1px #E97E5A;
+     font-size: 20px;
+     
+ }
+ .container__5 button{
     font-family:'Raleway', sans-serif;
     color: #36465d;
     display: flex;
@@ -281,29 +296,7 @@
     transition: all 1s;
 
 }
-.seguir__comprando{
-    color: #36465d;
-     display: flex;
-     padding:0px 10px;
-     background:#E4D5B9;
-     margin: 20px;
-     text-align: center;
-     border:solid 1px #E97E5A;
-     
- }
- 
-.vaciar__carrito{
-     font-family:'Raleway', sans-serif;
-     color: #36465d;
-     display: flex;
-     padding:0px 10px;
-     background:#E4D5B9;
-     margin: 20px;
-     text-align: center;
-     border:solid 1px #E97E5A;
-     
- }
-.container__5 h3:hover{
+.container__5 button:hover{
 
     transform: scale(1.1);
 }
@@ -390,10 +383,10 @@ border-bottom: none;
     flex-wrap: wrap;
 }
 
-.pagar h3{
+.pagar{
     align-items: center;
-    
      padding: 10px;
+     text
 }
 
 .transferencia{
