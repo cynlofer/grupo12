@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Mi Carrito'}) %>
+<body>
+	<!-- Header -->
+	<%- include('partials/Header') %>
+  <!-- /Header -->
+    <!-- Main div del sitio. -->
+    <div class="container">
+  <!-- Detalle general de mi compra -->
+   <div>
+     <div class="container__0">
+       <div class="opciones__entrega">
+         <marquee class= behavior  direction="left" heigth="30px" scrolldelay="60" > Envíos por mensajería ó Correo Argentino </marquee>
+     </div>
+    <div class="container__1">
+        <h1>Detalle de mi compra</h1>
+    </div>
+    <div class="container__2"> 
+        <div class="detalle__compra">
+
+            <section class="detalle__producto">
+                <h2>Detalle Producto</h2>
+              
+                <img class="marcador__kuretake" src="/images/marcador-kuretake_01.jpg" alt="Marcador marcador_kuretake" width="150px" heigth= "150px">
+             
+            </section>
+
+            <section class="descripcion">
+                <h2>descripción</h2>
+                <p>Marcadores Kuretake Pincel Clean Color Real Brush x Unidad</p>
+            </section>
+
+            <section class="precio">
+              <h2>Precio</h2>
+              <p>$462</p>
+            </section>
+
+            <section class="cantidad">
+              <h2>Cantidad</h2>
+              <input id="cantidad_compra" type="number" min="0" step="1" name= "cantidad" >
+              
+            </section>
+
+        
+        </div>
+      
+      </div>
+    </div>
+
+    <div class="container__3">
+        <section class="resumen_de_pago">
+         <h2>Resumen de pago</h2>
+        </section> 
+        <section class="subtotal">
+         <h3>Subtotal</h3>
+         <p>$462</p>
+      </section>
+        <section class="total">
+        <h2>Total</h2>
+        <p>$462</p>
+     </section>
+
+     
+
+      <div class="codigo__promocion">
+        <h3>Tenés un código de promoción?</h3>
+        <input id="codigo__promo" type="text" maxlength="10">
+      </div>
+    </div>
+
+
+    <div class="container__4">
+        
+          <h2>Elegí tu medio de Pago</h2>
+          <div class= "medios__pago">
+            <section class="mercado__pago">
+               <p><input type="radio" name="Mercado Pago" value="Mercado Pago">Mercado Pago</p>
+                 <img class="logo__mercado_pago" src="/images/logo_mercadopago.png" alt="Logo Mercado Pago" width="120px">
+                 <img class="logo_rapipago" src="/images/logo_rapipago.png" alt="Logo rapipago" width="120px">
+            </section> 
+            
+
+        <section class="transferencia">
+          <p><input type="radio" name="Mercado Pago" value="Transferencia">Transferencia Bancaria</p>
+          </section>
+
+          <section class="pagar">
+            <button type="button" class="pago">PAGAR</button>
+          
+        </section>
+          
+          </div>
+    </div>
+
+
+    
+    </div>
+     <!-- Editar compra -->
+      <div class="container__5"> 
+              <section class="seguir__comprando">
+                  <button href="seguircomprando/html">Seguir Comprando</button>
+              </section>
+              <section class="vaciar__carrito">
+
+                  <button href="vaciar__carrito/html">Vaciar Carrito</button>
+              </section>
+
+
+
+      </div>
+  <!-- Footer del sitio-->
+  <%- include('partials/footer') %>
+  <!-- /footer -->
+</body>
+</html>
+
+
