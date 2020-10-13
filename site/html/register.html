@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Windows -->
+    <meta name="MobileOptimized" content="320" />
+    <!-- Safari -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/index.css">
+    <link rel="stylesheet" href="/public/css/registro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet"> 
+    <title>Registrate</title>
+</head>
+<body>
+    <!-- Main div del sitio. -->
+    <div class="container">
+
+        <!-- Header del sitio -->
+        <header class="header">
+            <img class="logo" src="/public/images/logo_2.png" alt="logotipo" class="logo">
+                <section class="main-nav">
+                <article class="nav-bar">
+                    <ul class="main-content">
+                        <li><a href="#">artistica</a></li>
+                        <li><a href="#">tecnico</a></li>
+                        <li><a href="#">decorativo</a></li>
+                        <li><a href="#">marcas</a></li>
+                        <li><a href="#">contacto</a></li>
+                    </ul>
+                </article>
+                <article class="login-bar">
+                    <ul class=login-content>
+                        <li><a href="userLogin.html">ingresa</a></li>
+                        <li><a href="register.html">registrate</a></li>
+                    </ul>
+                </article>
+            </section>
+        </header>
+     <!--formulario de registro-->
+  <section class=formulario__registro>  
+     <div class="formulario">
+        <div class="container__titulo">
+          <h3>Registrate en nuestra Tienda!</h3>
+        </div>    
+        
+        <div class="descripcion__formulario">
+          <p>Completá los siguientes datos para crear tu cuenta en nuestra Tienda de compra on line! </p>
+        </div>
+    </div>
+     <section class="grid__container">
+     
+
+    <!--datos para registro-->
+    <div class= "datos">  
+           <form action="" method="post" name="formulario__registro">
+
+             <p>
+                <label for="nombre">Nombre:</label>
+               <Input id="nombre" type="text" name="nombre" maxlength="30" required>
+             </p>
+        
+             <p>
+                <label for="apellido">Apellido:</label>
+               <Input id="apellido" type="text" name="apellido" maxlength="30" required>
+               </p>
+             
+             <p>
+                <label for="email">Email:</label>
+               <Input id="email" type="email" name="email" maxlength="30" value="" required>
+            </p>
+           
+            <p>
+                <label for="contraseña">Contraseña:</label>
+               <Input id="contraseña" type="password" name="contraseña" maxlength="30" required>
+            <p>
+
+            <p>
+                <label for="contraseña">Repetir contraseña:</label>
+                <Input id="repetir-contraseña" type="password" name="repetir__contraseña"  required>
+             <p>
+             
+            
+            <p>
+               <input class="checkbox__terminos__input" type="checkbox" name="register__terminos" value="">
+               <h5>He leído y acepto Los terminos y condiciones</h5>
+            </p>
+
+            <p>
+                <input class="checkbox__newsletter" type="checkbox" name="newsletter" value="">
+                <h5>Me gustaria recibir noticias sobre productos de LCS Supplies. </h5>
+            </p>
+          </form>
+          
+        
+    
+       
+    <!--recaptcha-->
+
+          <script src='https://www.google.com/recaptcha/api.js'></script>
+       
+    <div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
+</div>
+ <!--Imagen LCS Supplies + boton Registro-->
+
+<div class="imagen__boton">
+ <!--Imagen LCS Supplies-->
+
+
+    <img class= "register__image" src="/public/images/form_registro_image.png" alt="Imagen LCS Supplies" width="600px" heigth= "600px">
+
+    <!--Botton Registrarme-->
+
+    <button class="boton__registrarme" type= "submit" id= "registro" label= "Registrarme">
+        <span class="registrarme" >Registrarme</span>
+  </button>
+</div>
+</section>
+        
+</section>
+
+   
+</section>              
+    </body>
