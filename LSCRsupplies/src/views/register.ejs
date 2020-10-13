@@ -25,7 +25,7 @@
 
    <!--datos para registro-->
    <div class= "datos">  
-          <form action="" method="post" name="formulario__registro">
+          <form action="/" enctype="multipart/form-data" method="post" name="formulario__registro">
 
             <p>
                <label for="nombre">Nombre:</label>
@@ -47,7 +47,7 @@
               <Input id="contraseña" type="password" name="contraseña" maxlength="30" required>
            <p>
 
-           <p>
+            <p>
                <label for="contraseña">Repetir contraseña:</label>
                <Input id="repetir-contraseña" type="password" name="repetir__contraseña"  required>
             <p>
@@ -62,6 +62,11 @@
                <input class="checkbox__newsletter" type="checkbox" name="newsletter" value="">
                <h5>Me gustaria recibir noticias sobre productos de LCS Supplies. </h5>
            </p>
+
+           <p>
+            <input class="checkbox__newsletter" type="checkbox" name="newsletter" value="">
+            <h5>Me gustaria recibir noticias sobre productos de LCS Supplies. </h5>
+          </p>
          </form>
          
        
@@ -79,7 +84,7 @@
 <!--Imagen LCS Supplies-->
 
 
-   <img class= "register__image" src="/public/images/form_registro_image.png" alt="Imagen LCS Supplies" width="600px" heigth= "600px">
+   <img class= "register__image" src="/images/form_registro_image.png" alt="Imagen LCS Supplies" width="600px" heigth= "600px">
 
    <!--Botton Registrarme-->
 

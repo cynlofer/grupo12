@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Inicio'}) %>
+<body>
+	<!-- Header -->
+	<%- include('partials/Header') %>
+  <!-- /Header -->
+  
+  <!--Caja principal Product Detail-->
+  <div class="contenedorPrincipalSuperior">
+    <!--Contenedor Lateral Izquierdo-->
+    <section class="contenedorLateralIzquierdo">
+      <article class="contenedorImagenPrincipal">
+        <img id="imagenPrincipal" src="/images/Brochas.jpg" alt="Set de Brochas x 20 unidades de diferentes espesores">
+      </article >
+      <article class="contenedorImagenesSecundarias">
+        <img  id="imagenSecundaria" src="/images/Brochas2.jpg" alt="Set de Brochas x 8 unidades de diferentes espesores">
+        <img  id="imagenSecundaria" src="/images/Brochas3.jpg" alt="Set de Brochas x 5 unidades de diferentes espesores">
+        <img  id="imagenSecundaria" src="/images/Brochas4.jpg" alt="Set de Brochas x 3 unidades de diferentes espesores">
+        <img  id="imagenSecundaria" src="/images/Brochas.jpg" alt="Set de Brochas x 2 unidades de diferentes espesores">
+      </article>
+
+    </section>
+    <!--Contenedor Lateral Derecho-->
+    <div class="contenedorLateralDerecho">
+
+      <section id="nombreProducto">
+        <h1 class="h1">
+          Nombre del Producto
+          <div class="sharethis-inline-share-buttons"></div>
+        </h1>
+      </section>
+    
+      
+      <section class="contenedorPrecio">
+        <form id="form">
+          <p class="clasificacion">
+           <input id="radio1" type="radio" name="estrellas" value="5"><!--
+          --><label class="label1" for="radio1">★</label><!--
+          --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+          --><label class="label1" for="radio2">★</label><!--
+          --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+          --><label class="label1" for="radio3">★</label><!--
+          --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+          --><label class="label1" for="radio4">★</label><!--
+          --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+          --><label class="label1" for="radio5">★</label>
+          </p>
+        </form>
+          <h1 class="h1">$PRECIO</h1>
+      </section>
+
+      <section id="variacionesProducto">
+        <article class="colores">
+          <label class="select" for="select">Colores</label>
+          <select class="desplegable" name="select">
+            <option value="Color1">Color 1</option> 
+            <option value="Color2" selected>Color 2</option>
+            <option value="Color3">Color 3</option>
+          </select>
+    
+        
+          <label class="select" for="select">Numeración</label>
+          <select class="desplegable" name="select">
+            <option value=" Numero1">#1</option> 
+            <option value="Numero2" selected>#2</option>
+            <option value="Numero3">#3</option>
+          </select>
+          <label class="select" for="select">Cantidad</label>
+          <select class="desplegable" name="select">
+            <option value="1">1</option> 
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option> 
+            <option value="5" selected>5</option>
+            <option value="6">6</option>
+            <option value="7">Mas de 6</option>
+          </select>
+        </article>  
+        
+     
+          <button type="button" class="botones">Agregar Al Carrito</button>
+          <button type="button" class="botones">COMPRAR</button>
+      
+
+    </div>
+  </div>
+  <div class="contenedorPrincipalSuperior">
+    <section class="contenedorLateralIzquierdo2">
+      <p class="h1">Detalles del Producto</p>
+    </section>
+    <section class="contenedorLateralDerecho2"> 
+      <p class="h1">Descripcion del Producto</p>
+    </section>
+    <section class="contenedorSimilares">
+      <p class="h1">Productos Relacionados</p>
+    </section>
+  </div>
+  
+
+    <!-- Footer del sitio-->
+    <%- include('partials/footer') %>
+    <!-- /footer -->
+</body>
+</html>
