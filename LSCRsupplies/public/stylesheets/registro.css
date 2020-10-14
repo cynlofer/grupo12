@@ -11,10 +11,10 @@
 }*/
 
 .formulario__registro{
-    margin: 15px;
+    padding: 15px;
     font-family:'Raleway', sans-serif;
     color: #36465d;
-    /*background-color:rgb(228, 213, 185,0.3);*/
+    background-color:rgb(228, 213, 185,0.3);
 }
 .grid__container{
     display: grid;
@@ -31,6 +31,9 @@
     margin: 15px;
    
 }
+.container__titulo h2{
+    font-size: 30px;
+}
 .descripcion__formulario{
     margin: 20px;
     display: grid;
@@ -39,34 +42,51 @@
     margin: 15px;
    
 }
+.descripcion__formulario h3{
+    font-size: 25px;
+}
 
-.formulario__registro{
-    margin: 20px;
-}
+
 .datos p{
-    margin: 10px;
+    margin:10px 0px;
+    font-size: 15px;
 }
-.imagen__boton{
+
+.imagen{
     margin: 20px;
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
-    align-items: center;
+    justify-items: center;
 }
 
+.checkbox__terminos__input{
+    margin-top: 30px;
+    font-size: 20px;
+}
+.checkbox__newsletter{
+    font-size: 20px;
+    
+}
+.registrarme{
+    margin: 40px;
+    text-align: center;
+    justify-items: center;
+}
 .boton__registrarme{
     color: #36465d;
     background:rgb(51, 153, 204, 0.6);
-    margin: 20px;
     text-align: center;
     border:solid 1px #36465d;
     font-size: 20px;
+    justify-items: center;
+    
 
 }
 .register__image{
     align-items: center;
-    justify-content: center;
-    align-self: center;
+
+   
 
    
 }
@@ -77,6 +97,11 @@
 
 .g-recaptcha{
     margin: 20px;
+
+}
+.registrarme{
+    font-size: 30px;
+  
 
 }
 
