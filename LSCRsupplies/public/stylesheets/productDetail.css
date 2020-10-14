@@ -424,7 +424,7 @@ ul li {
 	.logo {
 		width: 100%;
 		display: flex;
-		background-color: white;
+		background-color:transparent;
 		margin-top: -2px;
 	  }
 
