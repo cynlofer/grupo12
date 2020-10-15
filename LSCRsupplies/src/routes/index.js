@@ -35,4 +35,10 @@ router.post('/register', upload.any(), function(req, res, next) {
   res.redirect('/');
 });
 
+/* GET myCart. */
+router.get('/myCart', function(req, res, next) {
+  res.render('myCart');
+});
+
+
 module.exports = router;
