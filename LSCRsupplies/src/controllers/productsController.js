@@ -19,12 +19,12 @@ const controller = {
 
 	// Create - Form to create
 	create: (req, res) => {
-		res.render ('product-create-form');
+		res.render ('products/productUp');
 	},
 	
 	// Create -  Method to store
 	store: (req, res) => { 
-		let newProduct = { //tambien se puede usar la sintaxis "...req.body" que trae todos las propiedades del body
+		/* let newProduct = { //tambien se puede usar la sintaxis "...req.body" que trae todos las propiedades del body
 			id: Number(products[products.length-1].id+1),
 			name: req.body.name,
 			price: Number(req.body.price),
@@ -34,7 +34,9 @@ const controller = {
 		}
 		let newDB = [...products, newProduct]
 		fs.writeFileSync(productsFilePath, JSON.stringify(newDB, null, 2));
-		res.send('Producto creado satisfactoriamente');
+		res.send('Producto creado satisfactoriamente'); */
+		console.log("en store");
+		res.redirect("/");
 	},
 
 	// Update - Form to edit
@@ -72,6 +74,10 @@ const controller = {
 		fs.writeFileSync(productsFilePath, JSON.stringify(updatedDB));
 
 		res.send ('Producto borrado satisfactoriamente')
+	},
+	// carrito de compras
+	mycart : (req, res) => {
+		res.render("myCart");
 	}	
 };
 

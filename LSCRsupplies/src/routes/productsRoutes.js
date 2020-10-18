@@ -3,7 +3,12 @@ const express = require('express');
 const router = express.Router();
 var multer = require('multer');
 var {path} = require('../app');
+
+/* requeri path para multer */
+const path1 = require("path");
+
 var {body, validationResult, check} = require ('express-validator');
+const productsController = require('../controllers/productsController.js');
 
 // // ************ Controller Require ************
 // const productsController = require('../controllers/productsController');
@@ -30,10 +35,10 @@ var {body, validationResult, check} = require ('express-validator');
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join (__dirname, '../public'))
+    cb(null, path1.join (__dirname, '../../public/images/products'))
   },
   filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now()+path.extname(file.originalname))
+    cb(null, file.fieldname + '-' + Date.now()+path1.extname(file.originalname))
   }
 })
  
@@ -50,9 +55,16 @@ router.get('/productDetail', function(req, res, next) {
 });
 
 /* GET myCart. */
-router.get('/myCart', function(req, res, next) {
+/* router.get('/myCart', function(req, res, next) {
   res.render('myCart');
-});
+}); */
 
+router.get("/mycart",productsController.mycart);
+
+
+/*** CREATE ONE PRODUCT ***/ 
+
+router.get('/create', productsController.create); 
+router.post('/', upload.any(),productsController.store); 
 
 module.exports = router;

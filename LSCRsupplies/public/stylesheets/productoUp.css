@@ -1,0 +1,272 @@
+* {
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+  }
+  /* viene de productdetail */
+  input[type="radio"] {
+    display: initial;
+  }
+  .footerMenu{
+      display: none;
+  }
+.box_img {
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: rgb(80, 193, 231);
+    background-color: whitesmoke;
+}
+
+.containerPc{
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    color: #36465d;
+    background-image: url("../images/fondo-footer.png");
+    }
+
+.containerProd{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgb(238, 238, 237);
+}
+.products-wrapper {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.productTitle{
+    font-size: 1.3em;
+    font-weight: 400;
+    color: black;
+    
+}
+.head_row{
+    
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px
+}
+.colum_1{
+    flex: 0 0 100%;
+    max-width: 100%;
+    border: 1px solid gainsboro;
+}
+.colum_1,.colum_D6{
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.formLabel{
+    display: inline-block;
+    font-size: 1em;
+    margin: 10px 0;
+    text-align: center;
+    
+}
+#image,#image1,#image2,#image3{
+    color: transparent;
+    width: 86px;
+}
+.form-input {
+    display: block;
+    width: 100%;
+    height: 45px;
+    margin-bottom: 15px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: none;
+    border: solid 1px var(--gray);
+    padding: 0 15px;
+    
+}
+.font_numero{
+    font: -moz-list;
+}
+.article-input{
+    display: block;
+    width: 98%;
+    height: 45px;
+    margin-bottom: 15px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: none;
+    border: solid 1px var(--gray);
+    padding: 0 15px;
+    text-align: center; 
+    font: -moz-list;
+}
+textarea.form-input {
+    min-height: 140px;
+    resize: vertical;
+    padding: 15px;
+}
+.disp_flex{
+    display: flex;
+}
+.flexFlowCol{
+    flex-flow: column;
+}
+.article_stock_cod{
+    display: block;
+    width: 100%;
+}
+.botonPeso{
+    width: 10%;
+}
+.field_volumen{
+    width: 25%;
+    text-align: center;
+}
+.borderNone{
+    border: none;
+}
+.borderPc{
+    border: 1px solid gainsboro;
+}
+.botonesProdUp{
+    margin-left: 10px;
+}
+.wrap_{
+    flex-wrap: wrap;
+    /* margin-bottom: 10px; */
+}
+.marginBotom{
+    margin-bottom: 5px;
+}
+.just_cont{
+    justify-content: space-evenly;
+}
+.just_bet{
+    justify-content: space-between;
+}
+.align_it{
+    align-items: baseline;
+}
+.ancho_100{
+   width: 100%;
+}
+.save_button{
+        background-color: rgb(80, 193, 231);
+        font-size: 1.6em;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        border-radius: 8px;
+        border: none;
+        margin-bottom: 15px;
+    
+}
+.displayGrid{
+    display: grid;
+}
+.diplay_imag{
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 1fr;
+    align-items: center;
+    grid-gap: 5px;
+}
+.formInput{
+    display: block;
+    width: 100%;
+    height: 45px;
+    
+}
+.box_img{
+    /* height: 90%; */
+    width: 100%;
+    height: 125px;
+}
+
+.marg_left_var_color{
+    margin-left: 18px;
+}
+.marg_left_var_marca{
+    margin-left: 13px;
+}
+.ocultar,.not_img{
+    display: none;
+}
+
+
+@media (min-width: 576px){
+    .containerProd {
+        max-width: 540px;
+    }
+    .article_stock_cod{
+        display: block;
+        width: 50%;
+    }
+    .ocultar{
+        display: block;
+    }
+    .field_volumen{
+        width: 13%;
+        text-align: center;
+    }
+    .botonPeso{
+        width: 15%;
+    }
+    .diplay_img{
+        display: grid;
+        grid-template-columns: 0.2fr 1fr 1fr;
+        align-items: center;
+    }
+    .box_img {
+        height: 168px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        color: rgb(80, 193, 231);
+        background-color: whitesmoke;
+    }
+}
+
+@media (min-width: 768px){
+    .containerProd {
+        max-width: 720px;
+    }
+    .not_img{
+        display: block;
+    }
+    .diplay_imag{
+        display: grid;
+        grid-template-columns: 0.2fr 1fr 1fr 1fr 1fr;
+        align-items: center;
+    }
+    /* .box_img {
+        height: 168px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        color: rgb(80, 193, 231);
+        background-color: whitesmoke;
+    } */
+}
+@media (min-width: 992px){
+    .containerProd {
+        max-width: 960px;
+    }
+    .article_stock_cod {
+        display: block;
+        width: 25%;
+    }
+    /* .diplay_imag{
+        display: grid;
+        grid-template-columns: 0.2fr 1fr 1fr 1fr 1fr;
+        align-items: center;
+    } */
+    /* .box_img {
+        
+        height: 168px;
+    } */
+}
