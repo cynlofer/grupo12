@@ -9,7 +9,8 @@
 	width: 100%;
 	font-family:'Raleway', sans-serif;
 	color: #36465d;
-	background-image: url("../images/fondo-footer.png");
+	/*background-image: url("../images/fondo-footer.png");*/
+	background-color:rgb(228, 213, 185,0.3);
 }
 
 .header {
@@ -51,9 +52,9 @@ a {
 	text-decoration: none;
   }
 
-.liMenu{
+/*.liMenu{
 	border-top:1px solid #E97E5A;
-}
+}*/
 
 .nav-bar {
 	order: 0;
