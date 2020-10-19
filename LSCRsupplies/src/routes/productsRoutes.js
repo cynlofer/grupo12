@@ -50,9 +50,9 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET productDetail. */
-router.get('/productDetail', function(req, res, next) {
-  res.render('productDetail');
-});
+router.get('/productDetail', productsController.detail)
+  /* res.render('productDetail');
+}); */
 
 /* GET myCart. */
 /* router.get('/myCart', function(req, res, next) {

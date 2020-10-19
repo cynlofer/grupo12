@@ -12,9 +12,10 @@ const controller = {
 
 	// Detail - Detail from one product
 	detail: (req, res) => {
-		let idProduct = req.params.id;
+		/* let idProduct = req.params.id;
 		let selectedProd = products.find(producto => producto.id == idProduct);
-		res.render('detail', {selectedProd, toThousand});
+		res.render('detail', {selectedProd, toThousand}); */
+		res.render('productDetail');
 	},
 
 	// Create - Form to create
