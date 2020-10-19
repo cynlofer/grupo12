@@ -128,7 +128,9 @@ a {
 	
 	.productosRelacionados {
 		width: 48%;
-		border: 1px solid #E97E5A;
+		border: 1px solid #36465d;
+		background-color: white;
+
 	}
 	
 	.productosRelacionados img {
@@ -137,7 +139,8 @@ a {
 	
 	.bannerSecciones{
 		width: 48%;
-		border: 1px solid #E97E5A;
+		border: 1px solid #36465d;
+		background-color: white;
 	}
 	
 	.bannerSecciones img {
