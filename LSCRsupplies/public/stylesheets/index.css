@@ -21,10 +21,11 @@
 }
 
 .logo {
-  width: 100%;
+ 
   display: flex;
   margin-top: -2px;
   background-color:white;
+  padding: 10px;
 
 }
 
@@ -154,7 +155,7 @@ a {
 	}
 
 	.logo {
-		width: 100%;
+		
 		display: flex;
 		margin-top: -2px;
 		align-self: flex-start;

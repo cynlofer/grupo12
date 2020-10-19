@@ -51,7 +51,10 @@
     margin:10px 0px;
     font-size: 15px;
 }
-
+.datos input{
+    border-radius: 5px;
+    padding: 2px;
+}
 .imagen{
     margin: 20px;
     display: grid;

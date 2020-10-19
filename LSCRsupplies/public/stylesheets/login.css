@@ -41,6 +41,13 @@
 
 }
 
+.mainboxLogin input{
+    border-radius: 5px;
+    padding: 2px;
+   
+
+}
+
 .inputLogin {
     display: flex;
     align-self: auto;
