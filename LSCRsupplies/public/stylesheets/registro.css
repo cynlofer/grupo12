@@ -31,8 +31,8 @@
     margin: 15px;
    
 }
-.container__titulo h2{
-    font-size: 30px;
+.container__titulo p{
+    font-size: 25px;
 }
 .descripcion__formulario{
     margin: 20px;
@@ -42,8 +42,8 @@
     margin: 15px;
    
 }
-.descripcion__formulario h3{
-    font-size: 25px;
+.descripcion__formulario p{
+    font-size: 20px;
 }
 
 
@@ -54,6 +54,7 @@
 .datos input{
     border-radius: 5px;
     padding: 2px;
+    font-size: 16px;
 }
 .imagen{
     margin: 20px;
@@ -63,12 +64,12 @@
     justify-items: center;
 }
 
-.checkbox__terminos__input{
+.checkbox__terminos__input h5{
     margin-top: 30px;
-    font-size: 20px;
+    font-size: 15px;
 }
-.checkbox__newsletter{
-    font-size: 20px;
+.checkbox__newsletter h5{
+    font-size: 15px;
     
 }
 .registrarme{
