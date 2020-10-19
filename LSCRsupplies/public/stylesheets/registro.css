@@ -78,8 +78,9 @@
     background:rgb(51, 153, 204, 0.6);
     text-align: center;
     border:solid 1px #36465d;
-    font-size: 20px;
+    font-size: 16px;
     justify-items: center;
+    border-radius: 5px;
     
 
 }

@@ -247,11 +247,20 @@
      align-items: center;
      margin: 25px;
      font-size: 20px;
-    
+     
 }
 .pagar button{
      background: rgb(51, 153, 204, 0.6);
+     border-radius: 5px;
+     font-size: 16px;
+   
+     margin: 20px;
+     transition: all 1s;
 }
+
+.pagar button:hover{
+    transform: scale(1.1);
+ }
 
 .container__5{
     font-family:'Raleway', sans-serif;
@@ -265,14 +274,21 @@
 
 
 .seguir__comprando{
-    color: #36465d;
+    font-family:'Raleway', sans-serif;
+     color: #36465d;
      display: flex;
      background:#E4D5B9;
      margin: 20px;
      text-align: center;
-     border:solid 1px #E97E5A;
-     font-size: 20px;
+  
+     border-radius: 5px;
+     font-size: 16px;
+     padding:5px;
+     transition: all 1s;
      
+ }
+ .seguir__comprando:hover{
+    transform: scale(1.1);
  }
  
 .vaciar__carrito{
@@ -282,11 +298,17 @@
      background:#E4D5B9;
      margin: 20px;
      text-align: center;
-     border:solid 1px #E97E5A;
-     font-size: 20px;
+     border-radius: 5px;
+     font-size: 16px;
+     padding:5px;
+     transition: all 1s;
      
  }
- .container__5 button{
+
+ .vaciar__carrito:hover{
+    transform: scale(1.1);
+ }
+ /*.container__5 button{
     font-family:'Raleway', sans-serif;
     color: #36465d;
     display: flex;
@@ -295,11 +317,12 @@
     text-align: center;
     transition: all 1s;
 
-}
+
 .container__5 button:hover{
 
     transform: scale(1.1);
 }
+*/
 
 
 /* ================================= 

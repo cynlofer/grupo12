@@ -6,6 +6,9 @@
 
 .bodyLogin {
     height: 100%;
+    font-family:'Raleway', sans-serif;
+    color: #36465d;
+    background-color:rgb(228, 213, 185,0.3);
 }
 
 .mainSectionLogin {
@@ -26,6 +29,16 @@
     height: 256px;
     margin: auto;
     height: 50%;
+
+}
+
+.mainboxLogin h2{
+    margin-left: 30px;
+}
+
+.mainboxLogin label{
+    margin-left: 30px;
+
 }
 
 .inputLogin {
@@ -41,6 +54,12 @@
     margin: auto;
     width: 60%;
     text-align: -webkit-center;
+    color: #36465d;
+    background:rgb(51, 153, 204, 0.6);text-align: center;
+    border:solid 1px #36465d;
+    font-size: 16px;
+    justify-items: center;
+    border-radius: 5px;
 }
 
 .footerLogin {
@@ -49,4 +68,9 @@
 }
 .footerSectionLogin {
     height: 100%;
+}
+
+.remember{
+    margin-bottom: 15px;
+
 }
