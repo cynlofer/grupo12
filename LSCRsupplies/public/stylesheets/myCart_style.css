@@ -10,7 +10,14 @@
     border:1px solid orangered !important;
 }*/
 
-
+.logo {
+ 
+    display: flex;
+    margin-top: -2px;
+    background-color:white;
+    padding: 10px;
+  
+  }
 .opciones__entrega{
     font-family:'Raleway', sans-serif;
     color: #E97E5A;
@@ -55,7 +62,6 @@
     color: #36465d;
     width: 100%;
     padding:15px;
-    background-color:rgb(228, 213, 185,0.3);
     justify-content: space-between;
 }
 
@@ -115,6 +121,8 @@
     
     align-self: center;
     height: 25px;
+    border-radius: 5px;
+    font-size: 16px;
 
 }
 .subtotal{
@@ -175,7 +183,6 @@
     color: #36465d;
     width: 100%;
     padding:15px;
-    background-color:rgb(228, 213, 185,0.3);
     justify-content: space-between;
    
 }
@@ -201,6 +208,9 @@
 .codigo__promocion input{
     height: 20px;
     margin-left:8px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
     
 }
 .codigo__promo{
@@ -213,20 +223,17 @@
     color: #36465d;
     width: 100%;
     padding:15px;
-    background-color:rgb(228, 213, 185,0.3);
+    
 }
 .container__4 h2{
     padding: 0 10px;
-  
-
 }
 .container__4 p{
      padding:0px 10px;
     font-family:'Raleway', sans-serif;
     font-size: 16px;
     color: #36465d;
-    font-weight: bold;
-   
+    font-weight: bold; 
 }
 .transferencia{
 
@@ -250,16 +257,17 @@
      
 }
 .pagar button{
-     background: rgb(51, 153, 204, 0.6);
+     background: rgb(51, 153, 204, 0.4);
      border-radius: 5px;
      font-size: 16px;
-   
+   padding: 5px;
      margin: 20px;
      transition: all 1s;
 }
 
 .pagar button:hover{
     transform: scale(1.1);
+    background-color: rgb(51, 153, 204);
  }
 
 .container__5{
@@ -268,63 +276,28 @@
     display: flex;
     width: 100%;
     padding:15px;
-    background-color:rgb(228, 213, 185,0.3);
-    
 }
 
-
-.seguir__comprando{
+.container__5 button{
     font-family:'Raleway', sans-serif;
      color: #36465d;
      display: flex;
-     background:#E4D5B9;
+     background:rgb(228, 213, 185,0.3);
      margin: 20px;
-     text-align: center;
-  
      border-radius: 5px;
      font-size: 16px;
-     padding:5px;
+     padding: 5px;
      transition: all 1s;
+     align-self: center;
      
  }
- .seguir__comprando:hover{
+
+
+ .container__5 button:hover{
     transform: scale(1.1);
+    background-color:rgb(228, 213, 185);
  }
  
-.vaciar__carrito{
-     font-family:'Raleway', sans-serif;
-     color: #36465d;
-     display: flex;
-     background:#E4D5B9;
-     margin: 20px;
-     text-align: center;
-     border-radius: 5px;
-     font-size: 16px;
-     padding:5px;
-     transition: all 1s;
-     
- }
-
- .vaciar__carrito:hover{
-    transform: scale(1.1);
- }
- /*.container__5 button{
-    font-family:'Raleway', sans-serif;
-    color: #36465d;
-    display: flex;
-    padding:5px;
-    background:#E4D5B9;
-    text-align: center;
-    transition: all 1s;
-
-
-.container__5 button:hover{
-
-    transform: scale(1.1);
-}
-*/
-
-
 /* ================================= 
   Media Queries
 ==================================== */
@@ -409,7 +382,7 @@ border-bottom: none;
 .pagar{
     align-items: center;
      padding: 10px;
-     text
+     
 }
 
 .transferencia{
@@ -422,8 +395,17 @@ border-bottom: none;
 .medios__pago{
     justify-content: space-between;
 }
-}
+
 @media (min-width: 1025px) {
+
+    .logo {
+		
+		display: flex;
+		margin-top: -2px;
+		align-self: flex-start;
+		background-color: transparent;
+		
+	}
 	
 .transferencia p{
     align-items: center;
@@ -445,5 +427,4 @@ border-bottom: none;
 .subtotal{
     border-bottom: none;
 }
-}
-    
+}}
