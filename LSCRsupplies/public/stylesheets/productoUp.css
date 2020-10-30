@@ -154,7 +154,7 @@ textarea.form-input {
    width: 100%;
 }
 .save_button{
-        background-color: rgb(80, 193, 231);
+        background-color: rgb(51, 153, 204);
         font-size: 1.6em;
         color: #ffffff;
         display: flex;
@@ -163,8 +163,7 @@ textarea.form-input {
         padding: 15px;
         border-radius: 8px;
         border: none;
-        margin-bottom: 15px;
-    
+        margin-bottom: 20px;
 }
 .displayGrid{
     display: grid;
@@ -226,7 +225,7 @@ textarea.form-input {
         display: flex;
         align-items: flex-end;
         justify-content: center;
-        color: rgb(80, 193, 231);
+        color: rgb(51, 153, 204);
         background-color: whitesmoke;
     }
 }

@@ -260,7 +260,7 @@
      background: rgb(51, 153, 204, 0.4);
      border-radius: 5px;
      font-size: 16px;
-   padding: 5px;
+     padding: 5px;
      margin: 20px;
      transition: all 1s;
 }

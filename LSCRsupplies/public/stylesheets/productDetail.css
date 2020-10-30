@@ -178,14 +178,7 @@ color: orange;
   height: 45vh;
 
 }
-/*Footer*/
-.footerContainer {
-  background-image: url("../images/fondo-footer.png");
-  background-size: cover;
-  display: block;
-  width: 100%;
-  text-align: center;
-}
+
 
 .topButton {
   width: 100%;
@@ -201,7 +194,7 @@ color: orange;
   flex-direction: column;
 }
 
-.footerMenu {
+/*.footerMenu {
   display: flex;
   flex-flow: row wrap;
   width: 100%;
@@ -271,7 +264,7 @@ color: orange;
 .mediosEnvio img{
   display: flex;
   margin: 10px 0px 10px 108px;
-}
+}*/
 
 /*Copia de index.css*/
 * {
@@ -284,7 +277,7 @@ color: orange;
     color: #36465d;
 }
 
-.header {
+/*.header {
 	padding-top: 2px;
 	padding-bottom: 2px;
 	border:1px solid #E97E5A;
@@ -371,7 +364,7 @@ ul li {
 
 .marcasReconocidas img {
 	width: 100%;
-}
+}*/
 
 /* ================================= 
   Media Queries
@@ -379,7 +372,7 @@ ul li {
 
 @media (min-width: 600px) {
   
-	.header {
+	/*.header {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -387,7 +380,7 @@ ul li {
 	
 	.main-nav {
 		display: flex;
-	}
+	}*/
 	
 	.bannerCentral {
 		display: flex;
@@ -415,7 +408,7 @@ ul li {
 }
 
 @media (min-width: 1025px) {
-	.header {
+	/*.header {
 		display: flex; 
 		background-image: url("../images/fondo-header.png");
 		background-size: cover;
@@ -488,7 +481,7 @@ ul li {
 	.bannerOfertas img {
 		width: 100%;
 	}
-}
+}*/
 
 
 

@@ -17,6 +17,8 @@
 	padding-top: 2px;
 	padding-bottom: 2px;
 	border:1px solid #E97E5A;
+	/*border:1px solid rgb(51, 153, 204);*/
+	/*background-color: rgb(51, 153, 204, 0.4);*/
 	background-color: #E4D5B9;
 	border-radius: 2px;
 }
@@ -172,9 +174,13 @@ a {
 	}
 
 	.main-nav {
-		display: flex;
+		display: flex-start;
+		align-self: flex-start;
 		flex-direction: row;
 		order: 0;
+		margin-bottom: 10px;
+		display: inline-flex;
+		margin-left: 100px;
 	}
 
 	.main-content {
@@ -192,9 +198,13 @@ a {
 	}
 
 	.main-nav a:hover {
-		background:#EEC59A;
+		/*background:#EEC59A;*/
+		border:1px solid rgb(51, 153, 204);
+	background: rgb(51, 153, 204, 0.4);
 		transform: scale(1.1);
-		border:1px solid #E4D5B9;
+		/*border:1px solid #E4D5B9;*/
+		border-radius: 5px;
+		margin: 0px  10px;
 	}
 
 	.bannerOfertas {
@@ -253,7 +263,7 @@ a {
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		border: 1px solid #E97E5A;
+		border: 1px solid #36465d;
 		margin-bottom: 15px;
 	}
 
