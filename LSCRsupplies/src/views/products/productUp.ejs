@@ -17,30 +17,30 @@
                     <h2 class="productTitle">Formulario Para Agregar Productos</h2>
                 </div>
             </div>
-            <form action="/productsRoutes" method="post" enctype="multipart/form-data">
+            <form action="/products" method="post" enctype="multipart/form-data">
                 <!-- Nombre del producto -->
                 <div class="colum_1 colum_D6">
                     <label for="name" class="formLabel">Nombre del producto:</label>
-                    <input type="text" id="name" name="name" placeholder="Ej: Lapices De Color Faber Castell X 50 " class="form-input">
+                    <input type="text" id="name" name="name" required placeholder="Ej: Lapices De Color Faber Castell X 50 " class="form-input">
                 </div>
                 <!-- FIN Nombre del producto -->
-                <!-- precio del producto y stock -->
+                <!-- precio del producto / stock / codigo -->
                 <div class="colum_1 colum_D6 disp_flex wrap_">
                     <article class="article_stock_cod">
                         <label for="codArt  " class="formLabel">Codigo Producto:</label>
-                        <input type="text" id="codArt" name="codArt" placeholder="Ej.#1234" class="article-input">
+                        <input type="text" id="codArt" required name="codArt" placeholder="Ej.#1234" class="article-input">
                     </article>
                     <article class="article_stock_cod">
                         <label for="stock" class="formLabel">Stock:</label>
-                        <input type="text" id="stock" name="stock" placeholder="Ej.#1234" class="article-input">
+                        <input type="number" id="stock" name="stock" placeholder="Ej.#1234" class="article-input">
                     </article>
                     <article class="article_stock_cod">
                         <label for="price" class="formLabel">Precio del producto:</label>
-                        <input type="text" id="price" name="price" placeholder="Precio Original" class="article-input">
+                        <input type="number" id="price" name="price" placeholder="Precio Original" class="article-input">
                     </article>
                     <article class="article_stock_cod">
                         <label for="price_prom" class="formLabel">Precio Promocional:</label>
-                        <input type="text" id="price_prom" name="price_prom" placeholder="Precio Promocional" class="article-input">
+                        <input type="number" id="price_prom" name="price_prom" placeholder="Precio Promocional" class="article-input">
                     </article>
                 </div>
                 <!-- FIN precio del producto y stock -->
@@ -54,10 +54,10 @@
                 <div class="colum_1 colum_D6 wrap_ disp_flex just_cont">
                     <fieldset class="disp_flex just_cont align_it">
                         <legend class="formLabel">Pesos Y Dimensiones</legend>
-                        Peso: <input class="botonPeso formLabel font_numero" name='peso' type='text' tabindex='1'>
-                        Fondo: <input class="botonPeso formLabel font_numero"  name='profundidad' type='text' tabindex='2'>
-                        Ancho: <input class="botonPeso formLabel font_numero"  name='ancho' type='text' tabindex='3'>
-                        Alto: <input class="botonPeso formLabel font_numero"  name='alto' type='text' tabindex='4'>
+                        Peso: <input class="botonPeso formLabel font_numero" name='peso' type='number' tabindex='1'>
+                        Fondo: <input class="botonPeso formLabel font_numero"  name='profundidad' type='number' tabindex='2'>
+                        Ancho: <input class="botonPeso formLabel font_numero"  name='ancho' type='number' tabindex='3'>
+                        Alto: <input class="botonPeso formLabel font_numero"  name='alto' type='number' tabindex='4'>
                     </fieldset>
                     <div class="disp_flex align_it ">
                         <label class="formLabel" form="">Envio Gratis Si/No:</label>
@@ -65,7 +65,7 @@
                         <p><input class="botonesProdUp formLabel" type="radio" name="shipping" value="n"></p>
                     </div>  
                     <div class="disp_flex align_it ">
-                        <label class="formLabel" form="">Sin Envio Si/No:</label>
+                        <label class="formLabel" form="">Envio Si/No:</label>
                         <p><input class="botonesProdUp formLabel" type="radio" name="envio" value="s"></p>
                         <p><input class="botonesProdUp formLabel" type="radio" name="envio" value="n"></p>
                     </div>  

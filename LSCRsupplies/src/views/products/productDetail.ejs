@@ -4,7 +4,7 @@
 <%- include('partials/headProductDetail', {title: 'Inicio'}) %>
 <body>
 	<!-- Header -->
-	<%- include('partials/Header') %>
+	<%- include('partials/header') %>
   <!-- /Header -->
   
   <!--Caja principal Product Detail-->
@@ -12,13 +12,13 @@
     <!--Contenedor Lateral Izquierdo-->
     <section class="contenedorLateralIzquierdo">
       <article class="contenedorImagenPrincipal">
-        <img id="imagenPrincipal" src="/images/Brochas.jpg" alt="Set de Brochas x 20 unidades de diferentes espesores">
+        <img id="imagenPrincipal" src=<%= "/images/products/" + producto.image1 %> alt="Set de Brochas x 20 unidades de diferentes espesores">
       </article >
       <article class="contenedorImagenesSecundarias">
-        <img  id="imagenSecundaria" src="/images/Brochas2.jpg" alt="Set de Brochas x 8 unidades de diferentes espesores">
-        <img  id="imagenSecundaria" src="/images/Brochas3.jpg" alt="Set de Brochas x 5 unidades de diferentes espesores">
-        <img  id="imagenSecundaria" src="/images/Brochas4.jpg" alt="Set de Brochas x 3 unidades de diferentes espesores">
-        <img  id="imagenSecundaria" src="/images/Brochas.jpg" alt="Set de Brochas x 2 unidades de diferentes espesores">
+        <img  id="imagenSecundaria" src=<%= "/images/products/" + producto.image1 %> alt="">
+        <img  id="imagenSecundaria" src=<%= "/images/products/" + producto.image2 %> alt="">
+        <img  id="imagenSecundaria" src=<%= "/images/products/" + producto.image3 %> alt="">
+        <img  id="imagenSecundaria" src=<%= "/images/products/" + producto.image4 %> alt="">
       </article>
 
     </section>
@@ -27,7 +27,7 @@
 
       <section id="nombreProducto">
         <h1 class="h1">
-          Nombre del Producto
+          <%= producto.name %>
           <div class="sharethis-inline-share-buttons"></div>
         </h1>
       </section>
@@ -48,16 +48,19 @@
           --><label class="label1" for="radio5">★</label>
           </p>
         </form>
-          <h1 class="h1">$PRECIO</h1>
+          <h1 class="h1">$ <%= producto.price %></h1>
       </section>
 
       <section id="variacionesProducto">
         <article class="colores">
           <label class="select" for="select">Colores</label>
           <select class="desplegable" name="select">
-            <option value="Color1">Color 1</option> 
-            <option value="Color2" selected>Color 2</option>
-            <option value="Color3">Color 3</option>
+            <option value="Color1"><%= producto.color1 %></option> 
+            <option value="Color2" selected><%= producto.color2 %></option>
+            <option value="Color3"><%= producto.color3 %></option>
+            <option value="Color3"><%= producto.color4 %></option>
+            <option value="Color3"><%= producto.color5 %></option>
+            <option value="Color3"><%= producto.color6 %></option>
           </select>
     
         
@@ -78,24 +81,50 @@
             <option value="7">Mas de 6</option>
           </select>
         </article>  
-        
-     
-          <button type="button" class="botones">Agregar Al Carrito</button>
-          <button type="button" class="botones">COMPRAR</button>
-      
-
+      </section>
+      <div class="ancho_100">
+          <a href="#" class="buy-now-button">COMPRAR AHORA</a>
+          <hr>
+          <div class='editar_eliminar'>
+          <a href= <%= "/products/" + producto.id + "/edit" %> class="action-button edit">EDITAR PRODUCTO</a>
+          <form action="/products/<%= producto.id %>?_method=delete" method="POST" style="display: inline-flex">
+            <button type="submit" class="action-button delete">ELIMINAR</button>
+          </div>
+          </form>
+      </div>  
     </div>
-  </div>
-  <div class="contenedorPrincipalSuperior">
+    </div>
+    <div class="contenedorPrincipalSuperior">
     <section class="contenedorLateralIzquierdo2">
-      <p class="h1">Detalles del Producto</p>
-    </section>
-    <section class="contenedorLateralDerecho2"> 
-      <p class="h1">Descripcion del Producto</p>
+      <p class="h1">Descripción del Producto</p>
+      <%= producto.description %>
     </section>
     <section class="contenedorSimilares">
-      <p class="h1">Productos Relacionados</p>
-    </section>
+        <p class="h1">Productos Relacionados</p>
+      
+        <div class='relacionados'>
+        
+          <div class= 'caja'>
+            <img class="marcador__kuretake" src="/images/marcador-kuretake_01.jpg" alt="Marcador marcador_kuretake" width="100%" heigth= "100%">
+          </div>
+
+          <div class= 'caja'>
+           <img class="marcador__kuretake" src="/images/marcador-kuretake_01.jpg" alt="Marcador marcador_kuretake" width="100%" heigth= "100%">
+          </div>
+
+          <div class= 'caja'>
+           <img class="marcador__kuretake" src="/images/marcador-kuretake_01.jpg" alt="Marcador marcador_kuretake" width="100%" heigth= "100%">
+          </div>
+
+          <div class= 'caja'>
+            <img class="marcador__kuretake" src="/images/marcador-kuretake_01.jpg" alt="Marcador marcador_kuretake" width="100%" heigth= "100%">
+          </div>
+         
+      </div>  
+    </section>    
+   </div>
+
+    
   </div>
   
 

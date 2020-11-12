@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/headProductUp', {title: 'Editar'}) %>
+<body>
+    <!-- Header -->
+    <%- include('partials/Header') %>
+    <!-- /Header -->
+    <!-- Main div del sitio. -->
+    <div class="containerPc">
+        <!-- Header del sitio -->
+        
+        <!--  seccion carga -->
+        <main class="containerProd products-wrapper">
+            <div class="head_row">
+                <div class="colum_1">
+                    <h2 class="productTitle">Formulario Para Editar Producto</h2>
+                </div>
+            </div>
+            <form action="/products/<%= productToEdit.id %>?_method=PUT" method="post" enctype="multipart/form-data">
+                <!-- Nombre del producto -->
+                <div class="colum_1 colum_D6">
+                    <label for="name" class="formLabel">Nombre del producto:</label>
+                    <input type="text" id="name" name="name" value="<%= productToEdit.name %>" placeholder="<%= productToEdit.name %> " class="form-input">
+                </div>
+                <!-- FIN Nombre del producto -->
+                <!-- precio del producto y stock -->
+                <div class="colum_1 colum_D6 disp_flex wrap_">
+                    <article class="article_stock_cod">
+                        <label for="codArt" class="formLabel">Codigo Producto:</label>
+                        <input type="text" id="codArt" name="codArt" value="<%= productToEdit.codArt %>" placeholder="<%= productToEdit.codArt %>" class="article-input">
+                    </article>
+                    <article class="article_stock_cod">
+                        <label for="stock" class="formLabel">Stock:</label>
+                        <input type="number" id="stock" name="stock" value="<%= productToEdit.stock %>" placeholder="<%= productToEdit.stock %>" class="article-input">
+                    </article>
+                    <article class="article_stock_cod">
+                        <label for="price" class="formLabel">Precio del producto:</label>
+                        <input type="number" id="price" name="price" value="<%= productToEdit.price %>" placeholder="<%= productToEdit.price %>" class="article-input">
+                    </article>
+                    <article class="article_stock_cod">
+                        <label for="price_prom" class="formLabel">Precio Promocional:</label>
+                        <input type="number" id="price_prom" name="price_prom" value="<%= productToEdit.price_prom %>" placeholder="<%= productToEdit.price_prom %>" class="article-input">
+                    </article>
+                </div>
+                <!-- FIN precio del producto y stock -->
+                <!-- descripcion del Producto -->
+                <div class="colum_1">
+                    <label for="description" class="formLabel ">Descipción del Producto:</label>
+                    <textarea name="description" value="<%= productToEdit.description %>" id="description" class="form-input"><%= productToEdit.description %></textarea>
+                </div>
+                <!-- FIN descripcion del Producto -->
+                <!-- peso /dimensiones/envio -->
+                <div class="colum_1 colum_D6 wrap_ disp_flex just_cont">
+                    <fieldset class="disp_flex just_cont align_it">
+                        <legend class="formLabel">Pesos Y Dimensiones</legend>
+                        Peso: <input class="botonPeso formLabel font_numero" name='peso' value="<%= productToEdit.peso %>" type='number' tabindex='1'>
+                        Fondo: <input class="botonPeso formLabel font_numero"  name='profundidad' value="<%= productToEdit.profundidad %>" type='number' tabindex='2'>
+                        Ancho: <input class="botonPeso formLabel font_numero"  name='ancho' value="<%= productToEdit.ancho %>" type='number' tabindex='3'>
+                        Alto: <input class="botonPeso formLabel font_numero"  name='alto' value="<%= productToEdit.alto %>" type='number' tabindex='4'>
+                    </fieldset>
+                    <div class="disp_flex align_it ">
+                        <label class="formLabel" form="">Envio Gratis Si/No:</label>
+                        <p><input class="botonesProdUp formLabel" type="radio" name="shipping" value="s"></p>
+                        <p><input class="botonesProdUp formLabel" type="radio" name="shipping" value="n"></p>
+                    </div>  
+                    <div class="disp_flex align_it ">
+                        <label class="formLabel" form="">Envio Si/No:</label>
+                        <p><input class="botonesProdUp formLabel" type="radio" name="envio"  value="<%= productToEdit.envio %>"></p>
+                        <p><input class="botonesProdUp formLabel" type="radio" name="envio" value="n"></p>
+                    </div>  
+                </div>
+                <!-- FIN peso /dimensiones/envio -->
+                <!-- categoria del producto -->
+                <div class="colum_1 colum_D6">
+                    <div>
+                        <label class="formLabel" form="">Seleccion la Categoria:</label>
+                    </div>
+                    <div class="disp_flex wrap_">
+                        <input type="checkbox" name="arteypintura" value="arteypintura">Artistica y Pintura<br>
+                        <input class="botonesProdUp" type="checkbox" name="escritura" value="escritura">Escritura<br>
+                        <input class="botonesProdUp" type="checkbox" name="papeleria" value="papeleria">Papeleria<br>
+                        <input class="botonesProdUp" type="checkbox" name="geometria" value="geometria">Geometria<br>
+                        <input class="botonesProdUp " type="checkbox" name="Pegamentos" value="Pegamentos">Pegamentos Y Cortantes<br>
+                        <input class="botonesProdUp " type="checkbox" name="cartuchera" value="cartuchera">Cartucheras<br>
+                        <input class="botonesProdUp  " type="checkbox" name="otros" value="otros">Otros<br>
+                    </div>  
+                </div>
+                <!-- FIN categoria del producto -->
+                <!-- variantes -->
+                <div class="colum_1 colum_D6 marginBotom">
+                    <p class="formLabel">Variantes</p>
+                    <fieldset class="borderNone wrap_ disp_flex ancho_100 just_bet">
+                        Color: <input class="field_volumen marginBotom marg_left_var_color" name='color1' value="<%= productToEdit.color1 %>" type='text' tabindex='5'>
+                        <input class="field_volumen marginBotom"  name='color2' value="<%= productToEdit.color2 %>" type='text' tabindex='6'>
+                        <input class="field_volumen marginBotom"  name='color3' value="<%= productToEdit.color3 %>" type='text' tabindex='7'>
+                        <input class="field_volumen marginBotom ocultar"  name='color4' value="<%= productToEdit.color4 %>" type='text' tabindex='8'>
+                        <input class="field_volumen marginBotom ocultar "  name='color5' value="<%= productToEdit.color5 %>" type='text' tabindex='9'>
+                        <input class="field_volumen marginBotom ocultar"  name='color6' value="<%= productToEdit.color6 %>" type='text' tabindex='10'>
+                    </fieldset>
+                    <fieldset class="borderNone wrap_ disp_flex ancho_100 just_bet">
+                        Material: <input class="field_volumen marginBotom" name='material1' value="<%= productToEdit.material1 %>" type='text' tabindex='11'>
+                        <input class="field_volumen marginBotom"  name='material2' value="<%= productToEdit.material2 %>" type='text' tabindex='12'>
+                        <input class="field_volumen marginBotom"  name='material3' value="<%= productToEdit.material3 %>" type='text' tabindex='13'>
+                        <input class="field_volumen marginBotom ocultar"  name='material4' value="<%= productToEdit.material4 %>" type='text' tabindex='14'>
+                        <input class="field_volumen marginBotom ocultar"  name='material5' value="<%= productToEdit.material5 %>" type='text' tabindex='15'>
+                        <input class="field_volumen marginBotom ocultar"  name='material6' value="<%= productToEdit.material6 %>" type='text' tabindex='16'>
+                    </fieldset>
+                    <fieldset class="borderNone wrap_ disp_flex ancho_100 just_bet ">
+                        Marca: <input class="field_volumen marginBotom marg_left_var_marca " name='marca1' value="<%= productToEdit.marca1 %>" type='text' tabindex='17'>
+                        <input class="field_volumen marginBotom"  name='marca2' value="<%= productToEdit.marca2 %>" type='text' tabindex='18'>
+                        <input class="field_volumen marginBotom"  name='marca3' value="<%= productToEdit.marca3 %>" type='text' tabindex='19'>
+                        <input class="field_volumen marginBotom ocultar"  name='marca4' value="<%= productToEdit.marca4 %>" type='text' tabindex='20'>
+                        <input class="field_volumen marginBotom ocultar"  name='marca5' value="<%= productToEdit.marca5 %>" type='text' tabindex='21'>
+                        <input class="field_volumen marginBotom ocultar"  name='marca6' value="<%= productToEdit.marca6 %>" type='text' tabindex='22'>
+                    </fieldset>
+                </div>
+                <!--FIN  variantes -->
+                <!-- seccion Tags -->
+                <div class="colum_1 colum_D6">
+                    <label for="name" class="formLabel">Tags:</label>
+                    <input type="text" id="tags" name="tags" value="<%= productToEdit.tags %>" placeholder="<%= productToEdit.tags %>" class="form-input">
+                </div>
+                <!-- FIN seccion Tags -->
+                <!-- carga de Imagen -->
+                <div class="borderPc  diplay_imag ">
+                    <div class="borderPc box_img disp_flex flexFlowCol">
+                        <label for="Imagen" class="formLabel"></label>
+                        <input class="formInput" type="file" id="image" name="image" onchange="loadFile(event)">
+                       <label for="Imagen" class="formLabel"></label>
+                        <input class="formInput" type="file" id="image1" name="image1" onchange="loadFile1(event)">
+                        <label for="Imagen" class="formLabel not_img "></label>
+                        <input class="formInput not_img" type="file" id="image2" name="image2" onchange="loadFile2(event)" >
+                        <label for="Imagen" class="formLabel not_img"></label>
+                        <input class="formInput not_img " type="file" id="image3" name="image3" onchange="loadFile3(event)" >
+                    </div>  
+                    <div class="borderPc  "> 
+                        <img class="box_img" id="output" src="<%= "/images/products/" + productToEdit.image1 %>" alt="image1">
+                    </div>
+                    <div class="borderPc  ">
+                        <img class="box_img" id="output1" src="<%= "/images/products/" + productToEdit.image2 %>" alt="image2">
+                    </div>
+                    <div  class="borderPc    not_img">
+                        <img class="box_img" id="output2" src="<%= "/images/products/" + productToEdit.image3 %>" alt="image3">
+                    </div>
+                    <div class="borderPc    not_img">
+                        <img class="box_img" id="output3" src="<%= "/images/products/" + productToEdit.image4 %>" alt="image4">
+                    </div>
+                </div> 
+                <!--FIN  carga de Imagen -->
+                <!-- seccion boton submit -->
+                <div class="displayGrid ancho_100">
+                    <button  type="submit" class="save_button">Guardar producto</button>
+                </div>
+                <!--FIN  seccion boton submit -->
+            </form>
+            <!-- fin formulario action -->
+        </main>
+        <!-- Marcas reconocidas -->
+        <!--footer-->
+    <footer>
+        <%- include('partials/footer') %>
+    </footer>
+    <!--Fin Footer-->
+    </div>
+    <!-- script previsualizacion de imagenes -->
+    <script>
+        var loadFile = function(event) {
+        var reader = new FileReader();
+        reader.onload = function(){
+            var output = document.getElementById('output');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+        };
+        var loadFile1 = function(event) {
+        var reader1 = new FileReader();
+        reader1.onload = function(){
+            var output1 = document.getElementById('output1');
+            output1.src = reader1.result;
+        };
+        reader1.readAsDataURL(event.target.files[0]);
+        };
+        var loadFile2 = function(event) {
+        var reader2 = new FileReader();
+        reader2.onload = function(){
+            var output2 = document.getElementById('output2');
+            output2.src = reader2.result;
+        };
+        reader2.readAsDataURL(event.target.files[0]);
+        };
+        var loadFile3 = function(event) {
+        var reader3 = new FileReader();
+        reader3.onload = function(){
+            var output3 = document.getElementById('output3');
+            output3.src = reader3.result;
+        };
+        reader3.readAsDataURL(event.target.files[0]);
+        };
+    </script>
+    <!-- FIN script previsualizacion de imagenes -->
+</body>
+</html>

@@ -16,7 +16,7 @@ router.get('/register', usersController.register); // User registration *GET*
 router.post('/users/register', usersController.register); // User registration *POST*
 
 router.get('/userlogin', usersController.login); // User login *GET*
-router.post('/users/userlogin', usersController.login); // User login *POST*
+router.post('/userlogin', usersController.processLogin); // User login *POST*
 
 router.get ('/users/edit/:id', usersController.edit) // User edit *GET*
 router.put ('/users/edit/:id', usersController.edit) // User edit *PUT*

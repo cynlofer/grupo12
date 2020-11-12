@@ -4,6 +4,9 @@ const router = express.Router();
 var multer = require('multer');
 var {path} = require('../app');
 var {body, validationResult, check} = require ('express-validator');
+// ************ Controller Require ************
+const mainController = require('../controllers/mainController');
+
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -17,28 +20,8 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index');
-});
+router.get('/', mainController.index);
 
-// /* GET productDetail. */
-// router.get('/productDetail', function(req, res, next) {
-//   res.render('productDetail');
-// });
 
-// /* GET register. */
-// router.get('/register', function(req, res, next) {
-//   res.render('register');
-// });
-
-// /* POST register. */
-// router.post('/register', upload.any(), function(req, res, next) {
-//   res.redirect('/');
-// });
-
-/* GET myCart. */
-// router.get('/products/myCart', function(req, res, next) {
-//   res.render('myCart');
-// });
 
 module.exports = router;
