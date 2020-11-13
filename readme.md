@@ -2,7 +2,7 @@
 
 ¿Qué productos o servicios brindará nuestro sitio? 
 
-El sitio web LCS Supplies se encarga de la venta online de productos artísticos al por mayor y menor, con envío al comprador a través de diferentes servicios de mensajería, a todo el país o retirando en la sucursal. Los métodos de pago pueden ser tarjeta de crédito, débito o transacciones bancarias.
+El sitio web LCSR Supplies se encarga de la venta online de productos artísticos al por mayor y menor, con envío al comprador a través de diferentes servicios de mensajería, a todo el país o retirando en la sucursal. Los métodos de pago pueden ser tarjeta de crédito, débito o transacciones bancarias.
 
 ¿Quién será nuestra audiencia objetivo?
 
