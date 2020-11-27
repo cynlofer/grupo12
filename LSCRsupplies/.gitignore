@@ -1,1 +1,5 @@
-**/node_modulesgit
+.gitignore
+.DS_Store
+cloneLucas/
+site/node_modules/
+./node_modules/
