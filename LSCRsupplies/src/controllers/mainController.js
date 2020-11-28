@@ -3,6 +3,8 @@ const path = require('path');
 const { fileURLToPath } = require('url');
 const { detail, index } = require('./productsController');
 
+// const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+// const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
@@ -10,19 +12,7 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller = {
 	index: (req, res) => {
-		// Do the magic
-		
-	/* const producto_visitado = products.filter(function (prod) {
-		return (prod.category === "visited");
-
-    });  
-	const producto_insale = products.filter(function (prod) {
-		return (prod.category === "in-sale");
-
-	});*/
-	
-	res.render("index");
-		   
+			res.render('index',{products : products});   
 	},	
 	search: (req, res) => {
 		// Do the
