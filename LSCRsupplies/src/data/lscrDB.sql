@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `lscr_db` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `lscr_db`;
 -- MySQL dump 10.13  Distrib 8.0.22, for macos10.15 (x86_64)
 --
 -- Host: 127.0.0.1    Database: lscr_db
@@ -185,16 +187,17 @@ DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `products` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `product_name` varchar(30) NOT NULL,
-  `description` varchar(100) DEFAULT NULL,
-  `image_dimension` varchar(45) DEFAULT NULL,
+  `description` varchar(250) DEFAULT NULL,
   `brand_id` int(11) NOT NULL,
   `color_id` int(11) NOT NULL,
   `price_id` int(11) NOT NULL,
   `clasification_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `image_dimension` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -203,6 +206,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (1,'Estilografo','El estilógrafo es un instrumento para dibujar con tinta china o aceite, similar a una pluma estilográfica',1,1,1,1,''),(2,'Marcador','Resaltador para textos',1,2,1,1,''),(3,'Pintura acrilica','Pintura para pared acrilica',2,5,5,2,'');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -293,4 +297,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-27 15:33:32
+-- Dump completed on 2020-11-28 12:59:20
