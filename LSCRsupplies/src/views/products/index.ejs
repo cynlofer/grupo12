@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/headIndex', {title: 'Inicio'}) %>
+<body>
+	<!-- Header -->
+	<%- include('partials/Header') %>
+  <!-- /Header -->
+  <!-- Main div del sitio. -->
+  <div class="container">
+      <!-- Banner Ofertas -->
+      <section class="bannerOfertas">
+          <h2>Ofertas Destacadas</h2>
+          <img src="/images/lapices-caran-d-ache_02.png" alt="lapices">
+      </section>
+      <!-- Seccion productos y banner secciones -->
+      <section class="bannerCentral">
+          <article class="productosRelacionados">
+          <h2>Productos Relacionados</h2>
+              <a href="/products/"><img src="/images/marcador-kuretake_01.jpg" alt="mas lapices"></a>
+          </article>
+          <article class="bannerSecciones">
+          <h2>Banner secciones</h2>
+              <a href="/products/"><img src="/images/lapices-faber.jpg" alt="aun mas lapices"></a>
+          </article>
+      </section>
+      <!-- Botones de ayuda -->
+      <section class=bannerAyuda>
+          <H2>Banner ayuda</H2>
+              <div class=cajaAyuda>
+                  <img src="/images/envio gratis.png" alt="envio gratis">
+                  <img src="/images/devoluciones sencillas.png" alt="devoluciones sencillas">
+                  <img src="/images/localiza tu paquete.png" alt="localiza tu paquete">
+                  <img src="/images/necesitas ayuda.png" alt="necesitas ayuda?">
+                  <img src="/images/metodos de pago.png" alt="metodos de pago">
+                  <img src="/images/proteccion al comprador.png" alt="proteccion al comprador">
+              </div>
+      </section>
+      <!-- Marcas reconocidas -->
+      <section class=marcasReconocidas>
+          <h2>Confian en nosotros</h2>
+              <div class=cajaMarcas>
+                  <ul class=ulMarcas>
+                      <li class=ilMarcas><img src="/images/Fabriano.png" alt="fabriano"></li>
+                      <li class=ilMarcas><img src="/images/Liquitex.png" alt="Liquitex"></li>
+                      <li class=ilMarcas><img src="/images/staedtler.png" alt="staedtler"></li>
+                      <li class=ilMarcas><img src="/images/sharpie3.png" alt="sharpie3"></li>
+                      <li class=ilMarcas><img src="/images/Seurat.png" alt="Seurat"></li>
+                  </ul>
+              </div>
+      </section>
+
+  <!-- Footer del sitio-->
+  <%- include('partials/footer') %>
+  <!-- /footer -->
+</body>
+</html>
