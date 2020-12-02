@@ -1,13 +1,31 @@
 const fs = require('fs');
 const path = require('path');
-
+//const { Sequelize } = require('sequelize');
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+//const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+//Sequelize 
+const {Product, Brand}= require("../database/models");
+const {Op} = require('sequelize');
+//const { send } = require('process');
+//const {validationResult} = require ("express-validator");
 
 const controller = {
 	// Root - Show all products
-	index: (req, res) => {
-		res.render('homeProducts',{products : products});
+	index: async(req, res) => {
+		try{
+			//var titulo = "Listado Peliculas";
+			const brand = await Brand.findAll();
+            const productjson = await Product.findAll({
+                order: [["productID"]],
+			});
+			console.log(brand);
+			res.render('homeProducts',{products : productjson});
+			            
+        }catch(error){
+            console.log(error);
+        }
+		
 	},
 
 	// Detail - Detail from one product
