@@ -14,10 +14,9 @@ const controller = {
 	// Root - Show all products
 	index: async(req, res) => {
 		try{
-			//var titulo = "Listado Peliculas";
 			const brand = await Brand.findAll();
             const productjson = await Product.findAll({
-                order: [["productID"]],
+                order: [["id"]],
 			});
 			console.log(brand);
 			res.render('homeProducts',{products : productjson});

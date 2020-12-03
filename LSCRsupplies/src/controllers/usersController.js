@@ -45,23 +45,35 @@ const usersController = {
       },
   
       /* POST login */
-      processLogin: (req, res, next) => {
-        console.log("en login");
-
-        let usuarios = leerJSON();
-
-        let usuarioEncontrado = usuarios.find(usuario => usuario.email == req.body.email);
-
-        if (usuarioEncontrado != undefined){
-          let emailUsuarioEncontrado = usuarioEncontrado.email;
-          req.session.email = emailUsuarioEncontrado;
-          req.session.email = emailUsuarioEncontrado;
-          if(req.body.rememberMe != undefined){
-            
-            res.cookie("recordarme", usuarioEncontrado.email, {maxAge : 1000*60*60});
-      
-          }
+      processLogin: async (req, res, next) => {
+      try {
+            console.log(req.body);
+            const loginUser = await User.findAll({
+              where: {
+                email: {[Op.eq]: 'email'},
+                password: {[Op.eq]: 'password'}
+              }
+            })
+            res.send(loginUser);
+                      
+          }catch(error){
+          console.log(error);
         }
+
+        // let usuarios = leerJSON();
+
+        // let usuarioEncontrado = usuarios.find(usuario => usuario.email == req.body.email);
+
+        // if (usuarioEncontrado != undefined){
+        //   let emailUsuarioEncontrado = usuarioEncontrado.email;
+        //   req.session.email = emailUsuarioEncontrado;
+        //   req.session.email = emailUsuarioEncontrado;
+        //   if(req.body.rememberMe != undefined){
+            
+        //     res.cookie("recordarme", usuarioEncontrado.email, {maxAge : 1000*60*60});
+      
+        //   }
+        // }
       },
 
       edit: (req, res, next) => {
