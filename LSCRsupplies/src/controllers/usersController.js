@@ -45,20 +45,20 @@ const usersController = {
       },
   
       /* POST login */
-      processLogin: async (req, res, next) => {
-      try {
-            console.log(req.body);
-            const loginUser = await User.findAll({
-              where: {
-                email: {[Op.eq]: 'email'},
-                password: {[Op.eq]: 'password'}
-              }
-            })
-            res.send(loginUser);
+      // processLogin: async (req, res, next) => {
+      // try {
+      //       console.log(req.body);
+      //       const loginUser = await User.findAll({
+      //         where: {
+      //           email: {[Op.eq]: 'email'},
+      //           password: {[Op.eq]: 'password'}
+      //         }
+      //       })
+      //       res.send(loginUser);
                       
-          }catch(error){
-          console.log(error);
-        }
+      //     }catch(error){
+      //     console.log(error);
+      //   }
 
         // let usuarios = leerJSON();
 
@@ -74,7 +74,7 @@ const usersController = {
       
         //   }
         // }
-      },
+      // },
 
       edit: (req, res, next) => {
       res.render ('useredit');

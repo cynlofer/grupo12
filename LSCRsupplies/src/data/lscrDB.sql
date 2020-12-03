@@ -25,9 +25,9 @@ DROP TABLE IF EXISTS `Brands`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Brands` (
-  `brandID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
-  PRIMARY KEY (`brandID`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -49,9 +49,9 @@ DROP TABLE IF EXISTS `Categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Categories` (
-  `clasificationID` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
-  PRIMARY KEY (`clasificationID`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -73,9 +73,9 @@ DROP TABLE IF EXISTS `Color`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Color` (
-  `colorID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`colorID`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -100,8 +100,8 @@ CREATE TABLE `Color_Products` (
   `Products_productID` int(10) unsigned NOT NULL,
   KEY `fk_Color_has_Products_Products_idx` (`Products_productID`),
   KEY `fk_Color_has_Products_Color_idx` (`Color_colorID`),
-  CONSTRAINT `fk_Color_has_Products_Color` FOREIGN KEY (`Color_colorID`) REFERENCES `Color` (`colorID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Color_has_Products_Products` FOREIGN KEY (`Products_productID`) REFERENCES `Products` (`productID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_Color_has_Products_Color` FOREIGN KEY (`Color_colorID`) REFERENCES `Color` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Color_has_Products_Products` FOREIGN KEY (`Products_productID`) REFERENCES `Products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -122,9 +122,9 @@ DROP TABLE IF EXISTS `Deliveries`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Deliveries` (
-  `deliveryID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`deliveryID`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -145,9 +145,9 @@ DROP TABLE IF EXISTS `Payments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Payments` (
-  `paymentID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `payment_method` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`paymentID`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -168,9 +168,9 @@ DROP TABLE IF EXISTS `Price`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Price` (
-  `priceID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `price` decimal(10,0) DEFAULT NULL,
-  PRIMARY KEY (`priceID`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -191,17 +191,17 @@ DROP TABLE IF EXISTS `Products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Products` (
-  `productID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `descripcion` varchar(250) DEFAULT NULL,
   `images` varchar(45) DEFAULT NULL,
   `Brands_brandID` int(10) unsigned NOT NULL,
   `Clasifications_clasificationID` int(10) unsigned NOT NULL,
-  `Price_priceID` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`productID`),
+  `price` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_Products_Brands_idx` (`Brands_brandID`),
   KEY `fk_Products_Clasifications_idx` (`Clasifications_clasificationID`),
-  KEY `fk_Products_Price_idx` (`Price_priceID`)
+  KEY `fk_Products_Price_idx` (`price`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -223,9 +223,9 @@ DROP TABLE IF EXISTS `Sale_types`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Sale_types` (
-  `saleID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`saleID`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -246,26 +246,26 @@ DROP TABLE IF EXISTS `Sales_detail`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Sales_detail` (
-  `salesID` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `promotonial_code` int(11) DEFAULT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `promo_code` int(11) DEFAULT NULL,
   `Products_productID` int(10) unsigned NOT NULL,
   `Price_priceID` int(10) unsigned NOT NULL,
   `Deliveries_deliveryID` int(10) unsigned NOT NULL,
   `Users_userID` int(10) unsigned NOT NULL,
   `Payments_paymentID` int(10) unsigned NOT NULL,
   `Sale_types_saleID` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`salesID`),
+  PRIMARY KEY (`id`),
   KEY `fk_Sales_detail_Products_idx` (`Products_productID`),
   KEY `fk_Sales_detail_Price_idx` (`Price_priceID`),
   KEY `fk_Sales_detail_Deliveries_idx` (`Deliveries_deliveryID`),
   KEY `fk_Sales_detail_Users_idx` (`Users_userID`),
   KEY `fk_Sales_detail_Payments_idx` (`Payments_paymentID`),
   KEY `fk_Sales_detail_Sale_types_idx` (`Sale_types_saleID`),
-  CONSTRAINT `fk_Sales_detail_Deliveries` FOREIGN KEY (`Deliveries_deliveryID`) REFERENCES `Deliveries` (`deliveryID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Sales_detail_Payments` FOREIGN KEY (`Payments_paymentID`) REFERENCES `Payments` (`paymentID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Sales_detail_Price` FOREIGN KEY (`Price_priceID`) REFERENCES `Price` (`priceID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Sales_detail_Products` FOREIGN KEY (`Products_productID`) REFERENCES `Products` (`productID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Sales_detail_Sale_types` FOREIGN KEY (`Sale_types_saleID`) REFERENCES `Sale_types` (`saleID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Sales_detail_Deliveries` FOREIGN KEY (`Deliveries_deliveryID`) REFERENCES `Deliveries` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Sales_detail_Payments` FOREIGN KEY (`Payments_paymentID`) REFERENCES `Payments` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Sales_detail_Price` FOREIGN KEY (`Price_priceID`) REFERENCES `Price` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Sales_detail_Products` FOREIGN KEY (`Products_productID`) REFERENCES `Products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Sales_detail_Sale_types` FOREIGN KEY (`Sale_types_saleID`) REFERENCES `Sale_types` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Sales_detail_Users` FOREIGN KEY (`Users_userID`) REFERENCES `Users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -294,7 +294,7 @@ CREATE TABLE `Users` (
   `password` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `e-mail_UNIQUE` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -303,6 +303,7 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
+INSERT INTO `Users` VALUES (1,'asd','dsa','asd@asd.com','asdf'),(2,'test','user2','email2@email.com','veamos'),(4,'test','user2','email3@email.com','veamos'),(5,'otro','nombre','lalala@lalal.com','anda'),(6,'test','account','123@123.com','3'),(7,'usuario','amano','usuario@mano.com','usuarioamano');
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -315,4 +316,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-02 20:59:45
+-- Dump completed on 2020-12-03 16:05:58
