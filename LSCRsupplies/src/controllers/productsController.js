@@ -32,6 +32,7 @@ const controller = {
 		const prod_detal = await Product.findByPk(req.params.id);
 		res.render('productDetail',{producto : prod_detal});
 		
+		
 	}catch(error){
 		console.log(error);
 	}
