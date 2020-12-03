@@ -12,47 +12,67 @@ const leerJSON= function(){
   return JSON.parse(fs.readFileSync(usuariosFilePath, "utf-8"));
 };
 
-const usersController = {
-/* GET users listing. */
-index: ('/', function(req, res, next) {
-    res.send('respond with a resource');
-  }),
+//Sequelize 
+const {Product, Brand, User}= require("../database/models");
+const {Op} = require('sequelize');
 
-  /* GET register. */
-register: (req, res, next) => {
-    res.render('register')
-    },
-  
- login: (req, res, next) => {
-    res.render('userlogin');
+const usersController = {
+      /* GET users listing. */
+      index: (req, res, next) => {
+      res.send('respond with a resource');
+      },
+
+      /* GET register. */
+      register: (req, res, next) => {
+      res.render('register')
+      },
+
+      /* POST register */
+      saveUser: async (req, res, next) => {
+      try {
+            console.log(req.body);
+            const newUser = await User.create(req.body)
+            res.redirect('/');
+                        
+          }catch(error){
+            console.log(error);
+          }
+      },
+      
+      /* GET login */
+      login: (req, res, next) => {
+      res.render('userlogin');
       },
   
-processLogin: (req, res, next) => {
-  console.log("en login");
-  let usuarios = leerJSON();
-  let usuarioEncontrado = usuarios.find(usuario => usuario.email == req.body.email );
-  if (usuarioEncontrado != undefined){
-    let emailUsuarioEncontrado = usuarioEncontrado.email;
-    req.session.email = emailUsuarioEncontrado;
-    req.session.email = emailUsuarioEncontrado;
-    if(req.body.rememberMe != undefined){
-      res.cookie("recordarme", usuarioEncontrado.email, {maxAge : 1000*60*60});
-    }
-  };
-  
-  //console.log(req.session.email);
-  
-  res.redirect("/");
-},
+      /* POST login */
+      processLogin: (req, res, next) => {
+        console.log("en login");
 
-edit: (req, res, next) => {
-    res.render ('useredit');
-},
+        let usuarios = leerJSON();
 
-/* POST user edit. */
-edit: (req, res, next) => {
-    res.redirect ('useredit');
-}
-}
-  module.exports = usersController;
-  
+        let usuarioEncontrado = usuarios.find(usuario => usuario.email == req.body.email);
+
+        if (usuarioEncontrado != undefined){
+          let emailUsuarioEncontrado = usuarioEncontrado.email;
+          req.session.email = emailUsuarioEncontrado;
+          req.session.email = emailUsuarioEncontrado;
+          if(req.body.rememberMe != undefined){
+            
+            res.cookie("recordarme", usuarioEncontrado.email, {maxAge : 1000*60*60});
+      
+          }
+        }
+      },
+
+      edit: (req, res, next) => {
+      res.render ('useredit');
+      },
+
+      /* POST user edit. */
+      edit: (req, res, next) => {
+      res.redirect ('useredit'); 
+      }
+};
+
+
+module.exports = usersController;

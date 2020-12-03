@@ -13,7 +13,7 @@ const usersController = require('../controllers/usersController');
 router.get('/', usersController.index); // Main /users 
 
 router.get('/register', usersController.register); // User registration *GET*
-router.post('/users/register', usersController.register); // User registration *POST*
+router.post('/register', usersController.saveUser); // User registration *POST*
 
 router.get('/userlogin', usersController.login); // User login *GET*
 router.post('/userlogin', usersController.processLogin); // User login *POST*

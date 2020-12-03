@@ -1,12 +1,14 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "lcsrdb",
+    "password": "root",
+    "database": "lscrdb",
     "host": "127.0.0.1",
+    "port": "8889",
     "dialect": "mysql",
-    define : {underscored: true,
-        paranoid : true
+    define : {
+    underscored: true,
+    paranoid: true
     }
   },
   "test": {

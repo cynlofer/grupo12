@@ -10,15 +10,13 @@ module.exports =(sequelize,DataTypes)=>{
         name : DataTypes.STRING,
         descripcion : DataTypes.STRING,
         images : DataTypes.STRING,
-        brands_brandid : DataTypes.INTEGER
+        brands_brandid: DataTypes.INTEGER
     }, 
     {
         timestamps: false
     })
-
-    /* Product.associate = (models =>{
-        Product.belongsTo(models.Brand);
-        
-    }) */
+    // Product.associate = (models =>{
+    //     Product.hasMany(models.Brand);
+    // })
     return Product;
     }
