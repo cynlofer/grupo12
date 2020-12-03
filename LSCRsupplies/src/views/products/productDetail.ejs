@@ -12,13 +12,13 @@
     <!--Contenedor Lateral Izquierdo-->
     <section class="contenedorLateralIzquierdo">
       <article class="contenedorImagenPrincipal">
-        <img id="imagenPrincipal" src=<%= "/images/products/" + producto.image1 %> alt="Set de Brochas x 20 unidades de diferentes espesores">
+        <img id="imagenPrincipal" src=<%= "/images/products/" + producto.images %> alt="Set de Brochas x 20 unidades de diferentes espesores">
       </article >
       <article class="contenedorImagenesSecundarias">
-        <img  id="imagenSecundaria" src=<%= "/images/products/" + producto.image1 %> alt="">
-        <img  id="imagenSecundaria" src=<%= "/images/products/" + producto.image2 %> alt="">
-        <img  id="imagenSecundaria" src=<%= "/images/products/" + producto.image3 %> alt="">
-        <img  id="imagenSecundaria" src=<%= "/images/products/" + producto.image4 %> alt="">
+        <img  id="imagenSecundaria" src= "/images/marcador-kuretake_01.jpg"  alt="">
+        <img  id="imagenSecundaria" src= "/images/marcador-kuretake_01.jpg" alt="">
+        <img  id="imagenSecundaria" src="/images/marcador-kuretake_01.jpg" alt="">
+        <img  id="imagenSecundaria" src="/images/marcador-kuretake_01.jpg" alt="">
       </article>
 
     </section>
@@ -48,19 +48,19 @@
           --><label class="label1" for="radio5">★</label>
           </p>
         </form>
-          <h1 class="h1">precio</h1>
+          <h1 class="h1">$ <%= producto.price %> </h1>
       </section>
 
       <section id="variacionesProducto">
         <article class="colores">
           <label class="select" for="select">Colores</label>
           <select class="desplegable" name="select">
-            <option value="Color1"><%= producto.color1 %></option> 
-            <option value="Color2" selected><%= producto.color2 %></option>
-            <option value="Color3"><%= producto.color3 %></option>
-            <option value="Color3"><%= producto.color4 %></option>
-            <option value="Color3"><%= producto.color5 %></option>
-            <option value="Color3"><%= producto.color6 %></option>
+            <option value="Color1"> </option> 
+            <option value="Color2" s></option>
+            <option value="Color3"></option>
+            <option value="Color3"></option>
+            <option value="Color3"></option>
+            <option value="Color3"></option>
           </select>
     
         
@@ -86,8 +86,8 @@
           <a href="#" class="buy-now-button">COMPRAR AHORA</a>
           <hr>
           <div class='editar_eliminar'>
-          <a href= <%= "/products/" + producto.id + "/edit" %> class="action-button edit">EDITAR PRODUCTO</a>
-          <form action="/products/<%= producto.id %>?_method=delete" method="POST" style="display: inline-flex">
+          <a href= <%= "/products/" + producto.productid + "/edit" %> class="action-button edit">EDITAR PRODUCTO</a>
+          <form action="/products/<%= producto.productid %>?_method=delete" method="POST" style="display: inline-flex">
             <button type="submit" class="action-button delete">ELIMINAR</button>
           </div>
           </form>
@@ -97,7 +97,7 @@
     <div class="contenedorPrincipalSuperior">
     <section class="contenedorLateralIzquierdo2">
       <p class="h1">Descripción del Producto</p>
-      <%= producto.description %>
+      <%= producto.descripcion %>
     </section>
     <section class="contenedorSimilares">
         <p class="h1">Productos Relacionados</p>

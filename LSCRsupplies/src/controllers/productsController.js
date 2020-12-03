@@ -18,7 +18,6 @@ const controller = {
             const productjson = await Product.findAll({
                 order: [["id"]],
 			});
-			console.log(brand);
 			res.render('homeProducts',{products : productjson});
 			            
         }catch(error){
@@ -28,9 +27,14 @@ const controller = {
 	},
 
 	// Detail - Detail from one product
-	detail: (req, res) => {
-	var prod_detal = products[req.params.id-1];
-	res.render('productDetail',{producto : prod_detal});
+	detail: async(req, res) => {
+	try{
+		const prod_detal = await Product.findByPk(req.params.id);
+		res.render('productDetail',{producto : prod_detal});
+		
+	}catch(error){
+		console.log(error);
+	}
 	},
 	// create - Form to Edit
 	create: (req, res) => {
@@ -38,18 +42,29 @@ const controller = {
 	},
 
 	// Create -  Method to store
-	store: (req, res) => { 
-		var selectedProd1=products;
-		console.log("en store");
-		var imag1 = "";
-		var imag2="";
-		var imag3 ="";
-		var imag4="";
+	store: async(req, res) => { 
+		//const resultado = validationResult(req);
+        
+        /* if(resultado.isEmpty()){
+            const newMovie = await Movie.create(req.body)
+            await newMovie.addActores(req.body.actores)
+            //res.send(newMovie)
+            res.redirect('/movies')
+        }else{
+            res.render("errores",{errors: resultado.errors});
+		} */
+		console.log(req.files);
+		let selectedProd1 = Product.findByPk(req.params.id);
+		imag1 = selectedProd1.images;
+		imag2=selectedProd1.image2;
+		imag3 =selectedProd1.image3;
+		imag4=selectedProd1.image4;
 		if(req.files != ""){
-			
+			console.log("existe req files");
 			for(i=0 ; i < req.files.length ; i++){
 				if(i==0){
 					imag1 = req.files[i].filename;
+					console.log(imag1);
 				}else if(i==1){
 					imag2 = req.files[i].filename;
 				}else if(i==2){
@@ -59,7 +74,16 @@ const controller = {
 				}
 			}
 		}
-		let new_producto = {
+		 
+		const newProduct = await Product.create(req.body)
+		//console.log(newProduct);
+		await newProduct.update(
+			{ images: imag1 }, //what going to be updated
+			{ where: { id: (newProduct.productid) }})
+
+
+		//console.log(req.body);
+		/* let new_producto = {
 			id: products[products.length-1].id+1,
 			name : req.body.name,
 			codArt : Number(req.body.codArt),
@@ -99,18 +123,62 @@ const controller = {
 			image4 : imag4
 		}
 		selectedProd1.push(new_producto);
-		fs.writeFileSync(productsFilePath, JSON.stringify(selectedProd1, null, 2));
+		fs.writeFileSync(productsFilePath, JSON.stringify(selectedProd1, null, 2)); */
 		res.redirect("/products/create");
 	},
 
 	// Update - Form to edit
-	edit: (req, res) => {
-		var productToEdit = products[req.params.id-1];
-		res.render("products/productsEdit", {productToEdit : productToEdit});
+	edit: async(req, res) => {
+		//var productToEdit = products[req.params.id-1];
+		try{
+			const productToEdit = await Product.findByPk(req.params.id);
+			res.render("products/productsEdit", {productToEdit : productToEdit});
+			
+		}catch(error){
+			console.log(error);
+		}
+		
 	},
 	// Update - Method to update
-	update: (req, res) => {
-		
+	update: async(req, res) => {
+		try{
+            //movId=req.params.id;
+			//console.log("en change");
+		console.log(req.files);
+		let selectedProd1 = Product.findByPk(req.params.id);
+		imag1 = selectedProd1.images;
+		imag2=selectedProd1.image2;
+		imag3 =selectedProd1.image3;
+		imag4=selectedProd1.image4;
+		if(req.files != ""){
+			console.log("existe req files");
+			for(i=0 ; i < req.files.length ; i++){
+				if(i==0){
+					imag1 = req.files[i].filename;
+					console.log(imag1);
+				}else if(i==1){
+					imag2 = req.files[i].filename;
+				}else if(i==2){
+					imag3 = req.files[i].filename;
+				}else if(i==3){
+					imag4 = req.files[i].filename;
+				}
+			}
+		}
+			const changedProduct = await Product.findByPk(req.params.id);
+			let ver = req.body;
+			//console.log(ver);
+			await changedProduct.update(req.body);
+			await changedProduct.update(
+				{ images: imag1 }, //what going to be updated
+				{ where: { id: req.params.id }})
+			res.redirect("/");
+           
+            
+        }catch(error){
+            console.log(error);
+        }
+/* 
 		let codigo1 = req.params.id;
 		console.log(codigo1);
 		let selectedProd1 = products.find(producto => producto.id == codigo1);
@@ -176,25 +244,39 @@ const controller = {
 		
 		
 		products[selectedProd1.id-1]= updProduct;
-		/* console.log(products); */
+		
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2)); 
-		res.redirect("/products/" + req.params.id + "/edit");
+		res.redirect("/products/" + req.params.id + "/edit"); */
 	},
 
 	// Delete - Delete one product from DB
-	destroy : (req, res) => {
-		let idToDelete = req.params.id;
+	destroy : async(req, res) => {
+		try{
+            //movId=req.params.id;
+            //console.log("en delete");
+            const toDelete = await Product.findByPk(req.params.id);
+            await toDelete.destroy();
+            /* await changedMovie.destroy({
+                where :{ id : req.params.id}
+            });*/
+            res.redirect("/"); 
+            
+        }catch(error){
+            console.log(error);
+        }
+
+		/* let idToDelete = req.params.id;
 		console.log(idToDelete);
 
 		/* let updatedDB = products.filter(product => product.id != idToDelete); */
-		var updatedDB = products;
+		/* var updatedDB = products;
 		updatedDB.splice(idToDelete-1,1);
 		for(i=idToDelete ;i <=updatedDB.length;i++){
 			updatedDB[i-1].id=Number(i);
 		}
 		console.log(updatedDB);
-		fs.writeFileSync(productsFilePath, JSON.stringify(updatedDB,null,2));
-		res.redirect("/");
+		fs.writeFileSync(productsFilePath, JSON.stringify(updatedDB,null,2)); */
+		
 	},
 	// carrito de compras
 	mycart : (req, res) => {
