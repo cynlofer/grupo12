@@ -122,3 +122,18 @@
 
 }
 
+@media (min-width: 375px) {
+    .footerContainer{
+        width: 100%;
+    }
+}
+@media (min-width: 768px) {
+    .footerContainer{
+        width: 100%;
+    }
+}
+@media (min-width: 1024px) {
+    .footerContainer{
+        width: 100%;
+    }
+}
