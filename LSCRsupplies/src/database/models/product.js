@@ -5,15 +5,15 @@ module.exports =(sequelize,DataTypes)=>{
         name : DataTypes.STRING,
         descripcion : DataTypes.STRING,
         images : DataTypes.STRING,
-        Brands_brandid: DataTypes.INTEGER,
+        brand_id: DataTypes.INTEGER,
         Clasifications_clasificationid : DataTypes.INTEGER,
         price : DataTypes.INTEGER
     }, 
     {
         timestamps: false
     })
-   /*  Product.associate = (models =>{
+    Product.associate = (models =>{
     Product.belongsTo(models.Brand);
-    }) */
+    })
     return Product;
     }

@@ -29,7 +29,7 @@ const controller = {
 	// Detail - Detail from one product
 	detail: async(req, res) => {
 	try{
-		const prod_detal = await Product.findByPk(req.params.id);
+		const prod_detal = await Product.findByPk(req.params.id,{include:{all:true}});
 		res.render('productDetail',{producto : prod_detal});
 		
 		
@@ -76,11 +76,11 @@ const controller = {
 			}
 		}
 		 
-		const newProduct = await Product.create(req.body)
-		//console.log(newProduct);
+		const newProduct = await Product.create(req.body);
+		console.log(newProduct);
 		await newProduct.update(
 			{ images: imag1 }, //what going to be updated
-			{ where: { id: (newProduct.productid) }})
+			{ where: { id: (newProduct.id) }})
 
 
 		//console.log(req.body);

@@ -8,8 +8,8 @@ module.exports= (sequelize,DataTypes)=>{
         timestamps: false
     })
 
-    /* Brand.associate = (models =>{
+    Brand.associate = (models =>{
     Brand.hasMany(models.Product);
-    }) */
+    })
     return Brand;
     }
