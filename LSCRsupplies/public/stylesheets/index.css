@@ -4,13 +4,18 @@
   padding: 0;
   list-style: none;
 }
+.container_general{
+	background-color:rgb(228, 213, 185,0.3);
+
+	padding: 60px;
+}
 
 .container {
 	width: 100%;
 	font-family:'Raleway', sans-serif;
 	color: #36465d;
 	/*background-image: url("../images/fondo-footer.png");*/
-	background-color:rgb(228, 213, 185,0.3);
+
 }
 
 .header {

@@ -43,9 +43,9 @@
 .productTitle{
     font-size: 1.3em;
     font-weight: 400;
-    color: black;
-    
+    color: black; 
 }
+
 .head_row{
     
     display: flex;
