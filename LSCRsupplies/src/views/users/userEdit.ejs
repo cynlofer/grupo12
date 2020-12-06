@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Include Head -->
+<%- include('partials/headRegistro', {title: 'Edita tu registro!'}) %>
+<body>
+	<!-- Header -->
+	<%- include('partials/Header') %>
+  <!-- /Header -->
+    <!-- Main div del sitio. -->
+    <div class="container">
+
+        <!--formulario de registro-->
+  <section class=formulario__registro>  
+    <div class="formulario">
+       <div class="container__titulo">
+         <p>Edita tus datos de Registro</p>
+       </div>    
+       
+    <section class="grid__container">
+    
+
+   <!--datos para la edicion-->
+   <div class= "datos">  
+          <form action="/users/edit/<%= userToEdit.userId%> ?_method=PUT" method="post" enctype="multipart/form-data">
+
+            <p>
+               <label for="first_name">Nombre:</label><br>
+              <Input type="text" name="first_name" value="<%=user.first_name%>">
+            </p>
+       
+            <p>
+               <label for="last_name">Apellido:</label><br>
+              <Input type="text" name="last_name" value="<%=user.last_name%>">
+              </p>
+            
+            <p>
+               <label for="email">Email:</label><br>
+              <Input type="email" name="email" value="<%=user.email%>">
+           </p>
+          
+           <p>
+               <label for="password">Contraseña:</label><br>
+              <Input type="password" name="password" value="<%=user.password%>">
+           <p>
+<!-- 
+            <p>
+               <label for="contraseña">Repetir contraseña:</label><br>
+               <Input type="password" name="repetir__contraseña" required>
+            <p>
+            
+           
+           <p>
+              
+              <h5 class="checkbox__terminos__input">He leído y acepto Los terminos y condiciones</h5>
+              <input  type="checkbox" name="register__terminos" value="">
+           </p>
+
+           <p>
+               <h5 class="checkbox__newsletter">Me gustaria recibir noticias sobre productos de LCS Supplies. </h5>
+               <input  type="checkbox" name="newsletter" value="">
+               
+           </p> -->
+
+         <!--recaptcha-->
+
+         <!-- <script src='https://www.google.com/recaptcha/api.js'></script>
+      
+   <div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div> -->
+   <!--Botton Registrarme-->
+<div class="registrarme">
+   <button class="boton__registrarme" type="submit" id="registro" label= "Registrarme">
+    <span class="registrarme" >Confirmar</span>
+   </form>
+</button>
+</div>
+</div>
+<!--Imagen LCS Supplies-->
+
+<div class="imagen">
+
+   <img class= "register__image" src="/images/imagen_register.png" alt="Imagen LCS Supplies" width="450px" heigth= "450px">
+
+   
+</div>
+</section>
+       
+</section>
+
+  
+</section>      
+
+  <!-- Footer del sitio-->
+  <%- include('partials/footer') %>
+  <!-- /footer -->
+</body>
+</html>
