@@ -39,11 +39,42 @@ const usersController = {
           }
       },
       
-      /* GET login */
+      /* GET login revisar*/
       login: (req, res, next) => {
       res.render('userlogin');
       },
   
+      /* GET user edit revisar */  
+      edit: async (req, res,next) => {
+        try {
+        console.log(req.params.id);
+        const userToEdit = await User.findByPK(req.params.id)
+        res.render ("user/userEdit",{userToEdit:userToEdit});
+                      
+        }catch(error){
+          console.log(error);
+        }
+      
+      }
+
+      /* POST user edit. REVISAR linea 61 a 74*/
+    //   actualizar: async (req, res, next) => {
+    //     try {
+    //     const userToEdit = await User.update(req.params.id)
+    //       {first_name:req.body.first_name,
+    //       //last_name:req.body.last_name,
+    //       //email:req.body.email,
+    //       //password:req.body.password}; // lo que actualizo
+    //       //where:{id:req.params.id}
+    //   res.redirect ('userEdit')+req.params.id; 
+    
+    // }catch(error){
+    //   console.log(error);
+    
+    // };
+
+
+
       /* POST login */
       // processLogin: async (req, res, next) => {
       // try {
@@ -76,15 +107,8 @@ const usersController = {
         // }
       // },
 
-      edit: (req, res, next) => {
-      res.render ('useredit');
-      },
-
-      /* POST user edit. */
-      edit: (req, res, next) => {
-      res.redirect ('useredit'); 
-      }
-};
+     
+    };
 
 
 module.exports = usersController;

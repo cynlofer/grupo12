@@ -21,4 +21,9 @@ router.get('/userlogin', usersController.login); // User login *GET*
 router.get ('/users/edit/:id', usersController.edit) // User edit *GET*
 router.put ('/users/edit/:id', usersController.edit) // User edit *PUT*
 
+router.get ('/edit/:id', usersController.edit) // User edit *GET* revisar
+router.put ('/edit/:id', usersController.actualizar) // User edit *PUT* revisar
+
+
 module.exports = router;
+
