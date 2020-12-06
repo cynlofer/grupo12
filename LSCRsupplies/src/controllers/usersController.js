@@ -55,20 +55,49 @@ const usersController = {
           console.log(error);
         }
       
-      }
+      },
 
       /* POST user edit. REVISAR linea 61 a 74*/
+
+      //codigo Lucas
+      actualizar: async (req, res, next) => {
+        try {
+          const userID = req.params.id;
+          const saveChanges = await User.findByPK(userID);
+
+          // Estas dos opciones son lo mismo: 
+          // Opcion 1 (mas corta, pero mas general)
+          // await saveChanges.update(req.body) // opcion 1
+
+          // Opcion 2 (mas larga, pero mas granular a exactamente lo que uno quiere updatear)
+          // await saveChanges.update({
+          //   first_name: req.body.first_name,
+          //   last_name: req.body.last_name,
+          //   email: req.body.email,
+          //   password: req.body.password
+          // }) // opcion 2
+
+          // Revisa ambos codigos y fijate si ves las diferencias y lo vemos :D
+        } catch(error){
+          console.log(error);
+        }
+      },
+
+    //   //codigo original
     //   actualizar: async (req, res, next) => {
     //     try {
-    //     const userToEdit = await User.update(req.params.id)
-    //       {first_name:req.body.first_name,
-    //       //last_name:req.body.last_name,
-    //       //email:req.body.email,
-    //       //password:req.body.password}; // lo que actualizo
-    //       //where:{id:req.params.id}
-    //   res.redirect ('userEdit')+req.params.id; 
+    //     const userToEdit = await User.update(req.params.id);
+
+    //       first_name: req.body.first_name,
+    //       last_name: req.body.last_name,
+    //       email: req.body.email,
+    //       password: req.body.password}, // lo que actualizo
+    //       where:
+    //       {id: req.params.id}
+
+    //     res.redirect ('userEdit')+req.params.id; 
     
-    // }catch(error){
+    //     } catch(error){
     //   console.log(error);
     
     // };
