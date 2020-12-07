@@ -14,6 +14,10 @@ module.exports =(sequelize,DataTypes)=>{
     })
     Product.associate = (models =>{
     Product.belongsTo(models.Brand);
+    Product.belongsToMany(models.Color,{
+        as: "colores",
+        through : "color_products"
+    })
     })
     return Product;
     }

@@ -7,6 +7,10 @@ module.exports= (sequelize,DataTypes)=>{
     {
         timestamps: false
     })
-
+    Color.associate= models => {
+        Color.belongsToMany(models.Product,{
+            through : "color_products"
+        })
+    }
     return Color;
     }
