@@ -10,7 +10,7 @@ const usersController = require('../controllers/usersController');
 
 // ************ Available Routes ************
 
-router.get('/', usersController.index); // Main /users 
+// router.get('/', usersController.index); // Main /users 
 
 router.get('/register', usersController.register); // User registration *GET*
 router.post('/register', usersController.saveUser); // User registration *POST*
@@ -18,8 +18,8 @@ router.post('/register', usersController.saveUser); // User registration *POST*
 router.get('/userlogin', usersController.login); // User login *GET*
 //router.post('/userlogin', usersController.processLogin); // User login *POST*
 
-router.get ('/users/edit/:id', usersController.edit) // User edit *GET*
-router.put ('/users/edit/:id', usersController.edit) // User edit *PUT*
+// router.get ('/users/edit/:id', usersController.edit) // User edit *GET*
+// router.put ('/users/edit/:id', usersController.edit) // User edit *PUT*
 
 router.get ('/edit/:id', usersController.edit) // User edit *GET* revisar
 router.put ('/edit/:id', usersController.actualizar) // User edit *PUT* revisar

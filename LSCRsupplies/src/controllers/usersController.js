@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const fs = require("fs");
+const bcrypt = require('bcryptjs');
 var {path} = require('../app');
 const path1 = require ("path");
 var {body, validationResult, check} = require ('express-validator');
@@ -17,11 +18,6 @@ const {Product, Brand, User}= require("../database/models");
 const {Op} = require('sequelize');
 
 const usersController = {
-      /* GET users listing. */
-      index: (req, res, next) => {
-      res.send('respond with a resource');
-      },
-
       /* GET register. */
       register: (req, res, next) => {
       res.render('register')
@@ -29,25 +25,34 @@ const usersController = {
 
       /* POST register */
       saveUser: async (req, res, next) => {
-      try {
-            console.log(req.body);
-            const newUser = await User.create(req.body)
+        // Does the email already exists in the DB? 
+        try {
+          let newUser = req.body;
+          let newUserEmail = req.body.email;
+          let checkExistingEmail = await User.findAll(
+            {where: 
+              {email: newUser.email}
+            })
+          if (checkExistingEmail == "") {
+            await User.create(newUser);
             res.redirect('/');
-                        
-          }catch(error){
-            console.log(error);
+          } else {
+            res.render("register", {allData: newUser, errorMsg: "El email ya se encuentra registrado"});
           }
+          } catch (error) {
+            console.log(error)
+        }
       },
       
-      /* GET login revisar*/
+      /* GET login*/
       login: (req, res, next) => {
       res.render('userlogin');
       },
   
-      /* GET user edit revisar */  
+      /* GET user edit */  
       edit: async (req, res,next) => {
         try {
-        console.log(req.params.id);
+        // console.log(req.params.id);
         const userToEdit = await User.findByPK(req.params.id)
         res.render ("user/userEdit",{userToEdit:userToEdit});
                       
@@ -58,8 +63,6 @@ const usersController = {
       },
 
       /* POST user edit*/
-
-  
       actualizar: async (req, res, next) => {
         try {
           const userID = req.params.id;
@@ -69,50 +72,13 @@ const usersController = {
          first_name: req.body.first_name,
          last_name: req.body.last_name,
          email: req.body.email,
-         password: req.body.password
+         password: bcrypt.hashSync(req.body.password, 8)
         }) 
 
         } catch(error){
           console.log(error);
         }
       },
-
-
-
-
-      /* POST login */
-      // processLogin: async (req, res, next) => {
-      // try {
-      //       console.log(req.body);
-      //       const loginUser = await User.findAll({
-      //         where: {
-      //           email: {[Op.eq]: 'email'},
-      //           password: {[Op.eq]: 'password'}
-      //         }
-      //       })
-      //       res.send(loginUser);
-                      
-      //     }catch(error){
-      //     console.log(error);
-      //   }
-
-        // let usuarios = leerJSON();
-
-        // let usuarioEncontrado = usuarios.find(usuario => usuario.email == req.body.email);
-
-        // if (usuarioEncontrado != undefined){
-        //   let emailUsuarioEncontrado = usuarioEncontrado.email;
-        //   req.session.email = emailUsuarioEncontrado;
-        //   req.session.email = emailUsuarioEncontrado;
-        //   if(req.body.rememberMe != undefined){
-            
-        //     res.cookie("recordarme", usuarioEncontrado.email, {maxAge : 1000*60*60});
-      
-        //   }
-        // }
-      // },
-
-     
     };
 
 

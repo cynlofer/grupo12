@@ -26,20 +26,25 @@
    <!--datos para registro-->
    <div class= "datos">  
           <form action="/users/register" method="post" name="formulario__registro">
-
+            <% if (typeof errorMsg != "undefined") { %>
+               <p style="color: orangered"><%=errorMsg%></p>
+           <% } %> 
             <p>
                <label for="first_name">Nombre:</label><br>
-              <Input type="text" name="first_name" maxlength="45" required>
+              <Input type="text" name="first_name" maxlength="45" required 
+              <% if (typeof allData != "undefined"){ %>value="<%=allData.first_name%>"<%}%>>
             </p>
        
             <p>
                <label for="last_name">Apellido:</label><br>
-              <Input type="text" name="last_name" maxlength="45" required>
+              <Input type="text" name="last_name" maxlength="45" required
+              <% if (typeof allData != "undefined"){ %>value="<%=allData.last_name%>"<%}%>>
               </p>
             
             <p>
                <label for="email">Email:</label><br>
-              <Input type="email" name="email" maxlength="30" value="" required>
+              <Input type="email" name="email" maxlength="30" value="" required
+              <% if (typeof allData != "undefined"){ %>value="<%=allData.email%>"<%}%>>
            </p>
           
            <p>
