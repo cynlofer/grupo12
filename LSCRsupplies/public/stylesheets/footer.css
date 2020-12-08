@@ -10,9 +10,14 @@
 .footerContainer {
     background-image: url("/images/fondo-footer.png");
     background-size: cover;
-    display: block;
+    display: flex; 
     width: 100%;
     text-align: center;
+    flex-direction: column;
+}
+.backToTop {
+    width: 100%;
+    display: flex; 
 }
 
 .topButton {
@@ -33,7 +38,7 @@
     display: flex;
     flex-flow: row wrap;
     width: 100%;
-    margin-top: 15px;
+    padding: 20px;
 }
 
 .footerTitle {
@@ -41,100 +46,97 @@
     ;
 }
 
-.socialMedia {
+.titulosFooter {
     width: 25%;
     text-transform: capitalize;
     color: #36465D;
+    display: flex;
+    flex-wrap: wrap;
 }
-
+.titulosFooter .mediosPago img{
+    width: 100%;
+    margin: 0%;
+}
+.titulosFooter h4 {
+    width: 100%;
+    height: 10vh;
+}
 .footerMenu a {
     text-decoration: none;
     width: 100%;
     color: #36465D;
 }
 
-.aboutUs {
-    width: 25%;
-    text-transform: capitalize;
-    list-style-type: none;
-    color: #36465D;
-}
-
-.aboutUs li {
+.titulosFooter li {
     width: 100%;
     padding: 2px;
     color: #36465D;
 }
 
-.ayudaFooter {
-    width: 25%;
-    text-transform: capitalize;
-    list-style-type: none;
-    color: #36465D;
-}
 
-.ayudaFooter li {
-    width: 100%;
-    padding: 2px;
-    color: #36465D;
-}
-
-.pagosFooter {
-    width: 25%;
-    text-transform: capitalize;
-}
-
-.mediosPago {
-    width: 100%;
-    text-transform: capitalize;
-    margin-bottom: 15px;
-}
-
-.mediosPago img{
+.titulosFooter img {
     display: flex;
     margin: 10px 0px 10px 45px;
 }
-
-.mediosEnvio{    
+.titulosFooter ul {
     width: 100%;
-    text-transform: capitalize;
-    margin-bottom: 15px;
+    margin: 0%;
+    padding: 0%;
 }
-
-.mediosEnvio img{
+.mediosEnvio img {
     display: flex;
     margin: 10px 0px 10px 40px;
     width: 60%;
 }
 
-
-@media(max-width:600px){
-
-
-.mediosPago img{
-    display: flex;
-    margin: 1px 0px 10px 30px;
-    width: 60%;
-}
-
-.footerContainer{
-    padding: 10px;
-}
-
-}
-
-@media (min-width: 375px) {
+@media (min-width: 320px) {
     .footerContainer{
         width: 100%;
+        font-size: 13px;
+        padding: 0%;
+    }
+    .footerMenu{
+        padding: 10px;
+    }
+    .titulosFooter ul li{
+        padding: 8px;
+    }
+    .mediosEnvio img, .mediosPago img {
+        display: none;
+    }
+    .mediosEnvio h4, .mediosPago h4 {
+        padding: 20px;
     }
 }
-@media (min-width: 768px) {
+
+@media (min-width:768px){
     .footerContainer{
         width: 100%;
+        font-size: 15px;
+        padding: 0%;
+        height: 60vh;
+    }
+    .footerMenu{
+        padding: 12px;
+    }
+    .titulosFooter {
+        height: 40vh;
+    }
+    .titulosFooter ul li{
+        padding: 10px;
+    }
+    .mediosEnvio img, .mediosPago img {
+        display: flex;
+    }
+    .mediosEnvio h4, .mediosPago h4 {
+        padding-bottom: 5px;
     }
 }
+
 @media (min-width: 1024px) {
     .footerContainer{
         width: 100%;
+        font-size: 20px;
+        height: 60vh;
     }
 }

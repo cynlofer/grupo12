@@ -5,67 +5,17 @@
   list-style: none;
 }
 
-.container {
+
+/*Banner Central*/ 
+.containerIndex {
+	display: flex;
+	flex-wrap: wrap;
 	width: 100%;
 	font-family:'Raleway', sans-serif;
 	color: #36465d;
 	/*background-image: url("../images/fondo-footer.png");*/
 
 }
-
-.header {
-	padding-top: 2px;
-	padding-bottom: 2px;
-	border:1px solid #E97E5A;
-	/*border:1px solid rgb(51, 153, 204);*/
-	/*background-color: rgb(51, 153, 204, 0.4);*/
-	background-color: #E4D5B9;
-	border-radius: 2px;
-}
-
-.logo {
- 
-  display: flex;
-  margin-top: -2px;
-  background-color:white;
-  padding: 10px;
-
-}
-
-.main-nav {
-	display: flex;
-	flex-flow: column;
-}
-.main-nav a {
-	padding: 10px 15px;
-	text-transform: uppercase;
-	text-align: center;
-	display: block;
-	transition: all 1s;
-}
-
-.main-content {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-  }
-  
-a {
-	text-decoration: none;
-  }
-
-/*.liMenu{
-	border-top:1px solid #E97E5A;
-}*/
-
-.nav-bar {
-	order: 0;
-}
-
-.login-bar {
-	order: -1;
-}
-
 .bannerOfertas {
 	display: none;
 }
@@ -153,7 +103,7 @@ a {
 }
 
 
-@media (min-width: 1025px) {
+/*@media (min-width: 1025px) {
 	.header {
 		display: flex; 
 		background-image: url("../images/fondo-header.png");
@@ -196,7 +146,7 @@ a {
 	.login-content {
 		display: flex;
 	}
-
+*/
 	.main-nav a:hover {
 		/*background:#EEC59A;*/
 		border:1px solid rgb(51, 153, 204);
@@ -288,4 +238,3 @@ a {
 	}
 	
 
-}
