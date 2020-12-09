@@ -30,8 +30,20 @@ const controller = {
 	}
 	},
 	// create - Form to Edit
-	create: (req, res) => {
-		res.render ('products/productUp');
+	create: async(req, res) => {
+		try{
+			const productToEdit = await Product.findByPk(req.params.id,{include:{all:true}});
+			const brand = await Brand.findAll();
+			const colores= await Color.findAll();
+			const payment= await Payment.findAll();
+			const shipping = await Deliverie.findAll();
+			//res.send(productToEdit);
+			//res.render("products/productsEdit", {productToEdit : productToEdit,brand,colores,payment,shipping });
+			res.render ('products/productUp',{productToEdit : productToEdit,brand,colores,payment,shipping });
+		}catch(error){
+			console.log(error);
+		}
+		
 	},
 
 	// Create -  Method to store
@@ -58,7 +70,10 @@ const controller = {
 			}
 		}
 		const newProduct = await Product.create(req.body);
-		console.log(newProduct);
+		await newProduct.addColores(req.body.colores);
+		await newProduct.addMetodoPago(req.body.metodoPago);
+		await newProduct.addShipping(req.body.shipping);
+		//console.log(newProduct);
 		await newProduct.update(
 			{ images: imag1 }, //what going to be updated
 			{ where: { id: (newProduct.id) }})
@@ -79,7 +94,6 @@ const controller = {
 		}catch(error){
 			console.log(error);
 		}
-		
 	},
 	// Update - Method to update
 	update: async(req, res) => {
@@ -118,8 +132,6 @@ const controller = {
 				{ images: imag1 }, //what going to be updated
 				{ where: { id: req.params.id }})
 			res.redirect("/");
-           
-            
         }catch(error){
             console.log(error);
         }
@@ -128,14 +140,16 @@ const controller = {
 	// Delete - Delete one product from DB
 	destroy : async(req, res) => {
 		try{
-            const toDelete = await Product.findByPk(req.params.id);
+			const toDelete = await Product.findByPk(req.params.id,{include:{all:true}});
+			await toDelete.removeColores(toDelete.colores);
+			await toDelete.removeMetodoPago(toDelete.metodoPago);
+			await toDelete.removeShipping(toDelete.shipping);
             await toDelete.destroy();
             res.redirect("/"); 
             
         }catch(error){
             console.log(error);
         }
-
 	},
 	// carrito de compras
 	mycart : (req, res) => {

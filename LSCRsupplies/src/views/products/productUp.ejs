@@ -27,8 +27,8 @@
                 <!-- precio del producto / stock / codigo -->
                 <div class="colum_1 colum_D6 disp_flex wrap_">
                     <article class="article_stock_cod">
-                        <label for="codArt  " class="formLabel">Codigo Producto:</label>
-                        <input type="text" id="codArt" required name="codArt" placeholder="Ej.#1234" class="article-input">
+                        <label for="codigo  " class="formLabel">Codigo Producto:</label>
+                        <input type="text" id="codigo" required name="codigo" placeholder="Ej.#1234" class="article-input">
                     </article>
                     <article class="article_stock_cod">
                         <label for="stock" class="formLabel">Stock:</label>
@@ -39,8 +39,8 @@
                         <input type="number" id="price" name="price" placeholder="Precio Original" class="article-input">
                     </article>
                     <article class="article_stock_cod">
-                        <label for="price_prom" class="formLabel">Precio Promocional:</label>
-                        <input type="number" id="price_prom" name="price_prom" placeholder="Precio Promocional" class="article-input">
+                        <label for="promocion" class="formLabel">Precio Promocional:</label>
+                        <input type="number" id="promocion" name="promocion" placeholder="Precio Promocional" class="article-input">
                     </article>
                 </div>
                 <!-- FIN precio del producto y stock -->
@@ -72,7 +72,7 @@
                 <!-- </div> -->
                 <!-- FIN peso /dimensiones/envio -->
                 <!-- categoria del producto -->
-                <div class="colum_1 colum_D6">
+                <!-- <div class="colum_1 colum_D6">
                     <div>
                         <label class="formLabel" form="">Seleccion la Categoria:</label>
                     </div>
@@ -85,11 +85,43 @@
                         <input class="botonesProdUp " type="checkbox" name="cartuchera" value="cartuchera">Cartucheras<br>
                         <input class="botonesProdUp  " type="checkbox" name="otros" value="otros">Otros<br>
                     </div>  
-                </div>
+                </div> -->
                 <!-- FIN categoria del producto -->
                 <!-- variantes -->
-                <div class="colum_1 colum_D6 marginBotom">
-                    <p class="formLabel">Variantes</p>
+                <div class="variante">
+                    <section class="borderPc">
+                        <label for="colores" class="form-label">Color:</label>
+						<select name="colores" id="" class="form-input " multiple>
+							<% colores.forEach(color => {%>
+								<option value = '<%= color.id%>' ><%= color.name %></option> 
+							<%})%>
+						</select>
+                    </section>
+                    <section class="borderPc">
+                        <label for="brand_id" class="form-label">Marca:</label>
+						<select name="brand_id" id="" class="form-input ">
+							<%brand.forEach(brand => {%>
+								<option value = '<%= brand.id%>' ><%= brand.name %></option>
+							<%})%>
+						</select>
+                    </section>
+                    <section class="borderPc">
+                        <label for="metodoPago" class="form-label">Metodo Pago:</label>
+						<select name="metodoPago" id="" class="form-input " multiple>
+							<% payment.forEach(metodo => {%>
+								<option value = '<%= metodo.id%>' ><%= metodo.name %></option> 
+							<%})%>
+						</select>
+                    </section>
+                    <section class="borderPc">
+                        <label for="shipping" class="form-label">Envio:</label>
+						<select name="shipping" id="" class="form-input " multiple>
+							<% shipping.forEach(envio => {%>
+								<option value = '<%= envio.id%>' ><%= envio.name %></option>
+							<%})%>
+						</select>
+                    </section>
+                    <!-- <p class="formLabel">Variantes</p>
                     <fieldset class="borderNone wrap_ disp_flex ancho_100 just_bet">
                         Color: <input class="field_volumen marginBotom marg_left_var_color" name='color1' type='text' tabindex='5'>
                         <input class="field_volumen marginBotom"  name='color2' type='text' tabindex='6'>
@@ -97,7 +129,7 @@
                         <input class="field_volumen marginBotom ocultar"  name='color4' type='text' tabindex='8'>
                         <input class="field_volumen marginBotom ocultar "  name='color5' type='text' tabindex='9'>
                         <input class="field_volumen marginBotom ocultar"  name='color6' type='text' tabindex='10'>
-                    </fieldset>
+                    </fieldset> -->
                     <!-- <fieldset class="borderNone wrap_ disp_flex ancho_100 just_bet">
                         Material: <input class="field_volumen marginBotom" name='material1' type='text' tabindex='11'>
                         <input class="field_volumen marginBotom"  name='material2' type='text' tabindex='12'>
@@ -106,14 +138,14 @@
                         <input class="field_volumen marginBotom ocultar"  name='material5' type='text' tabindex='15'>
                         <input class="field_volumen marginBotom ocultar"  name='material6' type='text' tabindex='16'>
                     </fieldset> -->
-                    <fieldset class="borderNone wrap_ disp_flex ancho_100 just_bet ">
+                    <!-- <fieldset class="borderNone wrap_ disp_flex ancho_100 just_bet ">
                         Marca: <input class="field_volumen marginBotom marg_left_var_marca " name='marca1' type='text' tabindex='17'>
                         <input class="field_volumen marginBotom"  name='marca2' type='text' tabindex='18'>
                         <input class="field_volumen marginBotom"  name='marca3' type='text' tabindex='19'>
                         <input class="field_volumen marginBotom ocultar"  name='marca4' type='text' tabindex='20'>
                         <input class="field_volumen marginBotom ocultar"  name='marca5' type='text' tabindex='21'>
                         <input class="field_volumen marginBotom ocultar"  name='marca6' type='text' tabindex='22'>
-                    </fieldset>
+                    </fieldset> -->
                 </div>
                 <!--FIN  variantes -->
                 <!-- seccion Tags -->
