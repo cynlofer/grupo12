@@ -27,20 +27,20 @@
                 <!-- precio del producto y stock -->
                 <div class="colum_1 colum_D6 disp_flex wrap_">
                     <article class="article_stock_cod">
-                        <label for="codArt" class="formLabel">Codigo Producto:</label>
-                        <input type="text" id="codArt" name="codArt" value="" placeholder="1234" class="article-input">
+                        <label for="codigo" class="formLabel">Codigo Producto:</label>
+                        <input type="text" id="codigo" name="codigo" value="<%= productToEdit.codigo %>" placeholder="<%= productToEdit.codigo %>" class="article-input">
                     </article>
                     <article class="article_stock_cod">
                         <label for="stock" class="formLabel">Stock:</label>
-                        <input type="number" id="stock" name="stock" value="" placeholder="1234" class="article-input">
+                        <input type="number" id="stock" name="stock" value="<%= productToEdit.stock %>" placeholder="<%= productToEdit.stock %>" class="article-input">
                     </article>
                     <article class="article_stock_cod">
                         <label for="price" class="formLabel">Precio del producto:</label>
                         <input type="number" id="price" name="price" value="<%= productToEdit.price %>" placeholder="<%= productToEdit.price %>" class="article-input">
                     </article>
                     <article class="article_stock_cod">
-                        <label for="price_prom" class="formLabel">Precio Promocional:</label>
-                        <input type="number" id="price_prom" name="price_prom" value="" placeholder="<%= productToEdit.price %>" class="article-input">
+                        <label for="promocion" class="formLabel">Precio Promocional:</label>
+                        <input type="number" id="promocion" name="promocion" value="<%= productToEdit.promocion %>" placeholder="<%= productToEdit.promocion %>" class="article-input">
                     </article>
                 </div>
                 <!-- FIN precio del producto y stock -->
@@ -72,25 +72,72 @@
                 </div> -->
                 <!-- FIN peso /dimensiones/envio -->
                 <!-- categoria del producto -->
-                <div class="colum_1 colum_D6">
+               <!--  <div class="colum_1 colum_D6">
                     <div>
                         <label class="formLabel" form="">Seleccion la Categoria:</label>
                     </div>
                     <div class="disp_flex wrap_">
                         <input type="checkbox" name="arteypintura" value="arteypintura">Artistica y Pintura<br>
-                        <input class="botonesProdUp" type="checkbox" name="escritura" value="escritura">Escritura<br>
+                        <input class="botonesProdUp" type="checkbox" name="escritura" value="escritura" pla>Escritura<br>
                         <input class="botonesProdUp" type="checkbox" name="papeleria" value="papeleria">Papeleria<br>
                         <input class="botonesProdUp" type="checkbox" name="geometria" value="geometria">Geometria<br>
                         <input class="botonesProdUp " type="checkbox" name="Pegamentos" value="Pegamentos">Pegamentos Y Cortantes<br>
                         <input class="botonesProdUp " type="checkbox" name="cartuchera" value="cartuchera">Cartucheras<br>
                         <input class="botonesProdUp  " type="checkbox" name="otros" value="otros">Otros<br>
                     </div>  
-                </div>
+                </div> -->
                 <!-- FIN categoria del producto -->
                 <!-- variantes -->
-                <!-- <div class="colum_1 colum_D6 marginBotom">
-                    <p class="formLabel">Variantes</p>
-                    <fieldset class="borderNone wrap_ disp_flex ancho_100 just_bet">
+                <div class="variante">
+                    <section class="borderPc">
+                        <label for="colores" class="form-label">Color:</label>
+						<select name="colores" id="" class="form-input " multiple>
+							<% colores.forEach(color => {%>
+								<% if (productToEdit.colores.some(colorprod=>colorprod.id == color.id)) { %>
+									<option value = '<%= color.id%>' selected ><%= color.name %></option>
+								<% } else { %>
+									<option value = '<%= color.id%>' ><%= color.name %></option>
+								<% } %> 
+							<%})%>
+						</select>
+                    </section>
+                    <section class="borderPc">
+                        <label for="brand_id" class="form-label">Marca:</label>
+						<select name="brand_id" id="" class="form-input ">
+							<%brand.forEach(brand => {%>
+								<% if (productToEdit.brand_id === brand.id) { %>
+									<option value = '<%= brand.id%>' selected ><%= brand.name %></option>
+									<% } else { %>
+									<option value = '<%= brand.id%>' ><%= brand.name %></option>
+								<% } %> 
+							<%})%>
+						</select>
+                    </section>
+                    <section class="borderPc">
+                        <label for="metodoPago" class="form-label">Metodo Pago:</label>
+						<select name="metodoPago" id="" class="form-input " multiple>
+							<% payment.forEach(metodo => {%>
+								<% if (productToEdit.metodoPago.some(pago=>pago.id == metodo.id)) { %>
+									<option value = '<%= metodo.id%>' selected ><%= metodo.name %></option>
+								<% } else { %>
+									<option value = '<%= metodo.id%>' ><%= metodo.name %></option>
+								<% } %> 
+							<%})%>
+						</select>
+                    </section>
+                    <section class="borderPc">
+                        <label for="shipping" class="form-label">Envio:</label>
+						<select name="shipping" id="" class="form-input " multiple>
+							<% shipping.forEach(envio => {%>
+								<% if (productToEdit.shipping.some(shipp=>shipp.id == envio.id)) { %>
+									<option value = '<%= envio.id%>' selected ><%= envio.name %></option>
+								<% } else { %>
+									<option value = '<%= envio.id%>' ><%= envio.name %></option>
+								<% } %> 
+							<%})%>
+						</select>
+                    </section>
+                    <!-- <fieldset class="borderNone wrap_ disp_flex ancho_100 just_bet">
                         Color: <input class="field_volumen marginBotom marg_left_var_color" name='color1' value="" type='text' tabindex='5'>
                         <input class="field_volumen marginBotom"  name='color2' value=" " type='text' tabindex='6'>
                         <input class="field_volumen marginBotom"  name='color3' value=" " type='text' tabindex='7'>
@@ -113,14 +160,14 @@
                         <input class="field_volumen marginBotom ocultar"  name='marca4' value=" " type='text' tabindex='20'>
                         <input class="field_volumen marginBotom ocultar"  name='marca5' value=" " type='text' tabindex='21'>
                         <input class="field_volumen marginBotom ocultar"  name='marca6' value=" " type='text' tabindex='22'>
-                    </fieldset>
-                </div> -->
+                    </fieldset> -->
+                </div> 
                 <!--FIN  variantes -->
                 <!-- seccion Tags -->
-                <!-- <div class="colum_1 colum_D6">
+                <div class="colum_1 colum_D6">
                     <label for="name" class="formLabel">Tags:</label>
                     <input type="text" id="tags" name="tags" value=" " placeholder=" " class="form-input">
-                </div> -->
+                </div> 
                 <!-- FIN seccion Tags -->
                 <!-- carga de Imagen -->
                 <div class="borderPc  diplay_imag ">

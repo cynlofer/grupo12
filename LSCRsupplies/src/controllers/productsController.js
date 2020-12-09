@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 //Sequelize 
-const {Product, Brand, Color}= require("../database/models");
+const {Product, Brand, Color, Deliverie, Payment}= require("../database/models");
 const {Op} = require('sequelize');
 //const { send } = require('process');
 //const {validationResult} = require ("express-validator");
@@ -15,21 +15,16 @@ const controller = {
                 order: [["id"]],
 			});
 			res.render('homeProducts',{products : productjson});
-			            
-        }catch(error){
+	    }catch(error){
             console.log(error);
         }
-		
 	},
 
 	// Detail - Detail from one product
 	detail: async(req, res) => {
 	try{
 		const prod_detal = await Product.findByPk(req.params.id,{include:{all:true}});
-		res.send(prod_detal);
-		//res.render('productDetail',{producto : prod_detal});
-		
-		
+		res.render('productDetail',{producto : prod_detal});
 	}catch(error){
 		console.log(error);
 	}
@@ -73,8 +68,13 @@ const controller = {
 	// Update - Form to edit
 	edit: async(req, res) => {
 		try{
-			const productToEdit = await Product.findByPk(req.params.id);
-			res.render("products/productsEdit", {productToEdit : productToEdit});
+			const productToEdit = await Product.findByPk(req.params.id,{include:{all:true}});
+			const brand = await Brand.findAll();
+			const colores= await Color.findAll();
+			const payment= await Payment.findAll();
+			const shipping = await Deliverie.findAll();
+			//res.send(productToEdit);
+			res.render("products/productsEdit", {productToEdit : productToEdit,brand,colores,payment,shipping });
 			
 		}catch(error){
 			console.log(error);
@@ -105,8 +105,14 @@ const controller = {
 				}
 			}
 		}
-			const changedProduct = await Product.findByPk(req.params.id);
-			let ver = req.body;
+			const changedProduct = await Product.findByPk(req.params.id,{include:{all:true}});
+			//let ver = req.body;
+			await changedProduct.removeColores(changedProduct.colores);
+			await changedProduct.addColores(req.body.colores);
+			await changedProduct.removeMetodoPago(changedProduct.metodoPago);
+			await changedProduct.addMetodoPago(req.body.metodoPago);
+			await changedProduct.removeShipping(changedProduct.shipping);
+			await changedProduct.addShipping(req.body.shipping);
 			await changedProduct.update(req.body);
 			await changedProduct.update(
 				{ images: imag1 }, //what going to be updated

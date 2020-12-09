@@ -33,6 +33,7 @@ const usersController = {
             {where: 
               {email: newUser.email}
             })
+          console.log(checkExistingEmail);
           if (checkExistingEmail == "") {
             await User.create(newUser);
             res.redirect('/');

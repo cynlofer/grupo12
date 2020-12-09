@@ -6,8 +6,10 @@ module.exports =(sequelize,DataTypes)=>{
         descripcion : DataTypes.STRING,
         images : DataTypes.STRING,
         brand_id: DataTypes.INTEGER,
-        Clasifications_clasificationid : DataTypes.INTEGER,
-        price : DataTypes.INTEGER
+        price : DataTypes.INTEGER,
+        codigo : DataTypes.INTEGER,
+        stock : DataTypes.INTEGER,
+        promocion : DataTypes.INTEGER
     }, 
     {
         timestamps: false
@@ -17,6 +19,18 @@ module.exports =(sequelize,DataTypes)=>{
     Product.belongsToMany(models.Color,{
         as: "colores",
         through : "color_products"
+    })
+    Product.belongsToMany(models.Payment,{
+        as: "metodoPago",
+        through : "payments_products"
+    })
+    Product.belongsToMany(models.Deliverie,{
+            as: "shipping",
+            through : "deliveries_products"
+    })
+    Product.belongsToMany(models.Categorie,{
+        as: "categorias",
+        through : "categories_products"
     })
     })
     return Product;
