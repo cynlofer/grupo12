@@ -1,11 +1,11 @@
 
-const {Product, Brand, Color, Deliverie, Payment}= require("../../database/models");
+const {Product, Brand, Color, Deliverie, Payment, salesDetail}= require("../../database/models");
 
 const controller = {
 index: async(req, res) => {
     try{
-        const productjson = await Product.findAll({
-            //order: [["id"]]
+        const productjson = await salesDetail.findAll({
+            order: [["id"]]
         });
         if (productjson.length >0) {
             let respuesta = {
@@ -17,13 +17,17 @@ index: async(req, res) => {
             
         }
         res.json(respuesta);
-    }
-//console.log(respuesta);
-        
+        }else{
+            res.status(400)
+            res.json({"message": "Tabla vacia"}) 
+            //res.status(204).send(); //no envia mensaje codigo 204
+            
+        }
+
     }catch(error){
         console.log(error);
     }
-},
+}
 };
 
 module.exports = controller;

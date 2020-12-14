@@ -37,8 +37,6 @@ const controller = {
 			const colores= await Color.findAll();
 			const payment= await Payment.findAll();
 			const shipping = await Deliverie.findAll();
-			//res.send(productToEdit);
-			//res.render("products/productsEdit", {productToEdit : productToEdit,brand,colores,payment,shipping });
 			res.render ('products/productUp',{productToEdit : productToEdit,brand,colores,payment,shipping });
 		}catch(error){
 			console.log(error);

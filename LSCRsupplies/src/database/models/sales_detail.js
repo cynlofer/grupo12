@@ -2,7 +2,7 @@ const {sequelize,DataTypes}= require("sequelize");
 
 module.exports= (sequelize,DataTypes)=>{
     const salesDetail = sequelize.define("salesDetail",{
-        promotional_code: DataTypes.INTEGER,
+        promo_code: DataTypes.INTEGER,
         products_productid: DataTypes.INTEGER,
         price_priceid: DataTypes.INTEGER,
         deliveries_deliveryid: DataTypes.INTEGER,
