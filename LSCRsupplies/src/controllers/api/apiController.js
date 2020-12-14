@@ -4,7 +4,7 @@ const {Product, Brand, Color, Deliverie, Payment, salesDetail}= require("../../d
 const controller = {
 index: async(req, res) => {
     try{
-        const productjson = await salesDetail.findAll({
+        const productjson = await Product.findAll({
             order: [["id"]]
         });
         if (productjson.length >0) {
