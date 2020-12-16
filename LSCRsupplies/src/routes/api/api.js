@@ -18,7 +18,7 @@ router.get('/banner/products',async(req,res)=>{
     //console.log(products);
     res.json(products.data)
 })
-router.get('/price/products',async(req,res)=>{
+router.get('/brands/products',async(req,res)=>{
     let products = await productsResource.getAll("/products/price")
     //console.log(products);
     res.json(products.data)
