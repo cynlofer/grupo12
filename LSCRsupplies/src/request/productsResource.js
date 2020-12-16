@@ -1,24 +1,13 @@
 const axios = require ('axios');
 const {url,timeout} = require('./defaults')
-const {products} = require ('../database/models')
+const {Products, Brand} = require ('../database/models')
 
 module.exports={
-    getAll(){
+    getAll(table){
         return axios({
-            timeout:6000,
-            method:'get',
-            url: url + 'products'
+            timeout,
+            method:'GET',
+            url: url + table
         })
     },
-
-    getPromo(){
-        const productsBanner = products.findAll
-        return axios({
-            timeout:6000,
-            method:'get',
-            url: url + 'products'
-        })
-    },
-
-    }
 }
