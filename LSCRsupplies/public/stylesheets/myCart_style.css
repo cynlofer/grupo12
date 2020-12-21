@@ -9,6 +9,36 @@
 /**{
     border:1px solid orangered !important;
 }*/
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+.container_0,.container_1,.container_2,.container_3,.container_4,.container_5{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+.container_2 .detalle__compra .cantidad{
+    width: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.cantidad_compra{
+    width: 50%;
+}
+.container_3 .codigo__promocion{
+    width: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    
+}    
+.codigo_promocion input{
+    width: 50%;
+}
 
 .logo {
  
@@ -117,7 +147,7 @@
     border-bottom: solid 1px #E4D5B9;
 }
 
-.cantidad input{
+.cantidad input,.codigo__promocion input{
     
     align-self: center;
     height: 25px;
@@ -201,21 +231,6 @@
     align-items: center;
 }
 
-.codigo__promocion{
-    display: flex;
-    align-items: center;
-}
-.codigo__promocion input{
-    height: 20px;
-    margin-left:8px;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
-    
-}
-.codigo__promo{
-    display: flex;
-}
 
 .container__4{
     font-family:'Raleway', sans-serif;

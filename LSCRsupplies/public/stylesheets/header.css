@@ -2,7 +2,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    list-style: none;
   }
  
 .header {
@@ -40,47 +39,56 @@
     padding: 10px;
     text-align: center; 
 }
-.main-nav a {
-	padding: 20px; 
-	text-transform: uppercase;
-	text-align: center;
-    transition: all 1s;
-    text-decoration: none;
-}
 
-.nav-bar {
-    order: 0;
-    width: 50%;
-    height: 100;
+.liMenu1{
     display: flex;
     flex-wrap: wrap;
-}
-.nav-bar ul, .login-bar ul {
+    box-sizing: border-box;
     width: 100%;
-    height: 100;
+    height: 40px; 
+}
+.liMenu2{
     display: flex;
     flex-wrap: wrap;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px; 
+}
+.liMenu1 a:hover,.liMenu2 a:hover {
+    background-color: #E4D5B9;
 }
 
-.login-bar {
-    order: -1;
-    width: 50%;
-    height: 100;
-    display: flex;
-    flex-wrap: wrap;
-}
-.li {
+.liMenu1 a, .liMenu2 a {
     padding: 10px;
-}
-.liMenu {
-    width: 100%;
+    text-decoration: none;
     text-align: center;
-    padding: 5px;
-    color: blue;
+    margin: auto;
+    font-size: 20px;
+    -moz-user-select: none; 
+}
+.login-content, .main-content{
+    display: flex;
+    flex-direction: wrap;
+    width: 50%;
+    flex-direction: column;
+    box-sizing: border-box;
+   
 }
 @media (min-width:320px){
     .header {
         font-size: 13px;
+    }
+    .liMenu {
+        width: 100%;
+        text-align: center;
+        padding: 5px;
+        color: blue;
+        display: flex;
+        flex-wrap: wrap;
+        height: 5vh;
+    }
+    .liMenu{
+        padding: 0;
     }
 }
 @media (min-width:481px) {

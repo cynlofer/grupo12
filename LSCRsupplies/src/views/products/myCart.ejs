@@ -2,17 +2,18 @@
 <html lang="es">
 <!-- Include Head -->
 <%- include('partials/headCart', {title: 'Mi Carrito'}) %>
-<body>
 	<!-- Header -->
 	<%- include('partials/Header') %>
   <!-- /Header -->
     <!-- Main div del sitio. -->
-    <div class="container">
+
+<div class="container">
   <!-- Detalle general de mi compra -->
-   <div>
-     <div class="container__0">
+   
+    <div class="container__0">
        <div class="opciones__entrega">
          <marquee class= behavior  direction="left" heigth="30px" scrolldelay="60" > Envíos por mensajería ó Correo Argentino </marquee>
+     </div>
      </div>
     <div class="container__1">
         <h1>Detalle de mi compra</h1>
@@ -38,8 +39,8 @@
             </section>
 
             <section class="cantidad">
-              <h2>Cantidad</h2><br>
-              <input id="cantidad_compra" type="number" min="0" step="1" name= "cantidad" >
+              <h2>Cantidad</h2>
+              <input class="cantidad_compra" type="number" min="0" step="1" name= "cantidad" >
               
             </section>
 
@@ -47,7 +48,7 @@
         </div>
       
       </div>
-    </div>
+    
 
     <div class="container__3">
         <section class="resumen_de_pago">
@@ -61,13 +62,10 @@
         <h2>Total</h2>
         <p>$462</p>
      </section>
-
-     
-
-      <div class="codigo__promocion">
+      <section class="codigo__promocion">
         <h3>Tenés un código de promoción?</h3>
-        <input id="codigo__promo" type="text" maxlength="10">
-      </div>
+        <input type="text" maxlength="10">
+      </section>
     </div>
 
 
@@ -91,12 +89,11 @@
           
         </section>
           
-          </div>
+        </div>
     </div>
-
-
     
-    </div>
+
+
      <!-- Editar compra -->
       <div class="container__5"> 
               <section class="seguir__comprando">
@@ -108,12 +105,10 @@
               </section>
 
 
-
+            </div>
       </div>
   <!-- Footer del sitio-->
   <%- include('partials/footer') %>
   <!-- /footer -->
-</body>
-</html>
 
 
