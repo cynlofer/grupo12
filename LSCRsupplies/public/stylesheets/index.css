@@ -147,15 +147,7 @@
 		display: flex;
 	}
 */
-	.main-nav a:hover {
-		/*background:#EEC59A;*/
-		border:1px solid rgb(51, 153, 204);
-	background: rgb(51, 153, 204, 0.4);
-		transform: scale(1.1);
-		/*border:1px solid #E4D5B9;*/
-		border-radius: 5px;
-		margin: 0px  10px;
-	}
+	
 
 	.bannerOfertas {
 		display: flex;

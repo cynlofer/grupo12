@@ -341,10 +341,5 @@ color: orange;
 		display: flex;;
 	}
 
-	.main-nav a:hover {
-		background:#EEC59A;
-		transform: scale(1.1);
-		border:1px solid #E4D5B9;
-	}
-
+	
 }
