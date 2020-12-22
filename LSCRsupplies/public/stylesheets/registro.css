@@ -105,6 +105,10 @@
 
 }
 
+.imgUser img{
+    width: 200px;
+}
+
 
 @media (min-width: 1025px){
 .grid__container{   

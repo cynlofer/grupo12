@@ -25,7 +25,7 @@
 
    <!--datos para registro-->
    <div class= "datos">  
-          <form action="/users/register" method="post" name="formulario__registro">
+          <form action="/users/register" method="post" name="formulario__registro" enctype="multipart/form-data">
             <% if (typeof errorMsg != "undefined") { %>
                <p style="color: orangered"><%=errorMsg%></p>
            <% } %> 
@@ -51,6 +51,11 @@
                <label for="password">Contraseña:</label><br>
               <Input type="password" name="password" maxlength="30" required>
            <p>
+            <p>
+               <input id="file" type="file" name="imagen" width="200px"/>
+               <hr>
+               <div class="imgUser" id="preview"></div>
+            </p>
 <!-- 
             <p>
                <label for="contraseña">Repetir contraseña:</label><br>
@@ -101,5 +106,25 @@
   <!-- Footer del sitio-->
   <%- include('partials/footer') %>
   <!-- /footer -->
+  <script>
+     document.getElementById("file").onchange = function(e) {
+  // Creamos el objeto de la clase FileReader
+  let reader = new FileReader();
+
+  // Leemos el archivo subido y se lo pasamos a nuestro fileReader
+  reader.readAsDataURL(e.target.files[0]);
+
+  // Le decimos que cuando este listo ejecute el código interno
+  reader.onload = function(){
+    let preview = document.getElementById('preview'),
+            image = document.createElement('img');
+
+    image.src = reader.result;
+
+    preview.innerHTML = '';
+    preview.append(image);
+  };
+}
+  </script>
 </body>
 </html>

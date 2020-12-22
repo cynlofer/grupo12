@@ -7,14 +7,9 @@ const bcrypt = require('bcryptjs');
 var {path} = require('../app');
 const path1 = require ("path");
 var {body, validationResult, check} = require ('express-validator');
-const usuariosFilePath = path1.join(__dirname, '../data/usuarios.json');
-
-const leerJSON= function(){
-  return JSON.parse(fs.readFileSync(usuariosFilePath, "utf-8"));
-};
 
 //Sequelize 
-const {Product, Brand, User}= require("../database/models");
+const {Product, User, Brand}= require("../database/models");
 const {Op} = require('sequelize');
 
 const usersController = {
@@ -28,15 +23,24 @@ const usersController = {
         // Does the email already exists in the DB? 
         try {
           let newUser = req.body;
+          console.log(newUser);
           let newUserEmail = req.body.email;
           let checkExistingEmail = await User.findAll(
             {where: 
               {email: newUser.email}
             })
-          console.log(checkExistingEmail);
           if (checkExistingEmail == "") {
-            await User.create(newUser);
-            res.redirect('/');
+            const resultado = validationResult(req);
+            if(resultado.isEmpty()){
+              const nuevoUser = await User.create(newUser);
+              await nuevoUser.update(
+                { image: req.file.filename }, //what going to be updated
+                { where: { id: (nuevoUser.id) }});
+              res.redirect('/');
+
+            } else {
+              res.render("register", {allData: newUser, errorMsg: "La extension de la imagen no es admitida"});
+            }
           } else {
             res.render("register", {allData: newUser, errorMsg: "El email ya se encuentra registrado"});
           }
@@ -53,10 +57,9 @@ const usersController = {
       /* GET user edit */  
       edit: async (req, res,next) => {
         try {
-        // console.log(req.params.id);
-        const userToEdit = await User.findByPK(req.params.id)
-        res.render ("user/userEdit",{userToEdit:userToEdit});
-                      
+        let useredit= req.params.id;
+        const userToEdit = await User.findByPk(useredit);
+        res.render ("userEdit",{userToEdit:userToEdit});
         }catch(error){
           console.log(error);
         }
@@ -67,19 +70,42 @@ const usersController = {
       actualizar: async (req, res, next) => {
         try {
           const userID = req.params.id;
-          const saveChanges = await User.findByPK(userID);
-
-         await saveChanges.update({
-         first_name: req.body.first_name,
-         last_name: req.body.last_name,
-         email: req.body.email,
-         password: bcrypt.hashSync(req.body.password, 8)
-        }) 
+          const saveChanges = await User.findByPk(userID);
+          await saveChanges.update({
+            id : userID,
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password, 8)
+           })
+          res.redirect("/"); 
 
         } catch(error){
           console.log(error);
         }
       },
+      processLogin: async (req, res, next) => {
+        try{ 
+          let newUser = req.body.email;
+          let checkExistingEmail = await User.findAll(
+            {where: 
+              {email: newUser}
+            });
+          if (checkExistingEmail[0] != undefined){
+            let emailUsuarioEncontrado = checkExistingEmail[0].email;
+            req.session.email = emailUsuarioEncontrado;
+            if(req.body.rememberMe != undefined){
+              res.cookie("recordarme", checkExistingEmail.email, {maxAge : 1000*60*60});
+            }
+          }else{
+            res.render("userlogin", {allData: newUser, errorMsg: " Email no existe (Registrese)"});
+          }
+        }
+        catch(error){
+          console.log(error);
+        }
+        res.redirect("/");
+      }
     };
 
 

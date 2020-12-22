@@ -6,15 +6,12 @@ module.exports =(sequelize, DataTypes)=>{
         first_name: DataTypes.STRING,
         last_name: DataTypes.STRING,
         email: DataTypes.STRING,
-        password: DataTypes.STRING
+        password: DataTypes.STRING,
+        image : DataTypes.STRING
     },  
     {
         timestamps: false
     })
 
-    /* Product.associate = (models =>{
-        Product.belongsTo(models.Brand);
-        
-    }) */
     return User;
     }
