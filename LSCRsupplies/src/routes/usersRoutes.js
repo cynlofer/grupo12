@@ -47,6 +47,8 @@ router.post('/userlogin', usersController.processLogin); // User login *POST*
 router.get ('/edit/:id', usersController.edit) // User edit *GET* revisar
 router.put ('/edit/:id', usersController.actualizar) // User edit *PUT* revisar
 
+//Logout
+router.get("/logout",usersController.logout) //cierra session
 
 module.exports = router;
 

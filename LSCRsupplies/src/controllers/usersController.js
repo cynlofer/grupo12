@@ -34,7 +34,9 @@ const usersController = {
             if(resultado.isEmpty()){
               const nuevoUser = await User.create(newUser);
               await nuevoUser.update(
-                { image: req.file.filename }, //what going to be updated
+                { image: req.file.filename,
+                  password: bcrypt.hashSync(req.body.password, 10)
+                 }, //what going to be updated
                 { where: { id: (nuevoUser.id) }});
               res.redirect('/');
 
@@ -50,10 +52,21 @@ const usersController = {
       },
       
       /* GET login*/
-      login: (req, res, next) => {
-      res.render('userlogin');
+      login:async (req, res, next) => {
+        try{
+           if(req.session.email){
+           let usuarioLogeado = await User.findAll(
+           {where: 
+             {email: req.session.email}
+            });
+             res.render("userEdit",{userToEdit:usuarioLogeado[0]});
+            }else{
+                res.render('userlogin');
+             }
+        }catch(error){
+             console.log(error);
+        }
       },
-  
       /* GET user edit */  
       edit: async (req, res,next) => {
         try {
@@ -76,7 +89,7 @@ const usersController = {
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 8)
+            password: bcrypt.hashSync(req.body.password, 10)
            })
           res.redirect("/"); 
 
@@ -87,25 +100,37 @@ const usersController = {
       processLogin: async (req, res, next) => {
         try{ 
           let newUser = req.body.email;
+          usuarioPass = req.body.password;
           let checkExistingEmail = await User.findAll(
             {where: 
               {email: newUser}
             });
           if (checkExistingEmail[0] != undefined){
-            let emailUsuarioEncontrado = checkExistingEmail[0].email;
-            req.session.email = emailUsuarioEncontrado;
+            const chek = bcrypt.compareSync(usuarioPass, checkExistingEmail[0].password)
+            if(chek){
+              let emailUsuarioEncontrado = checkExistingEmail[0].email;
+              req.session.email = emailUsuarioEncontrado;
+            }else{
+              res.render("userlogin", {allData: newUser, errorMsg: " La contraseña es incorrecta"});
+                }
+            
             if(req.body.rememberMe != undefined){
               res.cookie("recordarme", checkExistingEmail.email, {maxAge : 1000*60*60});
             }
           }else{
             res.render("userlogin", {allData: newUser, errorMsg: " Email no existe (Registrese)"});
-          }
+              }
         }
         catch(error){
           console.log(error);
         }
         res.redirect("/");
+      },
+      logout: (req,res,next)=>{
+        req.session.email= null;
+        res.redirect("/")
       }
+
     };
 
 
