@@ -22,4 +22,14 @@ Aspectos a mejorar:
 4.Asignación de las tareas a realizar por cada integrante, evitando el acaparamiento. Teniendo en cuenta que son procesos de aprendizaje y no empresariales, cada uno teniendo su ritmo de trabajo. 
 
 
+Conclusiones Quinto Sprint
+
+Aspectos a resltar:
+Ya nos conocemos y logramos dividir que tarea realiza mejor cada miembro del equipo, de esta manera aprovechamos mejor los recursos con los que contamos.
+Seguimos aprovechando la rapidez en el desarrollo del trabajo grupal, el profesionalismo y la dedicacion de todos los integrantes del equipo.
+
+Aspectos a mejorar:
+Aun no logramos definir fechas de entrega de cada uno de los trabajos de los miembros del equipo, lo que diiculta cuando el trabajo de otra persona depende de este.
+
+
 
