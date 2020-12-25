@@ -39,7 +39,7 @@ router.get('/register', usersController.register); // User registration *GET*
 router.post('/register', upload.single("imagen"), validator.usuario, usersController.saveUser); // User registration *POST*
 
 router.get('/userlogin', usersController.login); // User login *GET*
-router.post('/userlogin', usersController.processLogin); // User login *POST*
+router.post('/userlogin', validator.auth, usersController.processLogin); // User login *POST*
 
 // router.get ('/users/edit/:id', usersController.edit) // User edit *GET*
 // router.put ('/users/edit/:id', usersController.edit) // User edit *PUT*

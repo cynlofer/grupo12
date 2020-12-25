@@ -15,10 +15,10 @@
         <img id="imagenPrincipal" src=<%= "/images/products/" + producto.images %> alt="Set de Brochas x 20 unidades de diferentes espesores">
       </article >
       <article class="contenedorImagenesSecundarias">
-        <img  id="imagenSecundaria" src= "/images/marcador-kuretake_01.jpg"  alt="">
-        <img  id="imagenSecundaria" src= "/images/marcador-kuretake_01.jpg" alt="">
-        <img  id="imagenSecundaria" src="/images/marcador-kuretake_01.jpg" alt="">
-        <img  id="imagenSecundaria" src="/images/marcador-kuretake_01.jpg" alt="">
+        <img  id="imagenSecundaria" src= <%= "/images/products/" + producto.images %>  alt="">
+        <img  id="imagenSecundaria" src= <%= "/images/products/" + producto.images1 %> alt="">
+        <img  id="imagenSecundaria" src=<%= "/images/products/" + producto.images2 %> alt="">
+        <img  id="imagenSecundaria" src=<%= "/images/products/" + producto.images3 %> alt=" ">
       </article>
 
     </section>
@@ -92,6 +92,9 @@
           <form action="/products/<%= producto.id %>?_method=delete" method="POST" style="display: inline-flex">
             <button type="submit" class="action-button delete">ELIMINAR</button>
           </div>
+          <% if (typeof errorMsg != "undefined") { %>
+            <p style="color: red; padding-left: 10px"><%=errorMsg%></p>
+          <% } %> 
           </form>
       </div>  
     </div>

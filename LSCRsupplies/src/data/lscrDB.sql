@@ -122,7 +122,7 @@ CREATE TABLE `color_products` (
 
 LOCK TABLES `color_products` WRITE;
 /*!40000 ALTER TABLE `color_products` DISABLE KEYS */;
-INSERT INTO `color_products` VALUES (11,2,7,'2020-12-09 00:25:27.0','2020-12-09 00:25:27.0',NULL),(18,5,1,'2020-12-22 03:20:24.0','2020-12-22 03:20:24.0',NULL);
+INSERT INTO `color_products` VALUES (11,2,7,'2020-12-09 00:25:27.0','2020-12-09 00:25:27.0',NULL);
 /*!40000 ALTER TABLE `color_products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -198,7 +198,7 @@ CREATE TABLE `deliveries_products` (
 
 LOCK TABLES `deliveries_products` WRITE;
 /*!40000 ALTER TABLE `deliveries_products` DISABLE KEYS */;
-INSERT INTO `deliveries_products` VALUES (11,'2020-12-09 00:25:27.0','2020-12-09 00:25:27.0',7,5),(18,'2020-12-22 03:20:24.0','2020-12-22 03:20:24.0',1,1);
+INSERT INTO `deliveries_products` VALUES (11,'2020-12-09 00:25:27.0','2020-12-09 00:25:27.0',7,5);
 /*!40000 ALTER TABLE `deliveries_products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -250,7 +250,7 @@ CREATE TABLE `payments_products` (
 
 LOCK TABLES `payments_products` WRITE;
 /*!40000 ALTER TABLE `payments_products` DISABLE KEYS */;
-INSERT INTO `payments_products` VALUES (9,'2020-12-09 00:25:27.0','2020-12-09 00:25:27.0',7,1),(16,'2020-12-22 03:20:24.0','2020-12-22 03:20:24.0',1,2);
+INSERT INTO `payments_products` VALUES (9,'2020-12-09 00:25:27.0','2020-12-09 00:25:27.0',7,1);
 /*!40000 ALTER TABLE `payments_products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -290,6 +290,9 @@ CREATE TABLE `products` (
   `name` varchar(45) NOT NULL,
   `descripcion` varchar(250) DEFAULT NULL,
   `images` varchar(45) DEFAULT NULL,
+  `images1` varchar(45) DEFAULT NULL,
+  `images2` varchar(45) DEFAULT NULL,
+  `images3` varchar(45) DEFAULT NULL,
   `brand_id` int(10) unsigned NOT NULL,
   `price` int(10) DEFAULT NULL,
   `codigo` int(11) DEFAULT NULL,
@@ -309,7 +312,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Marcadores Kuretake Clean Colour x24','Marcadores de Tinta Acuarelable con punta pincel flexible \"real brush\" (de pelo).\r\n','image-1608607224857.png',1,13190,100,1000,10000,NULL),(2,'Acrilicos Decoralba X 6 Unidades 60 Ml ','Acrilicos Decoralba X 6 Unidades 60 Ml especial para tela, madera y papel','image-1607053457760.png',2,540,NULL,NULL,NULL,NULL),(3,'Lapices Faber Castell X24','Lapices Escolares Faber Castell Ecolapices x24 + 2 grafito','image-1607053517995.png',8,810,NULL,NULL,NULL,NULL),(4,'Lapices Acuarelables Faber Castell X12','12 EcoLápices de color acuarelables\r\n\r\nLápiz de color clásico de forma hexagonal con mina protegida contra la rotura. Crea efectos fantásticos gracias a los pigmentos acuarelables de la mina.\r\n','image-1607054214936.png',8,740,NULL,NULL,NULL,NULL),(5,'Set 24 Acuarelas Cotman Winsor & Newton','Set 24 Acuarelas Cotman Winsor & Newton - Contiene 24 pastillas de acuarela Cotman\r\n- Una paleta integrada en su estuche\r\n- Una paleta desmontable','image-1607054233141.png',9,8340,NULL,NULL,NULL,NULL),(6,'Block Fabriano Black Negro 300 Grs','Block Fabriano Black Negro 300 Grs 24x32 20 Hojas, papel ilustracion','image-1607054246027.png',3,1450,NULL,NULL,NULL,NULL),(7,'Marcadores Sharpie Fino X16 Colores Cosmicos','Marcador Sharpie de tinta permanente y punta fina.Escribe en la mayoría de las superficies sobre las que es difícil escribir y no se borra.Su tinta no se decolora y es resistente al agua.Punta de microfibras entrelazadas que evitan que se deshilache.','image-1607054308325.jpg',5,1930,0,0,0,NULL),(8,'Caja Liquitex Basic Acrílicos+Pinceles','9 pomos de acrílico Liquitex Basics X 75 ML.Colores:rojo primario,azul primario,amarillo primario,verde hookers,sombra tostada,amarillo óxido,negro de marte y blanco de titanio(x2).6 pinceles de nylon mango corto.1 caja plástica con manija','image-1607054356914.png',4,4300,NULL,NULL,NULL,NULL),(9,'Bastidor Seurat 50x60','Bastidor Seurat 50x60 CM Tela estudio grano fino','image-1607054378867.jpg',6,660,NULL,NULL,NULL,NULL),(10,'Lata 12 Lapices Staedtler Tradition','Son lapices de alta calidad para escribir, dibujar y esbozar.Increíble resistencia a la rotura.Madera procedente de bosques de gestión sostenible.graduaciones:6B,5B,4B,3B,2B,B,HB,F,H,2H,3H y 4H.','image-1607054400471.png',7,1270,NULL,NULL,NULL,NULL);
+INSERT INTO `products` VALUES (2,'Acrilicos Decoralba X 6 Unidades 60 Ml ','Acrilicos Decoralba X 6 Unidades 60 Ml especial para tela, madera y papel','image-1608864215403.png','image1-1608864215408.jpg','image2-1608864215408.png','image3-1608864215416.jpg',2,540,0,0,0,NULL),(3,'Lapices Faber Castell X24','Lapices Escolares Faber Castell Ecolapices x24 + 2 grafito','image-1607053517995.png',NULL,NULL,NULL,8,810,NULL,NULL,NULL,NULL),(4,'Lapices Acuarelables Faber Castell X12','12 EcoLápices de color acuarelables\r\n\r\nLápiz de color clásico de forma hexagonal con mina protegida contra la rotura. Crea efectos fantásticos gracias a los pigmentos acuarelables de la mina.\r\n','image-1607054214936.png',NULL,NULL,NULL,8,740,NULL,NULL,NULL,NULL),(5,'Set 24 Acuarelas Cotman Winsor & Newton','Set 24 Acuarelas Cotman Winsor & Newton - Contiene 24 pastillas de acuarela Cotman\r\n- Una paleta integrada en su estuche\r\n- Una paleta desmontable','image-1607054233141.png',NULL,NULL,NULL,9,8340,NULL,NULL,NULL,NULL),(6,'Block Fabriano Black Negro 300 Grs','Block Fabriano Black Negro 300 Grs 24x32 20 Hojas, papel ilustracion','image-1607054246027.png',NULL,NULL,NULL,3,1450,NULL,NULL,NULL,NULL),(7,'Marcadores Sharpie Fino X16 Colores Cosmicos','Marcador Sharpie de tinta permanente y punta fina.Escribe en la mayoría de las superficies sobre las que es difícil escribir y no se borra.Su tinta no se decolora y es resistente al agua.Punta de microfibras entrelazadas que evitan que se deshilache.','image-1607054308325.jpg',NULL,NULL,NULL,5,1930,0,0,0,NULL),(8,'Caja Liquitex Basic Acrílicos+Pinceles','9 pomos de acrílico Liquitex Basics X 75 ML.Colores:rojo primario,azul primario,amarillo primario,verde hookers,sombra tostada,amarillo óxido,negro de marte y blanco de titanio(x2).6 pinceles de nylon mango corto.1 caja plástica con manija','image-1607054356914.png',NULL,NULL,NULL,4,4300,NULL,NULL,NULL,NULL),(9,'Bastidor Seurat 50x60','Bastidor Seurat 50x60 CM Tela estudio grano fino','image-1607054378867.jpg',NULL,NULL,NULL,6,660,NULL,NULL,NULL,NULL),(10,'Lata 12 Lapices Staedtler Tradition','Son lapices de alta calidad para escribir, dibujar y esbozar.Increíble resistencia a la rotura.Madera procedente de bosques de gestión sostenible.graduaciones:6B,5B,4B,3B,2B,B,HB,F,H,2H,3H y 4H.','image-1607054400471.png',NULL,NULL,NULL,7,1270,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -396,7 +399,7 @@ CREATE TABLE `users` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `e-mail_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -405,7 +408,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'asd','dsa','asd@asd.com','asdf','Null',NULL),(2,'test','user2','email2@email.com','veamos','Null',NULL),(4,'test1','user21','email3@email.com','$2a$08$FoCsDfdRBZUG.Kz0tcm1Du5Esnf4rdIqfTuKC3','Null',NULL),(5,'otro','nombre','lalala@lalal.com','anda','Null',NULL),(6,'test','account','123@123.com','3','Null',NULL),(7,'usuario','amano','usuario@mano.com','usuarioamano','Null',NULL),(8,'ruben','simon','ginoca30@gmail.com','$2a$10$7DG441s.J5KqVy9jwwOIWuHmyJSgY5mdOXzEfLiS3T3H.TxekvzvW','Null',NULL),(9,'simon','simon','ginoca27@hotmail.com','123','Null',NULL),(10,'ruben','simon','rnorambuena@cruzdelsur.com','12345','Null',NULL),(11,'ruben','w','sqwww@sss','123456','Null',NULL),(12,'ruben','simon','qsq@123.com','1234','Null',NULL),(15,'ruben','simon','qsq1@ddssd.com','123456',NULL,NULL),(16,'111','111','sqwww@sss.com','11111',NULL,NULL),(17,'111','111','qsq1@dddss.com','11111',NULL,NULL),(18,'1111','111','qsq1@dddsss.com','123456',NULL,NULL),(19,'ruben','simon','ginoca30q@gmail.com','$2a$08$76jvjEC/x1CI5c/2g4Fre.oZtumSmI6JSXjRSn',NULL,NULL),(20,'ruben','simon','sqwww@ssqqqs.com','$2a$08$dN/a/.FAmBjoDKYVgtPtO.OWa2PxpMv.Z1W6i5','imagen-1608640856474.jpg',NULL),(21,'ruben','norambuena','sqwww@ssaaas.com','123456','imagen-1608640961524.jpg',NULL),(22,'ruben','simon','sqwwaaaaw@sss.com','123456','imagen-1608642030961.png',NULL),(23,'ruben','simon','sqwwww@sss.com','123456','imagen-1608645050072.svg',NULL),(24,'loena','varas','lorisepu@hotmail.com','$2a$08$E0Ci.A43FV6OYiTTjzn8guoKnUCI/wvCd/U8Jg','imagen-1608689850273.jpg',NULL);
+INSERT INTO `users` VALUES (1,'asd','dsa','asd@asd.com','asdf','Null',NULL),(2,'test','user2','email2@email.com','veamos','Null',NULL),(4,'test1','user21','email3@email.com','$2a$08$FoCsDfdRBZUG.Kz0tcm1Du5Esnf4rdIqfTuKC3','Null',NULL),(5,'otro','nombre','lalala@lalal.com','anda','Null',NULL),(6,'test','account','123@123.com','3','Null',NULL),(7,'usuario','amano','usuario@mano.com','usuarioamano','Null',NULL),(8,'ruben','simon','ginoca30@gmail.com','$2a$10$Zerylo0Z0p7qTQI/NbHk6OCcIYz54msZrS1JOMEr1kVBD3pZLKTvS','Null',NULL),(9,'simon','simon','ginoca27@hotmail.com','123','Null',NULL),(10,'ruben','simon','rnorambuena@cruzdelsur.com','12345','Null',NULL),(11,'ruben','w','sqwww@sss','123456','Null',NULL),(12,'ruben','simon','qsq@123.com','1234','Null',NULL),(15,'ruben','simon','qsq1@ddssd.com','123456',NULL,NULL),(16,'111','111','sqwww@sss.com','11111',NULL,NULL),(17,'111','111','qsq1@dddss.com','11111',NULL,NULL),(18,'1111','111','qsq1@dddsss.com','123456',NULL,NULL),(19,'ruben','simon','ginoca30q@gmail.com','$2a$08$76jvjEC/x1CI5c/2g4Fre.oZtumSmI6JSXjRSn',NULL,NULL),(20,'ruben','simon','sqwww@ssqqqs.com','$2a$08$dN/a/.FAmBjoDKYVgtPtO.OWa2PxpMv.Z1W6i5','imagen-1608640856474.jpg',NULL),(21,'ruben','norambuena','sqwww@ssaaas.com','123456','imagen-1608640961524.jpg',NULL),(22,'ruben','simon','sqwwaaaaw@sss.com','123456','imagen-1608642030961.png',NULL),(23,'ruben','simon','sqwwww@sss.com','123456','imagen-1608645050072.svg',NULL),(24,'loena','varas','lorisepu@hotmail.com','$2a$10$P2zmZ5dUajSg0Arunbydcu0AEMpqLl62pNzadBLF52BAse9wS2s0u','imagen-1608689850273.jpg',NULL),(25,'ruben','simon','ginoca30@yahoo.com.ar','$2a$10$cNc.BI.eses7ksQwOFoClOiiC//e6F5TBbNLN0VlBBrb.Pl0xP2JK','imagen-1608695912878.jpg',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -418,4 +421,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-23  0:39:15
+-- Dump completed on 2020-12-25 17:51:45

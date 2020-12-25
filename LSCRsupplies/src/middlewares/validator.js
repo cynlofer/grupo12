@@ -15,6 +15,10 @@ module.exports= {
             .isEmail()  
             .withMessage("El campo no es un email"),
          */
+        body("email")
+            .isEmail()  
+            .withMessage("El campo no es un email"),
+            
         body("imagen")
             .custom(function(value,{req}){
                 const acceptedExtensions = [".jpg", ".jpeg", ".png", ".svg"];
@@ -23,6 +27,18 @@ module.exports= {
             })
             .withMessage("El archivo no es valido")
             
-    ]   
+    ],
+    auth :[
+        body("email")
+        .custom(function(value,{req},res,next){
+            if (req.session.admin){
+                return true;
+            }else{
+                console.log("no admin");
+                return false;
+            }
+        })
+        .withMessage("No es Administrador")  
+    ]
 
 };

@@ -29,7 +29,7 @@ router.get('/', productsController.index);
 router.get("/mycart",productsController.mycart);
 
 /* ruta a create formulario edicion producto */
-router.get('/create', productsController.create); 
+router.get('/create', validator.auth, productsController.create); 
 
 /*** CREATE ONE PRODUCT ***/ 
 router.post('/', upload.any(),productsController.store); 

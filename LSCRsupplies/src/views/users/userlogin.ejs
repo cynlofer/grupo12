@@ -17,7 +17,7 @@
          <h2>Ingresa</h2>
          <form action='/users/userlogin' method="POST"> 
                <% if (typeof errorMsg != "undefined") { %>
-                     <p style="color: orangered"><%=errorMsg%></p>
+                     <p style="color: orangered; padding-left: 10px;"><%=errorMsg%></p>
                <% } %> 
                <label for="email">Ingrese Email</label><br>
                <Input id="email" type="email" name="email"required class=inputLogin <% if (typeof allData != "undefined"){ %>value="<%=allData%>"<%}%>><br>

@@ -2,16 +2,17 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const fs = require("fs");
+//const fs = require("fs");
 const bcrypt = require('bcryptjs');
 var {path} = require('../app');
 const path1 = require ("path");
-var {body, validationResult, check} = require ('express-validator');
+var {body, validationResult, check, cookie} = require ('express-validator');
 
 //Sequelize 
 const {Product, User, Brand}= require("../database/models");
 const {Op} = require('sequelize');
-
+const admin=["ginoca30@gmail.com","lorisepu@hotmail.com"];
+//console.log(admin);
 const usersController = {
       /* GET register. */
       register: (req, res, next) => {
@@ -110,16 +111,19 @@ const usersController = {
             if(chek){
               let emailUsuarioEncontrado = checkExistingEmail[0].email;
               req.session.email = emailUsuarioEncontrado;
+              if(admin.includes(emailUsuarioEncontrado)){
+                req.session.admin= true;
+              }
             }else{
               res.render("userlogin", {allData: newUser, errorMsg: " La contraseña es incorrecta"});
                 }
             
             if(req.body.rememberMe != undefined){
-              res.cookie("recordarme", checkExistingEmail.email, {maxAge : 1000*60*60});
+              res.cookie("recordarme", checkExistingEmail.email, {maxAge : 1000*60*60*60*24});
             }
           }else{
             res.render("userlogin", {allData: newUser, errorMsg: " Email no existe (Registrese)"});
-              }
+          }
         }
         catch(error){
           console.log(error);
@@ -127,7 +131,7 @@ const usersController = {
         res.redirect("/");
       },
       logout: (req,res,next)=>{
-        req.session.email= null;
+        req.session.destroy();
         res.redirect("/")
       }
 
