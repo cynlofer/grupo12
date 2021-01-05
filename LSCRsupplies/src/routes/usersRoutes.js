@@ -41,11 +41,12 @@ router.post('/register', upload.single("imagen"), validator.usuario, usersContro
 router.get('/userlogin', usersController.login); // User login *GET*
 router.post('/userlogin', validator.auth, usersController.processLogin); // User login *POST*
 
-// router.get ('/users/edit/:id', usersController.edit) // User edit *GET*
-// router.put ('/users/edit/:id', usersController.edit) // User edit *PUT*
 
-router.get ('/edit/:id', usersController.edit) // User edit *GET* revisar
-router.put ('/edit/:id', usersController.actualizar) // User edit *PUT* revisar
+router.get ('/edit/:id', usersController.edit) // User edit *GET* 
+router.put ('/edit/:id', usersController.actualizar) // User edit *PUT* 
+
+//link Preguntas frecuentes
+router.get('users/preguntasFrecuentes',usersController.view)//muestra preguntas frecuentes
 
 //Logout
 router.get("/logout",usersController.logout) //cierra session

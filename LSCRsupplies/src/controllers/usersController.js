@@ -130,10 +130,17 @@ const usersController = {
         }
         res.redirect("/");
       },
+
       logout: (req,res,next)=>{
         req.session.destroy();
         res.redirect("/")
-      }
+      },
+
+      /* GET preguntasFrecuentes */
+      view: (req,res,next)=>{
+      res.render('partials/preguntasFrecuentes')
+  
+     }
 
     };
 
