@@ -140,7 +140,13 @@ const usersController = {
       view: (req,res,next)=>{
       res.render('partials/preguntasFrecuentes')
   
-     }
+     },
+
+     /* GET quienesSomos */
+     who: (req,res,next)=>{
+      res.render('partials/quienesSomos')
+  
+     },
 
     };
 

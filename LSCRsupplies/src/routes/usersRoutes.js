@@ -45,8 +45,9 @@ router.post('/userlogin', validator.auth, usersController.processLogin); // User
 router.get ('/edit/:id', usersController.edit) // User edit *GET* 
 router.put ('/edit/:id', usersController.actualizar) // User edit *PUT* 
 
-//link Preguntas frecuentes
+//links varios
 router.get('/preguntasFrecuentes',usersController.view)//muestra preguntas frecuentes
+router.get('/quienesSomos',usersController.who)//muestra quienes Somos
 
 //Logout
 router.get("/logout",usersController.logout) //cierra session
