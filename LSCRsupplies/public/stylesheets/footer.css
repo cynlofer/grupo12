@@ -38,7 +38,7 @@
     display: flex;
     flex-flow: row wrap;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
 }
 
 .footerTitle {
@@ -114,7 +114,7 @@
         width: 100%;
         font-size: 15px;
         padding: 0%;
-        height: 60vh;
+        height: 40vh;
     }
     .footerMenu{
         padding: 12px;
@@ -136,7 +136,7 @@
 @media (min-width: 1024px) {
     .footerContainer{
         width: 100%;
-        font-size: 20px;
-        height: 60vh;
+        font-size: 16px;
+        height: 50vh;
     }
 }
