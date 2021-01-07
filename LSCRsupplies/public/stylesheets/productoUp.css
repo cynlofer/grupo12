@@ -206,7 +206,7 @@ textarea.form-input {
 .variante{
     display: grid;
     height: 95px;
-    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
 }
 
 @media (min-width: 576px){

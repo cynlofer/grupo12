@@ -1,19 +1,69 @@
 const fs = require('fs');
 const path = require('path');
 //Sequelize 
-const {Product, Brand, Color, Deliverie, Payment}= require("../database/models");
-const {Op} = require('sequelize');
+const {Product, Brand, Color, Deliverie, Payment, Categorie}= require("../database/models");
+const {Op, where} = require('sequelize');
 const { validationResult } = require('express-validator');
 
 const controller = {
 	// Root - Show all products
 	index: async(req, res) => {
 		try{
+			const titulo = "Todos los Productos";
 			const brand = await Brand.findAll();
             const productjson = await Product.findAll({
-                order: [["id"]],
+				order: [["id"]],
+				
+				  
 			});
-			res.render('homeProducts',{products : productjson});
+			
+			res.render('homeProducts',{products : productjson, titulo});
+	    }catch(error){
+            console.log(error);
+        }
+	},
+	sale: async(req, res) => {
+		try{
+			const titulo = "Productos en Oferta";
+			const brand = await Brand.findAll();
+            const productjson = await Product.findAll({
+				order: [["id"]],
+				where : {[Op.not]: [{promocion : null}]} 	
+			});
+			//console.log(productjson);
+			res.render('homeProducts',{products : productjson, titulo});
+	    }catch(error){
+            console.log(error);
+        }
+	},
+	arte: async(req, res) => {
+		try{
+			//const titulo = "Productos en Oferta";
+			//const categorie = await Categorie.findAll();
+			const productjson = await Product.findAll({include: [{ 
+				model : categorias, 
+				where: {id: 2}, 
+				attributes: ['id'] 
+			   }] })
+			//res.send(productjson[5].categorias[0].name);
+					
+		 
+			res.send(productjson);
+			//res.render('homeProducts',{products : productjson, titulo});
+	    }catch(error){
+            console.log(error);
+        }
+	},
+	tecnico: async(req, res) => {
+		try{
+			const titulo = "Productos en Oferta";
+			const brand = await Brand.findAll();
+            const productjson = await Product.findAll({
+				order: [["id"]],
+				where : {[Op.not]: [{promocion : null}]} 	
+			});
+			//console.log(productjson);
+			res.render('homeProducts',{products : productjson, titulo});
 	    }catch(error){
             console.log(error);
         }
@@ -89,7 +139,8 @@ const controller = {
 				const colores= await Color.findAll();
 				const payment= await Payment.findAll();
 				const shipping = await Deliverie.findAll();
-				res.render("products/productsEdit", {productToEdit : productToEdit,brand,colores,payment,shipping });
+				const categorie = await Categorie.findAll();
+				res.render("products/productsEdit", {productToEdit : productToEdit,brand,colores,payment,shipping,categorie });
 			}else{
 				const prod_detal = await Product.findByPk(req.params.id,{include:{all:true}});
 				res.render('productDetail',{producto : prod_detal, errorMsg: "Su usuario no es Administrador"});
@@ -124,6 +175,8 @@ const controller = {
 			const changedProduct = await Product.findByPk(req.params.id,{include:{all:true}});
 			await changedProduct.removeColores(changedProduct.colores);
 			await changedProduct.addColores(req.body.colores);
+			await changedProduct.removeCategorias(changedProduct.categorias);
+			await changedProduct.addCategorias(req.body.categorias);
 			await changedProduct.removeMetodoPago(changedProduct.metodoPago);
 			await changedProduct.addMetodoPago(req.body.metodoPago);
 			await changedProduct.removeShipping(changedProduct.shipping);

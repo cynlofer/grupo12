@@ -126,6 +126,18 @@
 						</select>
                     </section>
                     <section class="borderPc">
+                        <label for="categorias" class="form-label">Categoria:</label>
+						<select name="categorias" id="" class="form-input " multiple>
+							<% categorie.forEach(category => {%>
+								<% if (productToEdit.categorias.some(categ=>categ.id == category.id)) { %>
+									<option value = '<%= category.id%>' selected ><%= category.name %></option>
+								<% } else { %>
+									<option value = '<%= category.id%>' ><%= category.name %></option>
+								<% } %> 
+							<%})%>
+						</select>
+                    </section>
+                    <section class="borderPc">
                         <label for="shipping" class="form-label">Envio:</label>
 						<select name="shipping" id="" class="form-input " multiple>
 							<% shipping.forEach(envio => {%>

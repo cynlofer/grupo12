@@ -25,6 +25,9 @@ var upload = multer({ storage: storage })
 
 /* GET producto listado total*/
 router.get('/', productsController.index);
+router.get("/sale",productsController.sale);
+router.get("/arte",productsController.arte);
+router.get("/tecnico",productsController.tecnico);
 
 router.get("/mycart",productsController.mycart);
 
