@@ -11,7 +11,7 @@ var {body, validationResult, check, cookie} = require ('express-validator');
 //Sequelize 
 const {Product, User, Brand}= require("../database/models");
 const {Op} = require('sequelize');
-const admin=["ginoca30@gmail.com","lorisepu@hotmail.com"];
+const admin=["ginoca30@gmail.com","lorisepu@hotmail.com","cynlofer@gmail.com","perezsandy775@gmail.com"];
 //console.log(admin);
 const usersController = {
       /* GET register. */
