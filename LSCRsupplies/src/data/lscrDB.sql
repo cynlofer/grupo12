@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `lscrdb` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `lscrdb`;
 -- MySQL dump 10.13  Distrib 8.0.22, for macos10.15 (x86_64)
 --
 -- Host: 127.0.0.1    Database: lscrdb
@@ -9,7 +7,7 @@ USE `lscrdb`;
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -23,7 +21,7 @@ USE `lscrdb`;
 
 DROP TABLE IF EXISTS `brands`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `brands` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
@@ -48,7 +46,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categories` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
@@ -73,7 +71,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `categories_products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categories_products` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `created_at` timestamp(1) NULL DEFAULT NULL,
@@ -81,7 +79,7 @@ CREATE TABLE `categories_products` (
   `product_id` int(10) unsigned NOT NULL,
   `categorie_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,7 +88,7 @@ CREATE TABLE `categories_products` (
 
 LOCK TABLES `categories_products` WRITE;
 /*!40000 ALTER TABLE `categories_products` DISABLE KEYS */;
-INSERT INTO `categories_products` VALUES (1,NULL,NULL,1,1),(2,NULL,NULL,1,2),(3,'2021-01-06 20:22:06.0','2021-01-06 20:22:06.0',6,2),(4,'2021-01-06 20:23:37.0','2021-01-06 20:23:37.0',3,2),(5,'2021-01-06 20:23:59.0','2021-01-06 20:23:59.0',7,3),(6,'2021-01-09 15:45:04.0','2021-01-09 15:45:04.0',4,2);
+INSERT INTO `categories_products` VALUES (1,NULL,NULL,1,1),(2,NULL,NULL,1,2),(10,'2021-01-09 15:58:15.0','2021-01-09 15:58:15.0',3,2),(12,'2021-01-09 19:57:40.0','2021-01-09 19:57:40.0',4,1),(15,'2021-01-09 19:59:23.0','2021-01-09 19:59:23.0',7,3),(19,'2021-01-09 20:17:20.0','2021-01-09 20:17:20.0',9,2),(21,'2021-01-09 20:27:57.0','2021-01-09 20:27:57.0',5,2),(22,'2021-01-09 20:34:19.0','2021-01-09 20:34:19.0',6,2);
 /*!40000 ALTER TABLE `categories_products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,7 +98,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `color_products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `color_products` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `color_id` int(10) unsigned NOT NULL,
@@ -113,7 +111,7 @@ CREATE TABLE `color_products` (
   KEY `fk_Color_has_Products_Color_idx` (`color_id`),
   CONSTRAINT `fk_Color_has_Products_Color` FOREIGN KEY (`color_id`) REFERENCES `colors` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Color_has_Products_Products` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,7 +120,7 @@ CREATE TABLE `color_products` (
 
 LOCK TABLES `color_products` WRITE;
 /*!40000 ALTER TABLE `color_products` DISABLE KEYS */;
-INSERT INTO `color_products` VALUES (20,2,6,'2021-01-06 20:22:05.0','2021-01-06 20:22:05.0',NULL),(21,1,3,'2021-01-06 20:23:37.0','2021-01-06 20:23:37.0',NULL),(22,2,7,'2021-01-06 20:23:59.0','2021-01-06 20:23:59.0',NULL),(23,1,4,'2021-01-09 15:45:04.0','2021-01-09 15:45:04.0',NULL);
+INSERT INTO `color_products` VALUES (27,1,3,'2021-01-09 15:58:15.0','2021-01-09 15:58:15.0',NULL),(29,1,4,'2021-01-09 19:57:40.0','2021-01-09 19:57:40.0',NULL),(31,2,7,'2021-01-09 19:59:23.0','2021-01-09 19:59:23.0',NULL),(34,2,6,'2021-01-09 20:34:19.0','2021-01-09 20:34:19.0',NULL);
 /*!40000 ALTER TABLE `color_products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,7 +130,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `colors`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `colors` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
@@ -156,7 +154,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `deliveries`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `deliveries` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
@@ -181,7 +179,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `deliveries_products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `deliveries_products` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `created_at` timestamp(1) NULL DEFAULT NULL,
@@ -189,7 +187,7 @@ CREATE TABLE `deliveries_products` (
   `product_id` int(10) unsigned NOT NULL,
   `deliverie_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -198,7 +196,7 @@ CREATE TABLE `deliveries_products` (
 
 LOCK TABLES `deliveries_products` WRITE;
 /*!40000 ALTER TABLE `deliveries_products` DISABLE KEYS */;
-INSERT INTO `deliveries_products` VALUES (20,'2021-01-06 20:22:06.0','2021-01-06 20:22:06.0',6,1),(21,'2021-01-06 20:23:37.0','2021-01-06 20:23:37.0',3,1),(22,'2021-01-06 20:23:59.0','2021-01-06 20:23:59.0',7,5),(23,'2021-01-09 15:45:05.0','2021-01-09 15:45:05.0',4,1);
+INSERT INTO `deliveries_products` VALUES (27,'2021-01-09 15:58:15.0','2021-01-09 15:58:15.0',3,1),(29,'2021-01-09 19:57:40.0','2021-01-09 19:57:40.0',4,1),(31,'2021-01-09 19:59:23.0','2021-01-09 19:59:23.0',7,5),(34,'2021-01-09 20:34:19.0','2021-01-09 20:34:19.0',6,1);
 /*!40000 ALTER TABLE `deliveries_products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -208,7 +206,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `payments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `payments` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
@@ -233,7 +231,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `payments_products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `payments_products` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `created_at` timestamp(1) NULL DEFAULT NULL,
@@ -241,7 +239,7 @@ CREATE TABLE `payments_products` (
   `product_id` int(11) unsigned NOT NULL,
   `payment_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -250,7 +248,7 @@ CREATE TABLE `payments_products` (
 
 LOCK TABLES `payments_products` WRITE;
 /*!40000 ALTER TABLE `payments_products` DISABLE KEYS */;
-INSERT INTO `payments_products` VALUES (19,'2021-01-06 20:22:06.0','2021-01-06 20:22:06.0',6,3),(20,'2021-01-06 20:23:37.0','2021-01-06 20:23:37.0',3,1),(21,'2021-01-06 20:23:37.0','2021-01-06 20:23:37.0',3,2),(22,'2021-01-06 20:23:59.0','2021-01-06 20:23:59.0',7,1),(23,'2021-01-09 15:45:05.0','2021-01-09 15:45:05.0',4,1);
+INSERT INTO `payments_products` VALUES (30,'2021-01-09 15:58:15.0','2021-01-09 15:58:15.0',3,1),(31,'2021-01-09 15:58:15.0','2021-01-09 15:58:15.0',3,2),(33,'2021-01-09 19:57:40.0','2021-01-09 19:57:40.0',4,1),(35,'2021-01-09 19:59:23.0','2021-01-09 19:59:23.0',7,1),(38,'2021-01-09 20:34:19.0','2021-01-09 20:34:19.0',6,3);
 /*!40000 ALTER TABLE `payments_products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -260,7 +258,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `price`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `price` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `price` decimal(10,0) DEFAULT NULL,
@@ -284,7 +282,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `products` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
@@ -312,7 +310,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (2,'Acrilicos Decoralba X 6 Unidades 60 Ml ','Acrilicos Decoralba X 6 Unidades 60 Ml especial para tela, madera y papel','image-1608864215403.png','image1-1608864215408.jpg','image2-1608864215408.png','image3-1608864215416.jpg',2,540,0,0,500,NULL),(3,'Lapices Faber Castell X24','Lapices Escolares Faber Castell Ecolapices x24 + 2 grafito','image-1609962344875.png','image1-1609962344882.png',NULL,NULL,8,810,0,0,0,NULL),(4,'Lapices Acuarelables Faber Castell X12','12 EcoLápices de color acuarelables\r\n\r\nLápiz de color clásico de forma hexagonal con mina protegida contra la rotura. Crea efectos fantásticos gracias a los pigmentos acuarelables de la mina.\r\n','image-1610207104785.jpg','image1-1610207104787.jpg','image2-1610207104798.jpg','image3-1610207104800.jpg',1,700,1234,12,600,NULL),(5,'Set 24 Acuarelas Cotman Winsor & Newton','Set 24 Acuarelas Cotman Winsor & Newton - Contiene 24 pastillas de acuarela Cotman\r\n- Una paleta integrada en su estuche\r\n- Una paleta desmontable','image-1607054233141.png',NULL,NULL,NULL,9,8340,NULL,NULL,NULL,NULL),(6,'Block Fabriano Black Negro 300 Grs','Block Fabriano Black Negro 300 Grs 24x32 20 Hojas, papel ilustracion','image-1607054246027.png',NULL,NULL,NULL,3,1450,0,0,1399,NULL),(7,'Marcadores Sharpie Fino X16 Colores Cosmicos','Marcador Sharpie de tinta permanente y punta fina.Escribe en la mayoría de las superficies sobre las que es difícil escribir y no se borra.Su tinta no se decolora y es resistente al agua.Punta de microfibras entrelazadas que evitan que se deshilache.','image-1607054308325.jpg',NULL,NULL,NULL,5,1930,0,0,0,NULL),(8,'Caja Liquitex Basic Acrílicos+Pinceles','9 pomos de acrílico Liquitex Basics X 75 ML.Colores:rojo primario,azul primario,amarillo primario,verde hookers,sombra tostada,amarillo óxido,negro de marte y blanco de titanio(x2).6 pinceles de nylon mango corto.1 caja plástica con manija','image-1610207280241.jpg','image1-1610207280241.jpg','image2-1610207280251.jpg','image3-1610207280256.jpg',4,4300,0,0,0,NULL),(9,'Bastidor Seurat 50x60','Bastidor Seurat 50x60 CM Tela estudio grano fino','image-1607054378867.jpg',NULL,NULL,NULL,6,660,NULL,NULL,NULL,NULL),(10,'Lata 12 Lapices Staedtler Tradition','Son lapices de alta calidad para escribir, dibujar y esbozar.Increíble resistencia a la rotura.Madera procedente de bosques de gestión sostenible.graduaciones:6B,5B,4B,3B,2B,B,HB,F,H,2H,3H y 4H.','image-1607054400471.png',NULL,NULL,NULL,7,1270,NULL,NULL,NULL,NULL);
+INSERT INTO `products` VALUES (2,'Acrilicos Decoralba X 6 Unidades 60 Ml ','Acrilicos Decoralba X 6 Unidades 60 Ml especial para tela, madera y papel','image-1610224795184.png','image1-1610224795189.png','image2-1610224795192.jpg','image3-1610224795192.png',2,540,0,19,500,NULL),(3,'Lapices Faber Castell X24','Lapices Escolares Faber Castell Ecolapices x24 + 2 grafito','image-1610207895843.png','image1-1610207895865.png','image2-1610207895868.png','image3-1610207895872.png',8,810,0,7,0,NULL),(4,'Lapices Acuarelables Faber Castell X12','12 EcoLápices de color acuarelables\r\n\r\nLápiz de color clásico de forma hexagonal con mina protegida contra la rotura. Crea efectos fantásticos gracias a los pigmentos acuarelables de la mina.\r\n','image-1610222229953.png','image1-1610222229969.png','image2-1610222229981.png','image3-1610222229986.png',1,700,1234,12,580,NULL),(5,'Set 24 Acuarelas Cotman Winsor & Newton','Set 24 Acuarelas Cotman Winsor & Newton - Contiene 24 pastillas de acuarela Cotman\r\n- Una paleta integrada en su estuche\r\n- Una paleta desmontable','image-1607054233141.png',NULL,NULL,NULL,9,8340,NULL,NULL,NULL,NULL),(6,'Block Fabriano Black Negro 300 Grs','Block Fabriano Black Negro 300 Grs 24x32 20 Hojas, papel ilustracion','image-1610224459825.png','image1-1610224459833.png','image2-1610224459841.png','image3-1610224459846.png',3,1450,0,11,1399,NULL),(7,'Marcadores Sharpie Fino X16 Colores Cosmicos','Marcador Sharpie de tinta permanente y punta fina.Escribe en la mayoría de las superficies sobre las que es difícil escribir y no se borra.Su tinta no se decolora y es resistente al agua.Punta de microfibras entrelazadas que evitan que se deshilache.','image-1610222363496.png','image1-1610222363503.png','image2-1610222363505.png','image3-1610222363517.png',5,1930,0,5,0,NULL),(8,'Caja Liquitex Basic Acrílicos+Pinceles','9 pomos de acrílico Liquitex Basics X 75 ML.Colores:rojo primario,azul primario,amarillo primario,verde hookers,sombra tostada,amarillo óxido,negro de marte y blanco de titanio(x2).6 pinceles de nylon mango corto.1 caja plástica con manija','image-1610222622191.png','image1-1610222622199.png','image2-1610222622208.png','image3-1610222622213.png',4,4300,0,10,3900,NULL),(9,'Bastidor Seurat 50x60','Bastidor Seurat 50x60 CM Tela estudio grano fino','image-1607054378867.jpg',NULL,NULL,NULL,6,660,NULL,NULL,NULL,NULL),(10,'Lata 12 Lapices Staedtler Tradition','Son lapices de alta calidad para escribir, dibujar y esbozar.Increíble resistencia a la rotura.Madera procedente de bosques de gestión sostenible.graduaciones:6B,5B,4B,3B,2B,B,HB,F,H,2H,3H y 4H.','image-1607054400471.png',NULL,NULL,NULL,7,1270,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -322,7 +320,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sale_types`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sale_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
@@ -346,7 +344,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sales_details`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sales_details` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `promo_code` int(11) DEFAULT NULL,
@@ -388,7 +386,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `first_name` varchar(45) NOT NULL,
@@ -421,4 +419,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-09 12:50:45
+-- Dump completed on 2021-01-09 17:47:00
