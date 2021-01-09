@@ -49,10 +49,13 @@
 .marcasReconocidas {
 	display: flex;
 	flex-flow: row wrap;
+	
+	
 }
 
 .marcasReconocidas img {
 	width: 100%;
+
 }
 
 /* ================================= 
