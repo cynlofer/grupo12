@@ -72,8 +72,12 @@ const controller = {
 	// Detail - Detail from one product
 	detail: async(req, res) => {
 	try{
+		let admin = false;
+		if(req.session.admin){
+			admin = true;
+		}
 		const prod_detal = await Product.findByPk(req.params.id,{include:{all:true}});
-		res.render('productDetail',{producto : prod_detal});
+		res.render('productDetail',{producto : prod_detal, admin});
 	}catch(error){
 		console.log(error);
 	}
@@ -134,6 +138,7 @@ const controller = {
 	edit: async(req, res) => {
 		try{
 			if (req.session.admin){
+				console.log(req.params);
 				const productToEdit = await Product.findByPk(req.params.id,{include:{all:true}});
 				const brand = await Brand.findAll();
 				const colores= await Color.findAll();
@@ -217,6 +222,7 @@ const controller = {
 	// carrito de compras
 	mycart : (req, res) => {
 		if (req.session.email){
+			console.log(req.body);
 			res.render("myCart");
 		}else{
 			res.render("userlogin");
