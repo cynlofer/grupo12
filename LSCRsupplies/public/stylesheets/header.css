@@ -24,9 +24,10 @@
     margin-top: -2px;
     background-color:white;
     padding: 10px;
+    
 }
 .imagenLogo {
-    width: 100%;
+    width: 90%;
     background-color: whitesmoke; 
     border-radius: 5%;
 }
@@ -68,17 +69,21 @@
     font-size: 20px;
     -moz-user-select: none; 
 }
-.login-content, .main-content{
+.main-content{
     display: flex;
     flex-direction: wrap;
-    width: 50%;
-    flex-direction: column;
+    width: 40%;
+    flex-direction: row;
     box-sizing: border-box;
    
 }
 @media (min-width:320px){
     .header {
         font-size: 13px;
+       
+    }
+    .imagenLogo {
+        margin: auto;
     }
     .liMenu {
         width: 100%;
@@ -102,9 +107,6 @@
     }
 }
 @media (min-width:768px) {
-    .logo {
-        height: 26vh;
-    }
     .header{
         width: 100%;
         text-align: center;
@@ -150,18 +152,8 @@
         flex-wrap: wrap;
         box-sizing: border-box;
     }
-    .login-bar {
-        order: 1;
-        width: 75%;
-        height: 100;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        margin: auto;
-        
-    }
+
     .main-content .liMenu1{
-        background-color: whitesmoke;
         width: 100%;
         margin: 5px;
         font-weight: bold;
@@ -169,16 +161,44 @@
         margin: auto;
     }
     .login-content{
-        flex-direction: row;
+        display: flex;
+        flex-wrap: wrap;
+        width: 60%;;
     }
-    .login-content .liMenu2{
-        width: 30%;
+    .login-content .liMenu1{
+        width: 32%;
         height: 5vh; 
         padding: 0px; 
-        background-color:rgb(247, 189, 189) ; 
-        text-align: center;
+        background-color:transparent; 
         font-size: 20px;
         margin: auto;
+        align-items: center;
     }
-    
+    .a {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 90%;
+        text-align: -webkit-center;
+        color: white; 
+        background: transparent; 
+        text-align: center;
+        border: solid 1px white; 
+        font-size: 16px;
+        justify-items: center;
+        border-radius: 5px;
+    }
+    .b {
+        display: flex;
+        flex-direction:row; 
+        margin: auto;
+        width: 96%;
+        color: white; 
+        background: transparent; 
+        text-align: center;
+        border: solid 1px white; 
+        font-size: 16px;
+        justify-items: center;
+        border-radius: 5px;
+    }
 }
