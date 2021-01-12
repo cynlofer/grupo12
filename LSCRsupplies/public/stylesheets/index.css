@@ -7,6 +7,11 @@
 
 
 /*Banner Central*/ 
+
+.products img{
+	justify-content:center;
+	align-content: center;
+}
 .containerIndex {
 	display: flex;
 	flex-wrap: wrap;
@@ -89,7 +94,7 @@
 	}
 	.productosRelacionados a,.bannerSecciones a, .bannerAyuda a,.marcasReconocidas a {
 		text-decoration: none;
-			background-color: rgb(234, 245, 244); 
+			/*background-color: rgb(234, 245, 244); */
 			display: flex;
 			flex-wrap: wrap;
 			text-align: center;
