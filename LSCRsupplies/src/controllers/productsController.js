@@ -28,7 +28,7 @@ const controller = {
 			const brand = await Brand.findAll();
             const productjson = await Product.findAll({
 				order: [["id"]],
-				where : {[Op.not]: [{promocion : null}]} 	
+				where : {[Op.not]: [{promocion : 0 }]} 	
 			});
 			//console.log(productjson);
 			res.render('homeProducts',{products : productjson, titulo});

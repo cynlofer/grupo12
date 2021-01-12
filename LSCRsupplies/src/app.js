@@ -22,11 +22,14 @@ app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el 
 app.use('/api',apiRouter);
 /* session */
 app.use(session({
-  secret : "login",
-  resave : true,
-  saveUninitialized : true
+  secret: 'login',
+  name: 'appName',
+  resave: false,
+  saveUninitialized: false,
+  cookie : {
+    sameSite: 'strict', 
+  }
 }));
-
 // ************ Route System require and use() ************
 
 var indexRouter = require('./routes/indexRoutes'); // mainsite route

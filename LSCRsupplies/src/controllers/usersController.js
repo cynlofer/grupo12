@@ -116,7 +116,7 @@ const usersController = {
               }
             }else{
               res.render("userlogin", {allData: newUser, errorMsg: " La contraseña es incorrecta"});
-                }
+            }
             
             if(req.body.rememberMe != undefined){
               res.cookie("recordarme", checkExistingEmail.email, {maxAge : 1000*60*60*60*24});
