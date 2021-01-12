@@ -104,7 +104,6 @@ const controller = {
 
 	// Create -  Method to store
 	store: async(req, res) => { 
-		console.log(req.files);
 		let selectedProd1 = Product.findByPk(req.params.id);
 		imag1 = selectedProd1.images;
 		imag2=selectedProd1.imagesq;
@@ -138,7 +137,6 @@ const controller = {
 	edit: async(req, res) => {
 		try{
 			if (req.session.admin){
-				//console.log(req);
 				const productToEdit = await Product.findByPk(req.params.id,{include:{all:true}});
 				const brand = await Brand.findAll();
 				const colores= await Color.findAll();
