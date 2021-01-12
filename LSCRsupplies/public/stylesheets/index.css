@@ -68,17 +68,17 @@
 		flex-flow: row wrap;
 		width: 100%;
 		justify-content: space-around;
-		margin-bottom: 15px;
 	}
 	
 	.productosRelacionados, .bannerSecciones {
 		display: flex;
 		flex-wrap: wrap;
 		width: 48%;
-		border: 1px solid #36465d;
 		background-color: white;
-		border: 1px solid rgb(202, 200, 200);
-
+		border: 1px solid whitesmoke; 
+		box-shadow: 5px 8px 8px #642e2e;
+		
+		
 	}
 	.bannerCentral{
 		background-color: whitesmoke;
@@ -87,31 +87,30 @@
 	.productosRelacionados img {
 		width: 100%;
 	}
-	.productosRelacionados a,.bannerSecciones a, .bannerAyuda a {
+	.productosRelacionados a,.bannerSecciones a, .bannerAyuda a,.marcasReconocidas a {
 		text-decoration: none;
 			background-color: rgb(234, 245, 244); 
 			display: flex;
 			flex-wrap: wrap;
 			text-align: center;
 	}
-	.productosRelacionados h2,.bannerSecciones h2, .bannerAyuda h2 {
+	.productosRelacionados h2, .bannerSecciones h2, .bannerAyuda h2,.marcasReconocidas h2,.ulMarcas {
 		text-align: center;
-			text-decoration: none;
-			margin: auto;
-			background-color: white;
-			width: 100%;
-	}
-	
-	.bannerSecciones{
-		width: 48%;
-		border: 1px solid #36465d;
+		text-decoration: none;
+		margin: auto;
 		background-color: white;
-	}
-	
-	.bannerSecciones img {
 		width: 100%;
 	}
-
+	.bannerAyuda {
+		margin-top: 10px;
+	}
+	.cajaAyuda{
+		margin: 0;
+	}
+	.marcasReconocidas {
+		display: flex;
+		flex-wrap: wrap;
+	}
 	
 }
 
@@ -233,12 +232,17 @@
 	.ilMarcas {
 		display: flex;
 		justify-content: space-evenly;
-		width: 20%;
-		height: 200px;
+		width: 15%;
+		height: 120px;
+		margin: auto;
 	}
 
 	.cajaMarcas img {
 		object-fit: none;
+	}
+	.footerContainer{
+		display: flex;
+		flex-wrap: wrap;
 	}
 	
 	@media (max-width: 425px) {
@@ -296,5 +300,6 @@
 			width: 80%;
 			margin: 5px;
 			height: 20vh;
+		}
 		}
 	
