@@ -138,7 +138,7 @@ const controller = {
 	edit: async(req, res) => {
 		try{
 			if (req.session.admin){
-				console.log(req.params);
+				//console.log(req);
 				const productToEdit = await Product.findByPk(req.params.id,{include:{all:true}});
 				const brand = await Brand.findAll();
 				const colores= await Color.findAll();
