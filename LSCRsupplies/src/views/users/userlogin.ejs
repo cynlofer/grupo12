@@ -10,12 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet"> 
 <link rel="shortcut icon" href="/images/logo_nuevo.ico">
 </head>
+
 <body class=bodyLogin>
-   <a  class="logoLogin" href="/"><img src="/images/logo_nuevo.png" alt="logotipo"></a>
+   <a  class="logoLogin" href="/"><img id="logo" src="/images/logo_nuevo.png" alt="logotipo"></a>
    <!-- loginData -->
+   <a class="atras" href="/"> 🡰Atrás</a>
+   
    <section class=mainSectionLogin>
       <div class="mainboxLogin">
-         <h2>Ingresa</h2>
+         <h1>Ingresa</h1>
          <form action='/users/userlogin' method="POST"> 
                <% if (typeof errorMsg != "undefined") { %>
                      <p style="color: orangered; padding-left: 10px;"><%=errorMsg%></p>
