@@ -125,8 +125,6 @@ const usersController = {
               if(itemCarrito != 0){
                 console.log("entre a if itemca carrito postlogin");
                 req.session.itemCarrito = itemCarrito;
-                //req.session.carritoActivo = 5;
-                //req.session.idPedido = itemCarrito[0].idpedido;
                 console.log("req.session deprocess login items"+req.session.itemCarrito);
                 /* fin busqueda carrito */
 

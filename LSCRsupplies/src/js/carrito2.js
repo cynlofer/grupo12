@@ -59,13 +59,9 @@ function resToCartClicked(e){
     const precios = item.querySelector("#precios");
     const cantidad =  item.querySelector("#cantidad");
     itemCantidad= Number(cantidad.value)-1;
-    //console.log(cantidad.value);
     if(cantidad.value >= 1 & nuevasub > 0){
         cantidad.value = itemCantidad;
     }
-    /* if(nuevasub >= 0){
-        itemCantidad = 0;
-    }  */
     if(itemCantidad >= 0){
         sumaItem(itemProdId,itemCantidad);
         nuevasub = nuevasub - itemPrecio;

@@ -20,8 +20,6 @@ index: async(req, res) => {
         }else{
             res.status(400)
             res.json({"message": "Tabla vacia"}) 
-            //res.status(204).send(); //no envia mensaje codigo 204
-            
         }
 
     }catch(error){
@@ -46,8 +44,6 @@ brands : async(req, res) => {
         }else{
             res.status(400)
             res.json({"message": "Tabla vacia"}) 
-            //res.status(204).send(); //no envia mensaje codigo 204
-            
         }
 
     }catch(error){
@@ -87,7 +83,6 @@ card: async(req, res) => {
         }else{
             res.status(400)
             res.json({"message": "Tabla vacia"}) 
-            //res.status(204).send(); //no envia mensaje codigo 204
             
         }
 
@@ -113,28 +108,12 @@ postCarrito: async(req,res)=>{
                         await Card.update({
                             cantidad : datosApi[i].cantidad
                         },{where : {productid : datosApi[i].productid}})
-                    }
-                    
-                }
-
-                
+                    }                
+                } 
             }
-            /* var newProdPedido = prodPedido;
-            await Card.destroy({ 
-                where : {
-                    idpedido : datosApi[0].idpedido
-                }
-            }); */
-            //console.log(prodPedido);
-            //await Card.bulkCreate(newProdPedido);
-            //const arrayCarritoDom = req.body;
-            //req.session.prueb = arrayCarritoDom[0].productid;
-            
         }else{
             console.log("array vacio");
         }
-        //res.send("recibi api post ok")
-        
     } catch (error) {
         console.log(error);
     }
