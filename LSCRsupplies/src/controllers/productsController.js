@@ -72,10 +72,7 @@ const controller = {
 		carrito={};
 		const prod_detal = await Product.findByPk(req.params.id,{include:{all:true}});
 		if (req.session.email){
-			console.log("sesion carrito:"+req.session.itemCarrito);
-			console.log("estado carrito :"+req.session.carritoActivo);
 				if((req.session.itemCarrito != 0) & ((req.session.carritoActivo) <1)) {
-					console.log("entre a carrito activo");
 					const datosCarrito = await Card.findAll({  //trae datos de carrito activo pasa a var 
 						where : {estado : 0,
 							     iduser : req.session.iduser}
@@ -105,7 +102,6 @@ const controller = {
 				}else{
 					//entra si no existe un carrito activo y cantidad mayor a 0
 					if((pedido) & (req.session.itemCarrito < 1)){
-						//console.log("entre a emitir numero carrito");
 						pedido = false;  //asigna false para q no entre mas al if
 						//crea un numero de carrito de 10 caracteres alfanumericos al azar
 						function makeid(length) {
@@ -326,7 +322,14 @@ const controller = {
 			if (req.session.email){
 				var resultad = sumaCarrito.find(element=> element.productid === carrito.productid);
 				if(resultad){
-					
+					console.log("item repetido  "+resultad.cantidad);
+					console.log(resultad.productid);
+					console.log(sumaCarrito.cantidad);
+					sumaCarrito.map(element =>{
+						if(element.productid === carrito.productid){
+							element.cantidad = element.cantidad+1;
+						}
+					})
 				}else{
 					req.session.itemCarrito = req.session.itemCarrito +1;
 					sumaCarrito.push(carrito);
