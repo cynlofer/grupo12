@@ -1,10 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 //Sequelize 
-const {Product, Brand, Color, Deliverie, Payment, Categorie}= require("../database/models");
+const {Product, Brand, Color, Deliverie, Payment, Categorie, Card}= require("../database/models");
 const {Op, where} = require('sequelize');
 const { validationResult } = require('express-validator');
-
+const { map } = require('../app');
+var moment = require('moment');
+var sumaCarrito=[];
+var pedido= true;      
+//var carritoActivo = 0; // se pone en 1 si el usuario tenia un carrito activo, despues de actual. array carrito
 const controller = {
 	// Root - Show all products
 	index: async(req, res) => {
@@ -17,7 +21,7 @@ const controller = {
 				  
 			});
 			
-			res.render('homeProducts',{products : productjson, titulo});
+			res.render('homeProducts',{products : productjson, titulo,itemCarrito : req.session.itemCarrito});
 	    }catch(error){
             console.log(error);
         }
@@ -31,7 +35,7 @@ const controller = {
 				where : {[Op.not]: [{promocion : 0 }]} 	
 			});
 			//console.log(productjson);
-			res.render('homeProducts',{products : productjson, titulo});
+			res.render('homeProducts',{products : productjson, titulo,itemCarrito : req.session.itemCarrito});
 	    }catch(error){
             console.log(error);
         }
@@ -40,13 +44,13 @@ const controller = {
 		try{
 			//const titulo = "Productos en Oferta";
 			//const categorie = await Categorie.findAll();
-			const productjson = await Product.findAll({include: [{ 
-				model : categorias, 
-				where: {id: 2}, 
+			const productjson = await Product.findAll({
+				include: "categorias",
+				//where: {id: 2}, 
 				attributes: ['id'] 
-			   }] })
-			//res.send(productjson[5].categorias[0].name);
-					
+			   } )
+			res.send(productjson[8].categorias[0].name);
+			//res.send(productjson);
 		 
 			res.send(productjson);
 			//res.render('homeProducts',{products : productjson, titulo});
@@ -63,7 +67,7 @@ const controller = {
 				where : {[Op.not]: [{promocion : null}]} 	
 			});
 			//console.log(productjson);
-			res.render('homeProducts',{products : productjson, titulo});
+			res.render('homeProducts',{products : productjson, titulo,itemCarrito : req.session.itemCarrito});
 	    }catch(error){
             console.log(error);
         }
@@ -72,12 +76,83 @@ const controller = {
 	// Detail - Detail from one product
 	detail: async(req, res) => {
 	try{
+		
 		let admin = false;
+		//console.log(req.session.prueb);
+		//console.log(arrayCarritoDom);
 		if(req.session.admin){
 			admin = true;
 		}
+		carrito={};
 		const prod_detal = await Product.findByPk(req.params.id,{include:{all:true}});
-		res.render('productDetail',{producto : prod_detal, admin});
+		if (req.session.email){
+			console.log("sesion carrito:"+req.session.itemCarrito);
+			console.log("estado carrito :"+req.session.carritoActivo);
+				if((req.session.itemCarrito != 0) & ((req.session.carritoActivo) <1)) {
+					console.log("entre a carrito activo");
+					const datosCarrito = await Card.findAll({  //trae datos de carrito activo pasa a var 
+						where : {estado : 0,
+							     iduser : req.session.iduser}
+					});
+					req.session.idPedido = datosCarrito[0].idpedido; //asigna numero carrito session
+					//elimina el carrito identificado con ese numero, daros guardados en datosCarrito
+					await Card.destroy({
+						where :{idpedido : req.session.idPedido,
+								 iduser : req.session.iduser},
+						force : true 
+					});
+					var provCarrito = [];  //inicializa carrito provisorio
+					// asigna datos del carrito proveniente de tabla a var provisoria
+					datosCarrito.map( element => 
+						provCarrito.push({"productid" : element.productid,
+						"nombre" : element.nombre,
+						"precio" : element.precio,
+						"imagen" : element.imagen,
+						"iduser" : element.iduser,
+						"cantidad" : element.cantidad,
+						"fecha" : element.fecha,
+						"idpedido" : element.idpedido,
+						"estado" : 0})
+						)
+					sumaCarrito = provCarrito; //asigna array provisoria a sumarrito array general de carrito
+					req.session.carritoActivo= 5; // pone un valor diferente de 0 para que no vuelva entrar en if
+				}else{
+					//entra si no existe un carrito activo y cantidad mayor a 0
+					if((pedido) & (req.session.itemCarrito < 1)){
+						//console.log("entre a emitir numero carrito");
+						pedido = false;  //asigna false para q no entre mas al if
+						//crea un numero de carrito de 10 caracteres alfanumericos al azar
+						function makeid(length) {
+							var result           = '';
+							var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+							var charactersLength = characters.length;
+							for ( var i = 0; i < length; i++ ) {
+							result += characters.charAt(Math.floor(Math.random() * charactersLength));
+							}
+							return result;
+						}
+						req.session.idPedido = makeid(10); //asigna numero de carrito inicial a session
+						req.session.carritoActivo= 5;  //para que o ingrese al if principal
+						//req.session.itemCarrito = req.session.itemCarrito +1;
+						//console.log(numberPedido);
+					};
+				};
+				//guarda con los datos del formulario detalle posible item de carrito
+				carrito = { 
+				productid: Number(prod_detal.id),
+				nombre : prod_detal.name,
+				precio : Number(prod_detal.price),
+				imagen : prod_detal.images,
+				iduser : Number(req.session.iduser),
+				cantidad : 1,
+				fecha : new Date(),
+				idpedido : req.session.idPedido,
+				estado : 0
+			};
+		    
+		};
+		////console.log(carrito);
+		res.render('productDetail',{producto : prod_detal, admin,itemCarrito : req.session.itemCarrito});
 	}catch(error){
 		console.log(error);
 	}
@@ -92,9 +167,9 @@ const controller = {
 				const colores= await Color.findAll();
 				const payment= await Payment.findAll();
 				const shipping = await Deliverie.findAll();
-				res.render ('products/productUp',{productToEdit : productToEdit,brand,colores,payment,shipping });
+				res.render ('products/productUp',{productToEdit : productToEdit,brand,colores,payment,shipping ,itemCarrito : req.session.itemCarrito});
 			}else{
-				res.render ('userlogin');
+				res.render ('userlogin',{itemCarrito : req.session.itemCarrito});
 			}
 			}catch(error){
 			console.log(error);
@@ -137,17 +212,19 @@ const controller = {
 	edit: async(req, res) => {
 		try{
 			if (req.session.admin){
+				//console.log(req.params);
 				const productToEdit = await Product.findByPk(req.params.id,{include:{all:true}});
 				const brand = await Brand.findAll();
 				const colores= await Color.findAll();
 				const payment= await Payment.findAll();
 				const shipping = await Deliverie.findAll();
 				const categorie = await Categorie.findAll();
-				res.render("products/productsEdit", {productToEdit : productToEdit,brand,colores,payment,shipping,categorie });
+				res.render("products/productsEdit", {productToEdit : productToEdit,brand,colores,payment,shipping,categorie ,itemCarrito : req.session.itemCarrito});
 			}else{
 				const prod_detal = await Product.findByPk(req.params.id,{include:{all:true}});
-				res.render('productDetail',{producto : prod_detal, errorMsg: "Su usuario no es Administrador"});
+				res.render('productDetail',{producto : prod_detal, errorMsg: "Su usuario no es Administrador",itemCarrito : req.session.itemCarrito});
 			}
+
 		}catch(error){
 			console.log(error);
 		}
@@ -155,7 +232,7 @@ const controller = {
 	// Update - Method to update
 	update: async(req, res) => {
 		try{
-        console.log(req.files);
+        //console.log(req.body);
 		let selectedProd1 = Product.findByPk(req.params.id);
 		imag1 = selectedProd1.images;
 		imag2=selectedProd1.image2;
@@ -211,21 +288,170 @@ const controller = {
 			}else{
 				//res.render("products/productsEdit", {allData: newUser, errorMsg: " La contraseña es incorrecta"});
 				const prod_detal = await Product.findByPk(req.params.id,{include:{all:true}});
-				res.render('productDetail',{producto : prod_detal, errorMsg: "Su usuario no es Administrador"});
+				res.render('productDetail',{producto : prod_detal, errorMsg: "Su usuario no es Administrador",itemCarrito : req.session.itemCarrito});
 			}
 		}catch(error){
             console.log(error);
         }
 	},
 	// carrito de compras
-	mycart : (req, res) => {
-		if (req.session.email){
-			console.log(req.body);
-			res.render("myCart");
-		}else{
-			res.render("userlogin");
+	mycart :async (req, res) => {
+		try {
+			if (req.session.email){
+				var subtotal = 0;
+				console.log("sesion carrito:"+req.session.itemCarrito);
+			    console.log("estado carrito :"+req.session.carritoActivo);
+				if((req.session.itemCarrito != 0) & ((req.session.carritoActivo) <1)) {
+					console.log("entre a carrito activo");
+					const datosCart = await Card.findAll({  //trae datos de carrito activo pasa a var 
+						where : {estado : 0,
+							     iduser : req.session.iduser}
+					});
+					console.log();
+					req.session.idPedido = datosCart[0].idpedido; //asigna numero carrito session
+					//elimina el carrito identificado con ese numero, daros guardados en datosCarrito
+					await Card.destroy({
+						where :{idpedido : req.session.idPedido,
+								 iduser : req.session.iduser},
+						force : true 
+					});
+					var provCarrito = [];  //inicializa carrito provisorio
+					// asigna datos del carrito proveniente de tabla a var provisoria
+					datosCart.map( element => 
+						provCarrito.push({
+						"productid" : element.productid,
+						"nombre" : element.nombre,
+						"precio" : element.precio,
+						"imagen" : element.imagen,
+						"iduser" : element.iduser,
+						"cantidad" : element.cantidad,
+						"fecha" :  element.fecha,
+						"idpedido" : element.idpedido,
+						"estado" : 0})
+						)
+					sumaCarrito = provCarrito; //asigna array provisoria a sumarrito array general de carrito
+					req.session.carritoActivo= 5; // pone un valor diferente de 0 para que no vuelva entrar en if
+				}
+				//console.log(carrito);(
+				//sumaCarrito= [{price: 100, nomb : "ruben"},{ price: 50, nombre : "simon"}];
+				//sumaCarrito.push(carrito);
+				//console.log(sumaCarrito[0].precio);
+				sumaCarrito.forEach((carrito)=>{
+					subtotal = carrito.precio + subtotal;
+					 
+				})
+				const newLocal = await Card.bulkCreate(sumaCarrito);
+				//console.log(newLocal);
+				res.render("myCart",{carrito : sumaCarrito, subtotal,itemCarrito : req.session.itemCarrito});
+			}else{
+				res.render("userlogin",{itemCarrito : req.session.itemCarrito});
+			}
+		} catch (error) {
+			console.log(error);
 		}
-	}	
+	},
+	carrito : (req, res) => {
+		    // sumaCarrito.push(carrito);
+			//console.log(carrito);(
+			//sumaCarrito= [{price: 100, nomb : "ruben"},{ price: 50, nombre : "simon"}];
+			if (req.session.email){
+				//console.log(carrito.productid);
+				//console.log(sumaCarrito[0]);
+				var resultad = sumaCarrito.find(element=> element.productid === carrito.productid);
+				//console.log(resultad);
+				if(resultad){
+					console.log("esta en el carrito");
+					
+				}else{
+					console.log("entre a suma carrito");
+					req.session.itemCarrito = req.session.itemCarrito +1;
+					sumaCarrito.push(carrito);
+				}
+			}else{
+				console.log(" Error en carrito agregar");
+			};
+			
+			//console.log(sumaCarrito[0].precio);
+			res.redirect("/products/");
+
+		
+	},
+	payment : async(req, res) => {
+		try {
+			
+			//console.log(req.params);
+			//console.log(sumaCarrito);
+			/* const convertedData = sumaCarrito.map(arrObj => {
+				return {
+				  productid: arrObj[0],
+				  nombre: arrObj[1],
+				  precio: arrObj[2],
+				  imagen: arrObj[3],
+				  iduser: arrObj[4],
+				  cantidad: arrObj[5],
+				  fecha: arrObj[6],
+				  idpedido: arrObj[7],
+				  estado: arrObj[8]
+				  
+				}
+			  }) */
+			    const changedProd = await Card.findAll({
+					where: {estado : 0,
+						idpedido : req.session.idPedido}
+				});
+				//console.log("busqueda payment"+changedProd);
+				
+			    for (let i = 0; i < changedProd.length; i++) {
+					await Card.update({
+						estado : 1},
+						{where : {idpedido : req.session.idPedido}
+					});
+				};
+				await Card.destroy({
+					where :{idpedido : req.session.idPedido,
+							 iduser : req.session.iduser,
+							 cantidad :0
+					},
+					force : true 
+				});		
+					
+			  req.session.idPedido=0;
+			  carrito= {};
+			  sumaCarrito =[];
+			  pedido= true; 
+			  req.session.carritoActivo = 0;
+			  req.session.itemCarrito =0;
+			  console.log(sumaCarrito);
+
+			  //console.log(arrayCantidad);
+			  //await Card.bulkCreate(sumaCarrito);
+
+			//sumaCarrito= [{price: 100, nomb : "ruben"},{ price: 50, nombre : "simon"}];
+			//sumaCarrito.push(carrito);
+			//console.log(sumaCarrito[0].precio);
+			res.redirect("/");
+		} catch (error) {
+			
+		}
+		
+    },
+	clearCart :async (req, res) => {
+		try {
+			
+			carrito= {};
+			sumaCarrito =[];
+			req.session.itemCarrito =0;
+			await Card.destroy({
+				where :{ idpedido : req.session.idPedido,
+						 iduser : req.session.iduser},
+				force : true 
+			});
+			res.redirect("/");
+		} catch (error) {
+			
+		}
+		
+    }
 };
 
 module.exports = controller;

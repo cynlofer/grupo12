@@ -7,16 +7,15 @@ const bcrypt = require('bcryptjs');
 var {path} = require('../app');
 const path1 = require ("path");
 var {body, validationResult, check, cookie} = require ('express-validator');
-
 //Sequelize 
-const {Product, User, Brand}= require("../database/models");
+const {Product, User, Brand,Card}= require("../database/models");
 const {Op} = require('sequelize');
 const admin=["ginoca30@gmail.com","lorisepu@hotmail.com","cynlofer@gmail.com","perezsandy775@gmail.com"];
 //console.log(admin);
 const usersController = {
       /* GET register. */
       register: (req, res, next) => {
-      res.render('register')
+      res.render('register',{itemCarrito : req.session.itemCarrito})
       },
 
       /* POST register */
@@ -42,10 +41,10 @@ const usersController = {
               res.redirect('/');
 
             } else {
-              res.render("register", {allData: newUser, errorMsg: "La extension de la imagen no es admitida"});
+              res.render("register", {allData: newUser, errorMsg: "La extension de la imagen no es admitida",itemCarrito : req.session.itemCarrito});
             }
           } else {
-            res.render("register", {allData: newUser, errorMsg: "El email ya se encuentra registrado"});
+            res.render("register", {allData: newUser, errorMsg: "El email ya se encuentra registrado",itemCarrito : req.session.itemCarrito});
           }
           } catch (error) {
             console.log(error)
@@ -60,9 +59,9 @@ const usersController = {
            {where: 
              {email: req.session.email}
             });
-             res.render("userEdit",{userToEdit:usuarioLogeado[0]});
+             res.render("userEdit",{userToEdit:usuarioLogeado[0],itemCarrito : req.session.itemCarrito});
             }else{
-                res.render('userlogin');
+                res.render('userlogin',{itemCarrito : req.session.itemCarrito});
              }
         }catch(error){
              console.log(error);
@@ -73,7 +72,7 @@ const usersController = {
         try {
         let useredit= req.params.id;
         const userToEdit = await User.findByPk(useredit);
-        res.render ("userEdit",{userToEdit:userToEdit});
+        res.render ("userEdit",{userToEdit:userToEdit,itemCarrito : req.session.itemCarrito});
         }catch(error){
           console.log(error);
         }
@@ -98,7 +97,7 @@ const usersController = {
           console.log(error);
         }
       },
-      processLogin: async (req, res, next) => {
+      processLogin: async (req, res) => {
         try{ 
           let newUser = req.body.email;
           usuarioPass = req.body.password;
@@ -111,18 +110,39 @@ const usersController = {
             if(chek){
               let emailUsuarioEncontrado = checkExistingEmail[0].email;
               req.session.email = emailUsuarioEncontrado;
+              req.session.iduser = checkExistingEmail[0].id;
+              req.session.itemCarrito = 0;
+              req.session.carritoActivo = 0;
+              req.session.idPedido =0;
+              /* busqueda en carrito, si existe en estado 0 (activo) */
+              const itemCarrito = await Card.count({
+                where : {iduser : checkExistingEmail[0].id,
+                       estado : 0},
+                       distinct : "id"        //este atributo permite usar el metodo count en ID
+                
+              });
+              console.log("encontro carrito con estos items:"+itemCarrito);
+              if(itemCarrito != 0){
+                console.log("entre a if itemca carrito postlogin");
+                req.session.itemCarrito = itemCarrito;
+                //req.session.carritoActivo = 5;
+                //req.session.idPedido = itemCarrito[0].idpedido;
+                console.log("req.session deprocess login items"+req.session.itemCarrito);
+                /* fin busqueda carrito */
+
+              }
               if(admin.includes(emailUsuarioEncontrado)){
                 req.session.admin= true;
               }
             }else{
-              res.render("userlogin", {allData: newUser, errorMsg: " La contraseña es incorrecta"});
+              res.render("userlogin", {allData: newUser, errorMsg: " La contraseña es incorrecta",itemCarrito : req.session.itemCarrito});
             }
             
             if(req.body.rememberMe != undefined){
               res.cookie("recordarme", checkExistingEmail.email, {maxAge : 1000*60*60*60*24});
             }
           }else{
-            res.render("userlogin", {allData: newUser, errorMsg: " Email no existe (Registrese)"});
+            res.render("userlogin", {allData: newUser, errorMsg: " Email no existe (Registrese)",itemCarrito : req.session.itemCarrito});
           }
         }
         catch(error){
@@ -138,13 +158,13 @@ const usersController = {
 
       /* GET preguntasFrecuentes */
       view: (req,res,next)=>{
-      res.render('partials/preguntasFrecuentes')
+      res.render('partials/preguntasFrecuentes',{itemCarrito : req.session.itemCarrito})
   
      },
 
      /* GET quienesSomos */
      who: (req,res,next)=>{
-      res.render('partials/quienesSomos')
+      res.render('partials/quienesSomos',{itemCarrito : req.session.itemCarrito})
   
      },
 

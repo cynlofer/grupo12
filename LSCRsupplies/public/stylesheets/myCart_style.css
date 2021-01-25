@@ -28,7 +28,7 @@
     
 }
 .cantidad_compra{
-    width: 50%;
+    width: 50px;    
 }
 .container_3 .codigo__promocion{
     width: 100px;
@@ -94,7 +94,15 @@
     padding:15px;
     justify-content: space-between;
 }
+.idProdCarrito{
+    font-family:'Raleway', sans-serif;
+    color: #36465d;
+    display: flex;
+    padding:10px;
+    margin: 6px;
+    display: none;
 
+}
 .detalle_producto{
     font-family:'Raleway', sans-serif;
     color: #36465d;
@@ -312,7 +320,55 @@
     transform: scale(1.1);
     background-color:rgb(228, 213, 185);
  }
- 
+
+#carrito{
+    display: grid;
+    grid-template-columns: 0.3fr 1fr 1fr 1fr 0.5fr 1fr;
+ }
+ #carritoDisplayContent{
+     display: contents;
+ }
+ .pagarCarrito{
+    color: #36465d;
+    padding:0px 10px;
+    text-align: center;
+    padding: 2px;
+     justify-content: right;
+     align-items: center;
+     margin: 25px;
+     font-size: 20px;
+     
+}
+.pagarCarrito button{
+     background: rgb(51, 153, 204, 0.4);
+     border-radius: 5px;
+     font-size: 16px;
+     padding: 5px;
+     margin: 20px;
+     transition: all 1s;
+}
+.pagarCarrito button:hover{
+    transform: scale(1.1);
+    background-color: rgb(51, 153, 204);
+ }
+ @keyframes blink {  
+    0% { color: red; }
+    100% { color: black; }
+  }
+  @-webkit-keyframes blink {
+    0% { color: red; }
+    100% { color: black; }
+  }
+  .blink {
+    padding-left: 40%;
+    font-size:28px;
+    font-family:helvetica;
+    font-weight:bold;
+    text-transform:uppercase;
+    -webkit-animation: blink 1s linear infinite;
+    -moz-animation: blink 1s linear infinite;
+    animation: blink 1s linear infinite;
+  }
 /* ================================= 
   Media Queries
 ==================================== */

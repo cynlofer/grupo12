@@ -2,115 +2,119 @@
 <html lang="es">
 <!-- Include Head -->
 <%- include('partials/headCart', {title: 'Mi Carrito'}) %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<!-- Header -->
-	<%- include('partials/Header') %>
+  <%- include('partials/header') %>
+  <script src="/carrito2.js" defer></script>
   <!-- /Header -->
-    <!-- Main div del sitio. -->
-
-<div class="container">
+  <!-- Main div del sitio. -->
+<body>
+  <div class="container">
   <!-- Detalle general de mi compra -->
    
     <div class="container__0">
        <div class="opciones__entrega">
          <marquee class= behavior  direction="left" heigth="30px" scrolldelay="60" > Envíos por mensajería ó Correo Argentino </marquee>
-     </div>
-     </div>
-    <div class="container__1">
-        <h1>Detalle de mi compra</h1>
+       </div>
     </div>
-    <div class="container__2"> 
-        <div class="detalle__compra">
-
-            <section class="detalle__producto">
-                <h2>Detalle Producto</h2>
-              
-                <img class="marcador__kuretake" src="/images/marcador-kuretake_01.jpg" alt="Marcador marcador_kuretake" width="150px" heigth= "150px">
-             
-            </section>
-
-            <section class="descripcion">
-                <h2>descripción</h2><br>
-                <p>Marcadores Kuretake Pincel Clean Color Real Brush x Unidad</p>
-            </section>
-
-            <section class="precio">
-              <h2>Precio</h2><br>
-              <p>$462</p>
-            </section>
-
-            <section class="cantidad">
-              <h2>Cantidad</h2>
-              <input class="cantidad_compra" type="number" min="0" step="1" name= "cantidad" >
-              
-            </section>
-
-        
-        </div>
-      
+    <% if (carrito.length >= 1) { %>
+      <div class="container__1">
+          <h2 class="codigoCarrito">Detalle de mi carrito: <%= carrito[0].idpedido %> </h2>
       </div>
+      <% } else  { %>
+        <p class="blink" ><%= "EL CARRITO ESTA VACIO!!!" %></p>
+    <% } %> 
     
-
+     
+     
+    <div class="container__2" id="carritoDisplayContent"> 
+        <% carrito.forEach(carrito => { %>
+          <div class="detalle__compra" id="carrito">
+            <section class="idProdCarrito">
+              <p><%= carrito.productid %> </p>
+            </section>
+            <section class="detalle__producto">
+              <img class="marcador__kuretake" src=<%= "/images/products/" + carrito.imagen %>  alt="<%= carrito.name %> " width="45px" heigth= "45px">
+            </section>
+            <section class="descripcion">
+              <p><%= carrito.nombre %> </p>
+            </section>
+            <section class="precio">
+              <p>$<%= carrito.precio %> </p> 
+            </section>
+            <section class="cantidad">
+              <i class="fas fa-minus"></i>
+              <input class="cantidad_compra" type="text" min="0" step="1" id="cantidad" name="cantidad" value="<%= carrito.cantidad %> " >
+              <i class="fas fa-plus"></i>
+            </section>
+            <section class="descripcion" id="precios">
+                <p>$<%= carrito.precio  %> </p>
+            </section>
+          </div>
+        <% }) %>
+        
+    </div>
     <div class="container__3">
         <section class="resumen_de_pago">
          <h2>Resumen de pago</h2>
         </section> 
         <section class="subtotal">
          <h3>Subtotal</h3>
-         <p>$462</p>
-      </section>
+         <p>$<%= subtotal %> </p>
+        </section>
         <section class="total">
-        <h2>Total</h2>
-        <p>$462</p>
-
-        <!-- Detalle general de mi compra -->
-     <!--</section>
-      <section class="codigo__promocion">
-        <h3>Tenés un código de promoción?</h3>
-        <input type="text" maxlength="10">
-      </section>-->
+          <h2>Total</h2>
+          <p>$<%= subtotal %> </p>
+        </section>  
     </div>
-
-
     <div class="container__4">
-        
           <h2>Elegí tu medio de Pago</h2>
+         
           <div class= "medios__pago">
             <section class="mercado__pago">
                <p><input type="radio" name="Mercado Pago" value="Mercado Pago">Mercado Pago</p>
                  <img class="logo__mercado_pago" src="/images/logo_mercadopago.png" alt="Logo Mercado Pago" width="120px">
                  <img class="logo_rapipago" src="/images/logo_rapipago.png" alt="Logo rapipago" width="120px">
             </section> 
+            <section class="transferencia">
+               <p><input type="radio" name="Mercado Pago" value="Transferencia">Transferencia Bancaria</p>
+            </section>
+           <!--  <section class="pagar">
+               <button type="button" class="pago">PAGAR</button>
+            </section> -->
+            <% if (carrito.length >= 1) { %>
+            <form action="/products/payment" method="post" class="pagarCarrito" style="display: none;">
+              <button >EFECTUAR PAGO</button>
+              
+            </form>
             
-
-        <section class="transferencia">
-          <p><input type="radio" name="Mercado Pago" value="Transferencia">Transferencia Bancaria</p>
-          </section>
-
-          <section class="pagar">
-            <button type="button" class="pago">PAGAR</button>
-          
-        </section>
-          
-        </div>
+              <form action="/products/payment" method="post" class="pagar">
+                <button class="pago">FINALIZAR</button>
+                
+              </form>
+            <% } %>
+          </div>
     </div>
-    
-
-
-     <!-- Editar compra -->
-      <div class="container__5"> 
-              <section class="seguir__comprando">
-                  <button href="seguircomprando/html">Seguir Comprando</button>
-              </section>
-              <section class="vaciar__carrito">
-
-                  <button href="vaciar__carrito/html">Vaciar Carrito</button>
-              </section>
-
-
-            </div>
-      </div>
-  <!-- Footer del sitio-->
-  <%- include('partials/footer') %>
-  <!-- /footer -->
-
+    <!-- Editar compra -->
+    <div class="container__5">  
+      
+      <form action="/products/">
+        <section class="seguir__comprando">
+          <button>Seguir Comprando</button>
+        </section>
+        
+      </form>
+      <form action="/products/clearCart">
+          <section class="vaciar__carrito">
+          <button>Vaciar Carrito</button>
+        </section>
+      </form>
+      
+    </div>
+  </div>
+</body>
+<!-- Footer del sitio-->
+<%- include('partials/footer') %>
+<!-- /footer -->
+</html>
 

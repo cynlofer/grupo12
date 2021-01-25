@@ -9,7 +9,7 @@ USE `lscrdb`;
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -23,7 +23,7 @@ USE `lscrdb`;
 
 DROP TABLE IF EXISTS `brands`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `brands` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
@@ -43,12 +43,47 @@ INSERT INTO `brands` VALUES (1,'Kuretake',NULL),(2,'Alba',NULL),(3,'Fabriano',NU
 UNLOCK TABLES;
 
 --
+-- Table structure for table `cards`
+--
+
+DROP TABLE IF EXISTS `cards`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cards` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `productid` int(11) DEFAULT NULL,
+  `nombre` varchar(45) DEFAULT NULL,
+  `precio` int(11) DEFAULT NULL,
+  `imagen` varchar(45) DEFAULT NULL,
+  `iduser` int(11) DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
+  `idpedido` varchar(10) DEFAULT NULL,
+  `estado` int(11) DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp(1) NULL DEFAULT NULL,
+  `updated_at` timestamp(1) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=212 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cards`
+--
+
+LOCK TABLES `cards` WRITE;
+/*!40000 ALTER TABLE `cards` DISABLE KEYS */;
+INSERT INTO `cards` VALUES (21,2,'Acrilicos Decoralba X 6 Unidades 60 Ml ',540,'image-1610224795184.png',1,2,'0000-00-00','nfI5ee2mf6',1,NULL,'2021-01-25 01:24:44.0','2021-01-25 05:10:37.0'),(22,3,'Bastidor Seurat 50 x 50 cm',980,'image-1610305084296.jpg',1,0,'2021-01-24','nfI5ee2mf6',1,NULL,'2021-01-25 01:24:44.0','2021-01-25 20:09:20.0'),(23,3,'Bastidor Seurat 50 x 50 cm',980,'image-1610305084296.jpg',1,0,'2021-01-24','k01HtgZCLB',1,NULL,'2021-01-25 01:25:24.0','2021-01-25 20:09:20.0'),(24,5,'Set 24 Acuarelas Cotman Winsor & Newton',8340,'image-1610293124742.png',1,0,'2021-01-24','k01HtgZCLB',1,NULL,'2021-01-25 01:25:24.0','2021-01-25 20:09:20.0'),(27,5,'Set 24 Acuarelas Cotman Winsor & Newton',8340,'image-1610293124742.png',1,0,'0000-00-00','8vQNbfjknG',1,NULL,'2021-01-25 01:26:23.0','2021-01-25 20:09:20.0'),(28,4,'Lapices Polychromos Faber-Castell x60',14000,'image-1610294776976.png',1,0,'0000-00-00','8vQNbfjknG',1,NULL,'2021-01-25 01:26:23.0','2021-01-25 20:09:20.0'),(29,3,'Bastidor Seurat 50 x 50 cm',980,'image-1610305084296.jpg',1,0,'2021-01-24','8vQNbfjknG',1,NULL,'2021-01-25 01:26:23.0','2021-01-25 20:09:20.0'),(30,4,'Lapices Polychromos Faber-Castell x60',14000,'image-1610294776976.png',1,0,'2021-01-24','t6RnwWkfyy',1,NULL,'2021-01-25 01:27:06.0','2021-01-25 20:09:20.0'),(31,8,'Caja Liquitex Basic Acrílicos+Pinceles',4300,'image-1610222622191.png',1,2,'2021-01-24','t6RnwWkfyy',1,NULL,'2021-01-25 01:27:06.0','2021-01-25 05:10:37.0'),(32,6,'Block Fabriano Black Negro 300 Grs',1450,'image-1610306793221.png',1,2,'2021-01-24','t6RnwWkfyy',1,NULL,'2021-01-25 01:27:06.0','2021-01-25 02:36:33.0'),(38,2,'Acrilicos Decoralba X 6 Unidades 60 Ml ',540,'image-1610224795184.png',1,2,'0000-00-00','86WNxNXQOC',1,NULL,'2021-01-25 01:30:09.0','2021-01-25 05:10:37.0'),(39,3,'Bastidor Seurat 50 x 50 cm',980,'image-1610305084296.jpg',1,0,'0000-00-00','86WNxNXQOC',1,NULL,'2021-01-25 01:30:09.0','2021-01-25 20:09:20.0'),(40,4,'Lapices Polychromos Faber-Castell x60',14000,'image-1610294776976.png',1,0,'0000-00-00','86WNxNXQOC',1,NULL,'2021-01-25 01:30:09.0','2021-01-25 20:09:20.0'),(41,5,'Set 24 Acuarelas Cotman Winsor & Newton',8340,'image-1610293124742.png',1,0,'0000-00-00','86WNxNXQOC',1,NULL,'2021-01-25 01:30:09.0','2021-01-25 20:09:20.0'),(42,6,'Block Fabriano Black Negro 300 Grs',1450,'image-1610306793221.png',1,2,'0000-00-00','86WNxNXQOC',1,NULL,'2021-01-25 01:30:09.0','2021-01-25 02:25:06.0'),(45,5,'Set 24 Acuarelas Cotman Winsor & Newton',8340,'image-1610293124742.png',1,0,'0000-00-00','Y6gb2dH5bV',1,NULL,'2021-01-25 01:36:08.0','2021-01-25 20:09:20.0'),(46,2,'Acrilicos Decoralba X 6 Unidades 60 Ml ',540,'image-1610224795184.png',1,2,'0000-00-00','Y6gb2dH5bV',1,NULL,'2021-01-25 01:36:08.0','2021-01-25 05:10:37.0'),(47,7,'Marcadores Sharpie Fino X16 Colores Cosmicos',1930,'image-1610222363496.png',1,2,'2021-01-24','Y6gb2dH5bV',1,NULL,'2021-01-25 01:36:08.0','2021-01-25 02:36:33.0'),(48,5,'Set 24 Acuarelas Cotman Winsor & Newton',8340,'image-1610293124742.png',1,0,'2021-01-24','ZNh749GR7G',1,NULL,'2021-01-25 01:37:41.0','2021-01-25 20:09:20.0'),(49,3,'Bastidor Seurat 50 x 50 cm',980,'image-1610305084296.jpg',1,0,'2021-01-24','Rs5eH13ms1',1,NULL,'2021-01-25 01:39:40.0','2021-01-25 20:09:20.0'),(50,5,'Set 24 Acuarelas Cotman Winsor & Newton',8340,'image-1610293124742.png',1,0,'2021-01-24','Rs5eH13ms1',1,NULL,'2021-01-25 01:39:40.0','2021-01-25 20:09:20.0'),(51,3,'Bastidor Seurat 50 x 50 cm',980,'image-1610305084296.jpg',1,0,'2021-01-24','gmuVUXLvWN',1,NULL,'2021-01-25 01:44:26.0','2021-01-25 20:09:20.0'),(52,8,'Caja Liquitex Basic Acrílicos+Pinceles',4300,'image-1610222622191.png',1,2,'2021-01-24','gmuVUXLvWN',1,NULL,'2021-01-25 01:44:26.0','2021-01-25 05:10:37.0'),(53,9,'Marcador Kuretake pincel x12',6400,'image-1610293440497.jpg',1,3,'2021-01-24','gmuVUXLvWN',1,NULL,'2021-01-25 01:44:26.0','2021-01-25 05:06:55.0'),(56,5,'Set 24 Acuarelas Cotman Winsor & Newton',8340,'image-1610293124742.png',1,0,'0000-00-00','wl5kKeMIkl',1,NULL,'2021-01-25 02:12:47.0','2021-01-25 20:09:20.0'),(57,2,'Acrilicos Decoralba X 6 Unidades 60 Ml ',540,'image-1610224795184.png',1,2,'0000-00-00','wl5kKeMIkl',1,NULL,'2021-01-25 02:12:47.0','2021-01-25 05:10:37.0'),(58,6,'Block Fabriano Black Negro 300 Grs',1450,'image-1610306793221.png',1,2,'2021-01-24','wl5kKeMIkl',1,NULL,'2021-01-25 02:12:47.0','2021-01-25 02:36:33.0'),(62,6,'Block Fabriano Black Negro 300 Grs',1450,'image-1610306793221.png',1,2,'0000-00-00','8JCxFqgJXx',1,NULL,'2021-01-25 02:14:15.0','2021-01-25 02:25:06.0'),(63,2,'Acrilicos Decoralba X 6 Unidades 60 Ml ',540,'image-1610224795184.png',1,2,'0000-00-00','8JCxFqgJXx',1,NULL,'2021-01-25 02:14:15.0','2021-01-25 05:10:37.0'),(64,4,'Lapices Polychromos Faber-Castell x60',14000,'image-1610294776976.png',1,0,'0000-00-00','8JCxFqgJXx',1,NULL,'2021-01-25 02:14:15.0','2021-01-25 20:09:20.0'),(68,5,'Set 24 Acuarelas Cotman Winsor & Newton',8340,'image-1610293124742.png',1,0,'0000-00-00','CE4lO3JhL4',1,NULL,'2021-01-25 02:16:48.0','2021-01-25 20:09:20.0'),(69,2,'Acrilicos Decoralba X 6 Unidades 60 Ml ',540,'image-1610224795184.png',1,2,'0000-00-00','CE4lO3JhL4',1,NULL,'2021-01-25 02:16:48.0','2021-01-25 05:10:37.0'),(70,9,'Marcador Kuretake pincel x12',6400,'image-1610293440497.jpg',1,3,'0000-00-00','CE4lO3JhL4',1,NULL,'2021-01-25 02:16:48.0','2021-01-25 05:06:55.0'),(71,6,'Block Fabriano Black Negro 300 Grs',1450,'image-1610306793221.png',1,2,'2021-01-24','CE4lO3JhL4',1,NULL,'2021-01-25 02:16:48.0','2021-01-25 02:36:33.0'),(75,2,'Acrilicos Decoralba X 6 Unidades 60 Ml ',540,'image-1610224795184.png',1,2,'0000-00-00','5au2S85PLr',1,NULL,'2021-01-25 02:23:36.0','2021-01-25 05:10:37.0'),(76,4,'Lapices Polychromos Faber-Castell x60',14000,'image-1610294776976.png',1,0,'0000-00-00','5au2S85PLr',1,NULL,'2021-01-25 02:23:36.0','2021-01-25 20:09:20.0'),(77,8,'Caja Liquitex Basic Acrílicos+Pinceles',4300,'image-1610222622191.png',1,2,'0000-00-00','5au2S85PLr',1,NULL,'2021-01-25 02:23:36.0','2021-01-25 05:10:37.0'),(78,5,'Set 24 Acuarelas Cotman Winsor & Newton',8340,'image-1610293124742.png',1,0,'2021-01-24','5au2S85PLr',1,NULL,'2021-01-25 02:23:36.0','2021-01-25 20:09:20.0'),(80,6,'Block Fabriano Black Negro 300 Grs',1450,'image-1610306793221.png',1,2,'0000-00-00','9mMlR0AWS4',1,NULL,'2021-01-25 02:25:00.0','2021-01-25 02:25:06.0'),(81,3,'Bastidor Seurat 50 x 50 cm',980,'image-1610305084296.jpg',1,0,'2021-01-24','9mMlR0AWS4',1,NULL,'2021-01-25 02:25:00.0','2021-01-25 20:09:20.0'),(86,2,'Acrilicos Decoralba X 6 Unidades 60 Ml ',540,'image-1610224795184.png',1,2,'0000-00-00','dmZD9Grnpk',1,NULL,'2021-01-25 02:32:47.0','2021-01-25 05:10:37.0'),(87,3,'Bastidor Seurat 50 x 50 cm',980,'image-1610305084296.jpg',1,0,'0000-00-00','dmZD9Grnpk',1,NULL,'2021-01-25 02:32:47.0','2021-01-25 20:09:20.0'),(88,4,'Lapices Polychromos Faber-Castell x60',14000,'image-1610294776976.png',1,0,'0000-00-00','dmZD9Grnpk',1,NULL,'2021-01-25 02:32:47.0','2021-01-25 20:09:20.0'),(89,5,'Set 24 Acuarelas Cotman Winsor & Newton',8340,'image-1610293124742.png',1,0,'0000-00-00','dmZD9Grnpk',1,NULL,'2021-01-25 02:32:47.0','2021-01-25 20:09:20.0'),(90,8,'Caja Liquitex Basic Acrílicos+Pinceles',4300,'image-1610222622191.png',1,2,'2021-01-24','dmZD9Grnpk',1,NULL,'2021-01-25 02:32:47.0','2021-01-25 05:10:37.0'),(91,3,'Bastidor Seurat 50 x 50 cm',980,'image-1610305084296.jpg',1,0,'2021-01-24','VJonuScUjh',1,NULL,'2021-01-25 02:33:15.0','2021-01-25 20:09:20.0'),(92,5,'Set 24 Acuarelas Cotman Winsor & Newton',8340,'image-1610293124742.png',1,0,'2021-01-24','VJonuScUjh',1,NULL,'2021-01-25 02:33:15.0','2021-01-25 20:09:20.0'),(93,8,'Caja Liquitex Basic Acrílicos+Pinceles',4300,'image-1610222622191.png',1,2,'2021-01-24','VJonuScUjh',1,NULL,'2021-01-25 02:33:15.0','2021-01-25 05:10:37.0'),(94,6,'Block Fabriano Black Negro 300 Grs',1450,'image-1610306793221.png',1,1,'2021-01-24','is0LHXRCgZ',1,NULL,'2021-01-25 02:36:28.0','2021-01-25 02:36:33.0'),(95,3,'Bastidor Seurat 50 x 50 cm',980,'image-1610305084296.jpg',1,0,'2021-01-24','is0LHXRCgZ',1,NULL,'2021-01-25 02:36:28.0','2021-01-25 20:09:20.0'),(96,8,'Caja Liquitex Basic Acrílicos+Pinceles',4300,'image-1610222622191.png',1,2,'2021-01-24','is0LHXRCgZ',1,NULL,'2021-01-25 02:36:28.0','2021-01-25 05:10:37.0'),(102,3,'Bastidor Seurat 50 x 50 cm',980,'image-1610305084296.jpg',1,0,'2021-01-25','bcBNbIbdFe',1,NULL,'2021-01-25 03:06:19.0','2021-01-25 20:09:20.0'),(103,5,'Set 24 Acuarelas Cotman Winsor & Newton',8340,'image-1610293124742.png',1,0,'2021-01-25','bcBNbIbdFe',1,NULL,'2021-01-25 03:06:19.0','2021-01-25 20:09:20.0'),(104,2,'Acrilicos Decoralba X 6 Unidades 60 Ml ',540,'image-1610224795184.png',1,2,'2021-01-25','BA8YIn2dEL',1,NULL,'2021-01-25 03:29:22.0','2021-01-25 05:10:37.0'),(105,4,'Lapices Polychromos Faber-Castell x60',14000,'image-1610294776976.png',1,0,'2021-01-25','BA8YIn2dEL',1,NULL,'2021-01-25 03:29:22.0','2021-01-25 20:09:20.0'),(106,8,'Caja Liquitex Basic Acrílicos+Pinceles',4300,'image-1610222622191.png',1,2,'2021-01-25','BA8YIn2dEL',1,NULL,'2021-01-25 03:29:22.0','2021-01-25 05:10:37.0'),(117,2,'Acrilicos Decoralba X 6 Unidades 60 Ml ',540,'image-1610224795184.png',1,2,'2021-01-25','H30M9HpoNl',1,NULL,'2021-01-25 04:02:38.0','2021-01-25 05:10:37.0'),(118,4,'Lapices Polychromos Faber-Castell x60',14000,'image-1610294776976.png',1,0,'2021-01-25','H30M9HpoNl',1,NULL,'2021-01-25 04:02:38.0','2021-01-25 20:09:20.0'),(121,3,'Bastidor Seurat 50 x 50 cm',980,'image-1610305084296.jpg',1,0,'2021-01-01','eZscOF8qTW',1,NULL,'2021-01-25 04:09:28.0','2021-01-25 20:09:20.0'),(124,5,'Set 24 Acuarelas Cotman Winsor & Newton',8340,'image-1610293124742.png',1,0,'2025-01-20','eqR4yeilCw',1,NULL,'2021-01-25 04:13:36.0','2021-01-25 20:09:20.0'),(133,3,'Bastidor Seurat 50 x 50 cm',980,'image-1610305084296.jpg',1,0,'0000-00-00','OkPo18CquP',1,NULL,'2021-01-25 04:40:48.0','2021-01-25 20:09:20.0'),(135,3,'Bastidor Seurat 50 x 50 cm',980,'image-1610305084296.jpg',1,0,'2021-01-25','OgmPzijESh',1,NULL,'2021-01-25 04:41:43.0','2021-01-25 20:09:20.0'),(144,5,'Set 24 Acuarelas Cotman Winsor & Newton',8340,'image-1610293124742.png',1,0,'2021-01-25','YVPkEvZO7n',1,NULL,'2021-01-25 05:00:42.0','2021-01-25 20:09:20.0'),(145,2,'Acrilicos Decoralba X 6 Unidades 60 Ml ',540,'image-1610224795184.png',1,2,'2021-01-25','MjWQ7FGyUa',1,NULL,'2021-01-25 05:06:36.0','2021-01-25 05:10:37.0'),(146,4,'Lapices Polychromos Faber-Castell x60',14000,'image-1610294776976.png',1,0,'2021-01-25','MjWQ7FGyUa',1,NULL,'2021-01-25 05:06:36.0','2021-01-25 20:09:20.0'),(147,9,'Marcador Kuretake pincel x12',6400,'image-1610293440497.jpg',1,3,'2021-01-25','MjWQ7FGyUa',1,NULL,'2021-01-25 05:06:36.0','2021-01-25 05:06:55.0'),(148,3,'Bastidor Seurat 50 x 50 cm',980,'image-1610305084296.jpg',1,0,'2021-01-25','VuSXxOsEuh',1,NULL,'2021-01-25 05:09:33.0','2021-01-25 20:09:20.0'),(150,2,'Acrilicos Decoralba X 6 Unidades 60 Ml ',540,'image-1610224795184.png',1,2,'2021-01-25','9Oy3INNUWh',1,NULL,'2021-01-25 05:10:29.0','2021-01-25 05:10:37.0'),(152,8,'Caja Liquitex Basic Acrílicos+Pinceles',4300,'image-1610222622191.png',1,2,'2021-01-25','9Oy3INNUWh',1,NULL,'2021-01-25 05:10:29.0','2021-01-25 05:10:37.0'),(153,3,'Bastidor Seurat 50 x 50 cm',980,'image-1610305084296.jpg',1,0,'2021-01-25','LMmHIzkZEv',1,NULL,'2021-01-25 05:12:04.0','2021-01-25 20:09:20.0'),(154,4,'Lapices Polychromos Faber-Castell x60',14000,'image-1610294776976.png',1,0,'2021-01-25','LMmHIzkZEv',1,NULL,'2021-01-25 05:12:04.0','2021-01-25 20:09:20.0'),(155,3,'Bastidor Seurat 50 x 50 cm',980,'image-1610305084296.jpg',1,0,'2021-01-25','9hv9ki1wv0',1,NULL,'2021-01-25 05:23:45.0','2021-01-25 20:09:20.0'),(156,4,'Lapices Polychromos Faber-Castell x60',14000,'image-1610294776976.png',1,0,'2021-01-25','9hv9ki1wv0',1,NULL,'2021-01-25 05:23:45.0','2021-01-25 20:09:20.0');
+/*!40000 ALTER TABLE `cards` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `categories`
 --
 
 DROP TABLE IF EXISTS `categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `categories` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
@@ -73,7 +108,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `categories_products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `categories_products` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `created_at` timestamp(1) NULL DEFAULT NULL,
@@ -81,7 +116,7 @@ CREATE TABLE `categories_products` (
   `product_id` int(10) unsigned NOT NULL,
   `categorie_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,7 +125,7 @@ CREATE TABLE `categories_products` (
 
 LOCK TABLES `categories_products` WRITE;
 /*!40000 ALTER TABLE `categories_products` DISABLE KEYS */;
-INSERT INTO `categories_products` VALUES (1,NULL,NULL,1,1),(2,NULL,NULL,1,2),(15,'2021-01-09 19:59:23.0','2021-01-09 19:59:23.0',7,3),(27,'2021-01-10 15:38:44.0','2021-01-10 15:38:44.0',5,2),(29,'2021-01-10 15:44:00.0','2021-01-10 15:44:00.0',9,2),(49,'2021-01-10 16:14:36.0','2021-01-10 16:14:36.0',4,2),(50,'2021-01-10 18:58:04.0','2021-01-10 18:58:04.0',3,2),(51,'2021-01-10 19:18:37.0','2021-01-10 19:18:37.0',11,2),(53,'2021-01-10 19:26:33.0','2021-01-10 19:26:33.0',6,2),(54,'2021-01-10 19:48:47.0','2021-01-10 19:48:47.0',12,2),(57,'2021-01-10 20:08:14.0','2021-01-10 20:08:14.0',13,3);
+INSERT INTO `categories_products` VALUES (1,'2021-01-13 01:19:44.0','2021-01-13 01:19:44.0',2,3),(2,'2021-01-13 01:20:07.0','2021-01-13 01:20:07.0',3,2),(3,'2021-01-13 01:20:16.0','2021-01-13 01:20:16.0',4,2),(4,'2021-01-13 01:20:26.0','2021-01-13 01:20:26.0',13,3);
 /*!40000 ALTER TABLE `categories_products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,7 +135,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `color_products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `color_products` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `color_id` int(10) unsigned NOT NULL,
@@ -113,7 +148,7 @@ CREATE TABLE `color_products` (
   KEY `fk_Color_has_Products_Color_idx` (`color_id`),
   CONSTRAINT `fk_Color_has_Products_Color` FOREIGN KEY (`color_id`) REFERENCES `colors` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Color_has_Products_Products` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,7 +157,7 @@ CREATE TABLE `color_products` (
 
 LOCK TABLES `color_products` WRITE;
 /*!40000 ALTER TABLE `color_products` DISABLE KEYS */;
-INSERT INTO `color_products` VALUES (31,2,7,'2021-01-09 19:59:23.0','2021-01-09 19:59:23.0',NULL),(39,1,5,'2021-01-10 15:38:44.0','2021-01-10 15:38:44.0',NULL),(41,5,9,'2021-01-10 15:44:00.0','2021-01-10 15:44:00.0',NULL),(61,1,4,'2021-01-10 16:14:35.0','2021-01-10 16:14:35.0',NULL),(62,1,3,'2021-01-10 18:58:04.0','2021-01-10 18:58:04.0',NULL),(64,2,6,'2021-01-10 19:26:33.0','2021-01-10 19:26:33.0',NULL),(65,3,13,'2021-01-10 20:08:14.0','2021-01-10 20:08:14.0',NULL);
+INSERT INTO `color_products` VALUES (41,5,9,'2021-01-10 15:44:00.0','2021-01-10 15:44:00.0',NULL),(64,2,6,'2021-01-10 19:26:33.0','2021-01-10 19:26:33.0',NULL),(67,1,12,'2021-01-13 01:14:27.0','2021-01-13 01:14:27.0',NULL),(68,1,2,'2021-01-13 01:19:44.0','2021-01-13 01:19:44.0',NULL),(69,1,3,'2021-01-13 01:20:07.0','2021-01-13 01:20:07.0',NULL),(70,1,4,'2021-01-13 01:20:16.0','2021-01-13 01:20:16.0',NULL),(71,3,13,'2021-01-13 01:20:26.0','2021-01-13 01:20:26.0',NULL),(72,2,7,'2021-01-14 21:43:56.0','2021-01-14 21:43:56.0',NULL),(74,1,5,'2021-01-18 12:12:47.0','2021-01-18 12:12:47.0',NULL);
 /*!40000 ALTER TABLE `color_products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,7 +167,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `colors`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `colors` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
@@ -156,7 +191,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `deliveries`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `deliveries` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
@@ -181,7 +216,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `deliveries_products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `deliveries_products` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `created_at` timestamp(1) NULL DEFAULT NULL,
@@ -189,7 +224,7 @@ CREATE TABLE `deliveries_products` (
   `product_id` int(10) unsigned NOT NULL,
   `deliverie_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -198,7 +233,7 @@ CREATE TABLE `deliveries_products` (
 
 LOCK TABLES `deliveries_products` WRITE;
 /*!40000 ALTER TABLE `deliveries_products` DISABLE KEYS */;
-INSERT INTO `deliveries_products` VALUES (31,'2021-01-09 19:59:23.0','2021-01-09 19:59:23.0',7,5),(39,'2021-01-10 15:38:44.0','2021-01-10 15:38:44.0',5,1),(41,'2021-01-10 15:44:00.0','2021-01-10 15:44:00.0',9,1),(61,'2021-01-10 16:14:36.0','2021-01-10 16:14:36.0',4,1),(62,'2021-01-10 18:58:04.0','2021-01-10 18:58:04.0',3,1),(64,'2021-01-10 19:26:33.0','2021-01-10 19:26:33.0',6,1);
+INSERT INTO `deliveries_products` VALUES (41,'2021-01-10 15:44:00.0','2021-01-10 15:44:00.0',9,1),(64,'2021-01-10 19:26:33.0','2021-01-10 19:26:33.0',6,1),(66,'2021-01-13 01:14:27.0','2021-01-13 01:14:27.0',12,1),(67,'2021-01-13 01:19:44.0','2021-01-13 01:19:44.0',2,1),(68,'2021-01-13 01:20:07.0','2021-01-13 01:20:07.0',3,1),(69,'2021-01-13 01:20:16.0','2021-01-13 01:20:16.0',4,1),(70,'2021-01-13 01:20:27.0','2021-01-13 01:20:27.0',13,2),(71,'2021-01-14 21:43:56.0','2021-01-14 21:43:56.0',7,5),(73,'2021-01-18 12:12:47.0','2021-01-18 12:12:47.0',5,1);
 /*!40000 ALTER TABLE `deliveries_products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -208,7 +243,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `payments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `payments` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
@@ -233,7 +268,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `payments_products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `payments_products` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `created_at` timestamp(1) NULL DEFAULT NULL,
@@ -241,7 +276,7 @@ CREATE TABLE `payments_products` (
   `product_id` int(11) unsigned NOT NULL,
   `payment_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -250,7 +285,7 @@ CREATE TABLE `payments_products` (
 
 LOCK TABLES `payments_products` WRITE;
 /*!40000 ALTER TABLE `payments_products` DISABLE KEYS */;
-INSERT INTO `payments_products` VALUES (35,'2021-01-09 19:59:23.0','2021-01-09 19:59:23.0',7,1),(43,'2021-01-10 15:38:44.0','2021-01-10 15:38:44.0',5,1),(45,'2021-01-10 15:44:00.0','2021-01-10 15:44:00.0',9,1),(65,'2021-01-10 16:14:36.0','2021-01-10 16:14:36.0',4,1),(66,'2021-01-10 18:58:04.0','2021-01-10 18:58:04.0',3,1),(67,'2021-01-10 18:58:04.0','2021-01-10 18:58:04.0',3,2),(69,'2021-01-10 19:26:33.0','2021-01-10 19:26:33.0',6,3);
+INSERT INTO `payments_products` VALUES (45,'2021-01-10 15:44:00.0','2021-01-10 15:44:00.0',9,1),(69,'2021-01-10 19:26:33.0','2021-01-10 19:26:33.0',6,3),(71,'2021-01-13 01:14:27.0','2021-01-13 01:14:27.0',12,1),(72,'2021-01-13 01:19:44.0','2021-01-13 01:19:44.0',2,2),(73,'2021-01-13 01:20:07.0','2021-01-13 01:20:07.0',3,1),(74,'2021-01-13 01:20:07.0','2021-01-13 01:20:07.0',3,2),(75,'2021-01-13 01:20:16.0','2021-01-13 01:20:16.0',4,1),(76,'2021-01-13 01:20:26.0','2021-01-13 01:20:26.0',13,1),(77,'2021-01-14 21:43:56.0','2021-01-14 21:43:56.0',7,1),(79,'2021-01-18 12:12:47.0','2021-01-18 12:12:47.0',5,1);
 /*!40000 ALTER TABLE `payments_products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -260,7 +295,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `price`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `price` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `price` decimal(10,0) DEFAULT NULL,
@@ -284,7 +319,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `products` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
@@ -303,7 +338,7 @@ CREATE TABLE `products` (
   KEY `fk_Products_Brands_idx` (`brand_id`),
   KEY `fk_Products_Price_idx` (`price`),
   CONSTRAINT `fk_brandid` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -312,7 +347,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (2,'Acrilicos Decoralba X 6 Unidades 60 Ml ','Acrilicos Decoralba X 6 Unidades 60 Ml especial para tela, madera y papel','image-1610224795184.png','image1-1610224795189.png','image2-1610224795192.jpg','image3-1610224795192.png',2,540,1120,19,500,NULL),(3,'Bastidor Seurat 50 x 50 cm','Bastidor Seurat 50 X 50 CM TELA ESTUDIO GRANO FINO M-2','image-1610305084296.jpg','image1-1610305084299.png','image2-1610305084302.png','image3-1610305084322.png',6,980,1342,7,0,NULL),(4,'Lapices Polychromos Faber-Castell x60','Lápices de colores para artistas, pigmentos de calidad superior de colores brillantes y con alta resistencia a la luz, trazos suaves e intensos.\r\nResistente al roce y el agua, de mina gruesa de 3.8 mm.\r\n\r\n','image-1610294776976.png','image1-1610294777011.jpg','image2-1610294777013.png','image3-1610294777027.png',8,14000,1234,13,11900,NULL),(5,'Set 24 Acuarelas Cotman Winsor & Newton','Set 24 Acuarelas Cotman Winsor & Newton - Contiene 24 pastillas de acuarela Cotman\r\n- Una paleta integrada en su estuche\r\n- Una paleta desmontable','image-1610293124742.png','image1-1610293124756.png','image3-1610293124765.png','image3-1610283803183.png',9,8340,2315,100,8000,NULL),(6,'Block Fabriano Black Negro 300 Grs','Block Fabriano Black Negro 300 Grs 24x32 20 Hojas, papel ilustracion','image-1610306793221.png','image1-1610306793223.png','image2-1610306793226.png','image3-1610306793230.png',3,1450,1236,11,1399,NULL),(7,'Marcadores Sharpie Fino X16 Colores Cosmicos','Marcador Sharpie de tinta permanente y punta fina.Escribe en la mayoría de las superficies sobre las que es difícil escribir y no se borra.Su tinta no se decolora y es resistente al agua.Punta de microfibras entrelazadas que evitan que se deshilache.','image-1610222363496.png','image1-1610222363503.png','image2-1610222363505.png','image3-1610222363517.png',5,1930,1321,5,0,NULL),(8,'Caja Liquitex Basic Acrílicos+Pinceles','9 pomos de acrílico Liquitex Basics X 75 ML.Colores:rojo primario,azul primario,amarillo primario,verde hookers,sombra tostada,amarillo óxido,negro de marte y blanco de titanio(x2).6 pinceles de nylon mango corto.1 caja plástica con manija','image-1610222622191.png','image1-1610222622199.png','image2-1610222622208.png','image3-1610222622213.png',4,4300,1532,10,3900,NULL),(9,'Marcador Kuretake pincel x12','Los colores son fácilmente mezclables\r\ncon agua y otros tonos para conseguir\r\nuna amplia gama de tonos.\r\n\r\nPunta de pincel\r\nGrosor de puntas: 0.5 mm\r\nAcuarelables','image-1610293440497.jpg','image1-1610293440497.png','image2-1610293402678.png','image3-1610293402679.png',1,6400,1512,12,5000,NULL),(10,'Lata 12 Lapices Staedtler Tradition','Son lapices de alta calidad para escribir, dibujar y esbozar.Increíble resistencia a la rotura.Madera procedente de bosques de gestión sostenible.graduaciones:6B,5B,4B,3B,2B,B,HB,F,H,2H,3H y 4H.','image-1610303976641.png','image1-1610303976648.png','image2-1610303976651.png','image3-1610303976655.png',7,1270,1324,10,0,NULL),(11,'Acuarela Cotman Winsor&newton x1','Acuarelas Cotman Windsor & Newton, Acuarelas en pomo x 8ml serie Studio','image-1610306317634.png','image1-1610306317651.png','image2-1610306317661.png','image3-1610306317667.png',9,440,1423,10,0,NULL),(12,'Pitt Grafito Set X 26 Elementos','Set de 26 piezas en una caja metálica en calidad profesional','image-1610308127044.png','image1-1610308127099.png','image2-1610308127109.png','image3-1610308127115.png',8,13900,1543,10,0,NULL),(13,'Staedtler Multi Function Avant Grade','Staedtler Multi Function Pen Avant Garade Titanium azul, Black, Blue, Red Ink Ballpoint Pen + 0.5mm Mechanical Pencil','image-1610309268232.png','image1-1610309268246.png','image2-1610309268252.png','image3-1610309268257.png',7,11500,1390,10,0,NULL);
+INSERT INTO `products` VALUES (2,'Acrilicos Decoralba X 6 Unidades 60 Ml ','Acrilicos Decoralba X 6 Unidades 60 Ml especial para tela, madera y papel','image-1610224795184.png','image1-1610224795189.png','image2-1610224795192.jpg','image3-1610224795192.png',2,540,1120,19,500,NULL),(3,'Bastidor Seurat 50 x 50 cm','Bastidor Seurat 50 X 50 CM TELA ESTUDIO GRANO FINO M-2','image-1610305084296.jpg','image1-1610305084299.png','image2-1610305084302.png','image3-1610305084322.png',6,980,1342,7,0,NULL),(4,'Lapices Polychromos Faber-Castell x60','Lápices de colores para artistas, pigmentos de calidad superior de colores brillantes y con alta resistencia a la luz, trazos suaves e intensos.\r\nResistente al roce y el agua, de mina gruesa de 3.8 mm.\r\n\r\n','image-1610294776976.png','image1-1610294777011.jpg','image2-1610294777013.png','image3-1610294777027.png',8,14000,1234,13,11900,NULL),(5,'Set 24 Acuarelas Cotman Winsor & Newton','Set 24 Acuarelas Cotman Winsor & Newton - Contiene 24 pastillas de acuarela Cotman\r\n- Una paleta integrada en su estuche\r\n- Una paleta desmontable','image-1610293124742.png','image1-1610293124756.png','image3-1610293124765.png','image3-1610283803183.png',9,8340,2315,100,7994,NULL),(6,'Block Fabriano Black Negro 300 Grs','Block Fabriano Black Negro 300 Grs 24x32 20 Hojas, papel ilustracion','image-1610306793221.png','image1-1610306793223.png','image2-1610306793226.png','image3-1610306793230.png',3,1450,1236,11,1399,NULL),(7,'Marcadores Sharpie Fino X16 Colores Cosmicos','Marcador Sharpie de tinta permanente y punta fina.Escribe en la mayoría de las superficies sobre las que es difícil escribir y no se borra.Su tinta no se decolora y es resistente al agua.Punta de microfibras entrelazadas que evitan que se deshilache.','image-1610222363496.png','image1-1610222363503.png','image2-1610222363505.png','image3-1610222363517.png',5,1930,1322,5,0,NULL),(8,'Caja Liquitex Basic Acrílicos+Pinceles','9 pomos de acrílico Liquitex Basics X 75 ML.Colores:rojo primario,azul primario,amarillo primario,verde hookers,sombra tostada,amarillo óxido,negro de marte y blanco de titanio(x2).6 pinceles de nylon mango corto.1 caja plástica con manija','image-1610222622191.png','image1-1610222622199.png','image2-1610222622208.png','image3-1610222622213.png',4,4300,1532,10,3900,NULL),(9,'Marcador Kuretake pincel x12','Los colores son fácilmente mezclables\r\ncon agua y otros tonos para conseguir\r\nuna amplia gama de tonos.\r\n\r\nPunta de pincel\r\nGrosor de puntas: 0.5 mm\r\nAcuarelables','image-1610293440497.jpg','image1-1610293440497.png','image2-1610293402678.png','image3-1610293402679.png',1,6400,1512,12,5000,NULL),(10,'Lata 12 Lapices Staedtler Tradition','Son lapices de alta calidad para escribir, dibujar y esbozar.Increíble resistencia a la rotura.Madera procedente de bosques de gestión sostenible.graduaciones:6B,5B,4B,3B,2B,B,HB,F,H,2H,3H y 4H.','image-1610303976641.png','image1-1610303976648.png','image2-1610303976651.png','image3-1610303976655.png',7,1270,1324,10,0,NULL),(11,'Acuarela Cotman Winsor&newton x1','Acuarelas Cotman Windsor & Newton, Acuarelas en pomo x 8ml serie Studio','image-1610306317634.png','image1-1610306317651.png','image2-1610306317661.png','image3-1610306317667.png',9,440,1423,10,0,NULL),(12,'Pitt Grafito Set X 26 Elementos','Set de 26 piezas en una caja metálica en calidad profesional','image-1610308127044.png','image1-1610308127099.png','image2-1610308127109.png','image3-1610308127115.png',8,13900,1543,10,0,NULL),(13,'Staedtler Multi Function Avant Grade','Staedtler Multi Function Pen Avant Garade Titanium azul, Black, Blue, Red Ink Ballpoint Pen + 0.5mm Mechanical Pencil','image-1610309268232.png','image1-1610309268246.png','image2-1610309268252.png','image3-1610309268257.png',7,11500,1390,10,0,NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -322,7 +357,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sale_types`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sale_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
@@ -346,7 +381,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sales_details`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sales_details` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `promo_code` int(11) DEFAULT NULL,
@@ -388,7 +423,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `first_name` varchar(45) NOT NULL,
@@ -399,7 +434,7 @@ CREATE TABLE `users` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `e-mail_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -408,7 +443,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'asd','dsa','asd@asd.com','asdf','Null',NULL),(2,'test','user2','email2@email.com','veamos','Null',NULL),(4,'test1','user21','email3@email.com','$2a$08$FoCsDfdRBZUG.Kz0tcm1Du5Esnf4rdIqfTuKC3','Null',NULL),(5,'otro','nombre','lalala@lalal.com','anda','Null',NULL),(6,'test','account','123@123.com','3','Null',NULL),(7,'usuario','amano','usuario@mano.com','usuarioamano','Null',NULL),(8,'ruben','simon','ginoca30@gmail.com','$2a$10$Zerylo0Z0p7qTQI/NbHk6OCcIYz54msZrS1JOMEr1kVBD3pZLKTvS','Null',NULL),(9,'simon','simon','ginoca27@hotmail.com','123','Null',NULL),(10,'ruben','simon','rnorambuena@cruzdelsur.com','12345','Null',NULL),(11,'ruben','w','sqwww@sss','123456','Null',NULL),(12,'ruben','simon','qsq@123.com','1234','Null',NULL),(15,'ruben','simon','qsq1@ddssd.com','123456',NULL,NULL),(16,'111','111','sqwww@sss.com','11111',NULL,NULL),(17,'111','111','qsq1@dddss.com','11111',NULL,NULL),(18,'1111','111','qsq1@dddsss.com','123456',NULL,NULL),(19,'ruben','simon','ginoca30q@gmail.com','$2a$08$76jvjEC/x1CI5c/2g4Fre.oZtumSmI6JSXjRSn',NULL,NULL),(20,'ruben','simon','sqwww@ssqqqs.com','$2a$08$dN/a/.FAmBjoDKYVgtPtO.OWa2PxpMv.Z1W6i5','imagen-1608640856474.jpg',NULL),(21,'ruben','norambuena','sqwww@ssaaas.com','123456','imagen-1608640961524.jpg',NULL),(22,'ruben','simon','sqwwaaaaw@sss.com','123456','imagen-1608642030961.png',NULL),(23,'ruben','simon','sqwwww@sss.com','123456','imagen-1608645050072.svg',NULL),(24,'loena','varas','lorisepu@hotmail.com','$2a$10$P2zmZ5dUajSg0Arunbydcu0AEMpqLl62pNzadBLF52BAse9wS2s0u','imagen-1608689850273.jpg',NULL),(25,'ruben','simon','ginoca30@yahoo.com.ar','$2a$10$cNc.BI.eses7ksQwOFoClOiiC//e6F5TBbNLN0VlBBrb.Pl0xP2JK','imagen-1608695912878.jpg',NULL),(26,'guest','guest','guest@gmail.com','$2a$10$wS1RjD3X4DWgyN./h/diW.GIH84S4EwH4bdrnRiFilGQr6fJ5YITW','imagen-1610285213714.jpg',NULL),(27,'Cynthia','Lofer','cynlofer@gmail.com','$2a$10$E0Z27XQpdrGRZ9iOBI/VFevbvLW06Svx2rVG3nml3IB81.vvcryym','imagen-1610292568773.png',NULL);
+INSERT INTO `users` VALUES (1,'ruben','norambuena','ginoca30@gmail.com','$2a$10$juK9rl0TuIG3g4llMO40DuuJKvpJnY./.jCVNzeyZL0o6nEeGDHb.','imagen-1611509310331.jpg',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -421,4 +456,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-11 10:41:06
+-- Dump completed on 2021-01-25 17:24:33

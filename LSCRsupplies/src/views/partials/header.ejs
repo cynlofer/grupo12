@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="shortcut icon" href="/images/logo_nuevo.ico">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet"/>
 <!-- Header del sitio -->
+</head>
 <header class="header">
     <a class="logo" href="/">
         <img class = 'imagenLogo'src="/images/logo_nuevo.png"  alt="logotipo" >
@@ -22,11 +22,13 @@
                 </ul>
                 <ul class=login-content>
                     <li class=liMenu1><a class="b" href="/users/userlogin" class="">Cuenta</a></li>
-                    <li class=liMenu1><a class  ="b" href="/products/myCart">Carrito</a></li>
-                    <li class=liMenu1><a class  ="b" href="mailto:consultas@lcsrsupplies.com.ar?Subject=Tengo una consulta" target="_top">Contacto</a></li>
+                    <li  class=liMenu1><a class="b" href="/products/myCart"><span>Carrito</span> <i class="fas fa-shopping-cart"></i><span><%= itemCarrito %> </span></a></li> 
+                    <!-- <a href="URL-HERE" class="cart" target="_blank" rel="nofollow"><i class="fas fa-shopping-cart"></i><span>Carrito</span>
+                        <span id="cart_menu_num" data-action="cart-can" class="badge rounded-circle">5</span>
+                      </a> -->
+                    <li class=liMenu1><a class="b" href="mailto:consultas@lcsrsupplies.com.ar?Subject=Tengo una consulta" target="_top">Contacto</a></li>
                 </ul>
         </section>
     
 </header>
 
-</head>

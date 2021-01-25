@@ -6,20 +6,21 @@ const productsResource = require('../../request/productsResource');
 const productsController=require('../../controllers/api/apiController')
 
 router.get('/products',apiController.index);
-router.get('/products/price',apiController.brands);
+router.get('/card',apiController.card);
+router.get('/products/brands',apiController.brands);
 router.get("/",function(req,res){
     res.status(400)
     res.json({"message": "Use localhost:3000/api/products"})
-})
+});
+router.post("/product/prueba",(req,res)=>{
+    console.log("en api de routes");
+});
 
 
-router.get('/banner/products',async(req,res)=>{
-    let products = await productsResource.getAll("products")
-    //console.log(products);
-    res.json(products.data)
-})
-router.get('/brands/products',async(req,res)=>{
-    let products = await productsResource.getAll("/products/price")
+router.post('/card',apiController.postCarrito);
+
+router.get('/brands',async(req,res)=>{
+    let products = await productsResource.getAll("/products/brands")
     //console.log(products);
     res.json(products.data)
 })

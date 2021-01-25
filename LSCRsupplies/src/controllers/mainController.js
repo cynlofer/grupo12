@@ -4,7 +4,7 @@ const { fileURLToPath } = require('url');
 const { detail, index } = require('./productsController');
 const controller = {
 	index: (req, res) => {
-			res.render('index');   
+			res.render('index',{itemCarrito : req.session.itemCarrito});   
 	}
 	
 };

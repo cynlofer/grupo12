@@ -30,7 +30,9 @@ router.get("/arte",productsController.arte);
 router.get("/tecnico",productsController.tecnico);
 
 router.get("/mycart",productsController.mycart);
-
+router.get("/carrito",productsController.carrito)
+router.post("/payment", productsController.payment)
+router.get("/clearCart",productsController.clearCart)
 /* ruta a create formulario edicion producto */
 router.get('/create', validator.auth, productsController.create); 
 

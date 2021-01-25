@@ -5,22 +5,21 @@
     </a> 
    
     <section class="main-nav">
-            <article class="nav-bar">
-                <ul class="main-content">
-                    <li class=liMenu><a href="#">artistica</a></li>
-                    <li class=liMenu><a href="#">tecnico</a></li>
-                    <!--<li class=liMenu><a href="#">decorativo</a></li>-->
-                    <!--<li class=liMenu><a href="#">marcas</a></li>-->
-                    <li class=liMenu><a href="#">contacto</a></li>
-                </ul>
-            </article>
-            <article class="login-bar">
-                <ul class=login-content>
-                    <li class=liMenu><a href="/users/userlogin">ingresa</a></li>
-                    <li class=liMenu><a href="/users/register">registrate</a></li>
-                    <li class=liMenu><a href="/products/myCart">mi carrito</a></li>
-                </ul>
-            </article>
-        </section>
+        <ul class="main-content">
+            <li class=liMenu1><a class="a" href="/products/arte">Artistica</a></li>
+            <li class=liMenu1><a class="a" href="/products/tecnico">Tecnico</a></li>
+            <!--<li class=liMenu><a href="#">decorativo</a></li>-->
+            <!--<li class=liMenu><a href="#">marcas</a></li>-->
+            
+        </ul>
+        <ul class=login-content>
+            <li class=liMenu1><a class="b" href="/users/userlogin" class="">Cuenta</a></li>
+            <li  class=liMenu1><a class="b" href="/products/myCart"><span>Carrito</span> <i class="fas fa-shopping-cart"></i><span><%= itemCarrito %> </span></a></li> 
+            <!-- <a href="URL-HERE" class="cart" target="_blank" rel="nofollow"><i class="fas fa-shopping-cart"></i><span>Carrito</span>
+                <span id="cart_menu_num" data-action="cart-can" class="badge rounded-circle">5</span>
+              </a> -->
+            <li class=liMenu1><a class="b" href="mailto:consultas@lcsrsupplies.com.ar?Subject=Tengo una consulta" target="_top">Contacto</a></li>
+        </ul>
+</section>
     
 </header>

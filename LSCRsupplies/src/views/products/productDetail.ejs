@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%- include('partials/headproductdetail', {title: 'Inicio'}) %>
+<%- include('partials/headProductDetail', {title: 'Inicio'}) %>
 <body>
   <!-- Header -->
   <%- include('partials/header') %>
   <!-- /Header -->
-  
   <!--Caja principal Product Detail-->
-  <div class="contenedorPrincipalSuperior">
+  <div class="contenedorPrincipalSuperior ">
     <!--Contenedor Lateral Izquierdo-->
     <section class="contenedorLateralIzquierdo">
       <article class="contenedorImagenPrincipal">
         <img id="imagenPrincipal" src=<%= "/images/products/" + producto.images %> alt="Set de Brochas x 20 unidades de diferentes espesores">
       </article >
       <article class="contenedorImagenesSecundarias">
-        <img  id="imagenSecundaria" src= <%= "/images/products/" + producto.images %>  alt="">
+        <img  id="imagenSecundaria" class="carritoImagen" src= <%= "/images/products/" + producto.images %>  alt="">
         <img  id="imagenSecundaria" src= <%= "/images/products/" + producto.images1 %> alt="">
         <img  id="imagenSecundaria" src=<%= "/images/products/" + producto.images2 %> alt="">
         <img  id="imagenSecundaria" src=<%= "/images/products/" + producto.images3 %> alt=" ">
@@ -24,16 +23,13 @@
     </section>
     <!--Contenedor Lateral Derecho-->
     <div class="contenedorLateralDerecho">
-
       <section id="nombreProducto">
-        <h1 class="h1">
+        <h1 class="h1 carritoName" >
           <%= producto.name %>
           <div class="sharethis-inline-share-buttons"></div>
         </h1>
         
       </section>
-    
-      
       <section class="contenedorPrecio">
         <form id="form">
           <p class="clasificacion">
@@ -49,7 +45,8 @@
           --><label class="label1" for="radio5">★</label>
           </p>
         </form>
-          <h1 class="h1">$ <%= producto.price %> <small>de    </small><%= producto.Brand.name %> </h1>
+          <h1 class="h1 carritoPrice">$ <%= producto.price %> </h1> 
+          <h2 class="h1"><small>Marca  <%= producto.Brand.name %>  </small> </h2>
       </section>
      
 
@@ -85,21 +82,22 @@
         </article>  
       </section>
       <div class="ancho_100">
-          <a href="/products/mycart" class="buy-now-button">AGREGAR AL CARRITO</a>
-          <a href="#" class="buy-now-button">COMPRAR AHORA</a>
+          <a href="/products/carrito" class="buy-now-button ">AGREGAR AL CARRITO</a>
+          <a href="/products/mycart" class="buy-now-button">COMPRAR AHORA</a>
           <hr>
           <% if(admin) { %>
             <div class='editar_eliminar'>
               <a href= <%= "/products/" + producto.id + "/edit" %> class="action-button edit">EDITAR PRODUCTO</a>
               <form action="/products/<%= producto.id %>?_method=delete" method="POST" style="display: inline-flex">
                 <button type="submit" class="action-button delete">ELIMINAR</button>
-              </div>
+              </form>
+            </div>
           <% } %> 
          
           <% if (typeof errorMsg != "undefined") { %>
             <p style="color: red; padding-left: 10px"><%=errorMsg%></p>
           <% } %> 
-          </form>
+          
       </div>  
     </div>
     </div>
@@ -140,5 +138,7 @@
     <!-- Footer del sitio-->
     <%- include('partials/footer') %>
     <!-- /footer -->
+    
 </body>
+
 </html>
