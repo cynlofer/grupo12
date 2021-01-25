@@ -246,8 +246,11 @@
     color: #36465d;
     width: 100%;
     padding:15px;
-    
+    justify-content: space-around;
 }
+
+    
+
 .container__4 h2{
     padding: 0 10px;
 }
@@ -352,28 +355,41 @@
     background-color: rgb(51, 153, 204);
  }
  @keyframes blink {  
-    0% { color: red; }
-    100% { color: black; }
+    0% { color: #E97E5A; }
+    100% { color: rgb(51, 153, 204); }
   }
   @-webkit-keyframes blink {
-    0% { color: red; }
-    100% { color: black; }
+    0% { color: #E97E5A; }
+    100% { color: rgb(51, 153, 204); }
   }
   .blink {
-    padding-left: 40%;
-    font-size:28px;
-    font-family:helvetica;
+    /*justify-content: center;*/
+    padding-left: 8%;
+    font-size:22px;
+    /*font-family:helvetica;*/
     font-weight:bold;
-    text-transform:uppercase;
+    /*text-transform:uppercase;*/
     -webkit-animation: blink 1s linear infinite;
     -moz-animation: blink 1s linear infinite;
     animation: blink 1s linear infinite;
+    
   }
 /* ================================= 
   Media Queries
 ==================================== */
 @media(min-width:600px){
-    
+    .blink {
+        /*justify-content: center;*/
+        padding-left: 13%;
+        font-size:28px;
+        /*font-family:helvetica;*/
+        font-weight:bold;
+        /*text-transform:uppercase;*/
+        -webkit-animation: blink 1s linear infinite;
+        -moz-animation: blink 1s linear infinite;
+        animation: blink 1s linear infinite;
+        
+      }    
 
 .detalle__compra{
      display: flex;
@@ -497,5 +513,21 @@ border-bottom: none;
 }
 .subtotal{
     border-bottom: none;
+}
+.blink {
+    /*justify-content: center;*/
+    padding-left: 35%;
+    font-size:28px;
+    /*font-family:helvetica;*/
+    font-weight:bold;
+    /*text-transform:uppercase;*/
+    -webkit-animation: blink 1s linear infinite;
+    -moz-animation: blink 1s linear infinite;
+    animation: blink 1s linear infinite;
+    
+  }
+  .medios__pago{
+    justify-content: space-around;
+    align-items: center;
 }
 }}
