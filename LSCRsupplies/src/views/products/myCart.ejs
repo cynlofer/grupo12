@@ -22,7 +22,7 @@
           <h2 class="codigoCarrito">Detalle de mi carrito: <%= carrito[0].idpedido %> </h2>
       </div>
       <% } else  { %>
-        <p class="blink" ><%= "EL CARRITO ESTA VACIO!!!" %></p>
+        <p class="blink" ><%= "Que esperás para llenar este carrito?" %></p>
     <% } %> 
     
      
@@ -84,12 +84,12 @@
             </section> -->
             <% if (carrito.length >= 1) { %>
             <form action="/products/payment" method="post" class="pagarCarrito" style="display: none;">
-              <button >EFECTUAR PAGO</button>
+              <button >PAGAR</button>
               
             </form>
             
               <form action="/products/payment" method="post" class="pagar">
-                <button class="pago">FINALIZAR</button>
+                <button class="pago">PAGAR</button>
                 
               </form>
             <% } %>
