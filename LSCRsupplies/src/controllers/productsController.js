@@ -37,30 +37,50 @@ const controller = {
 	},
 	arte: async(req, res) => {
 		try{
-			const productjson = await Product.findAll({
-				include: "categorias", 
-				attributes: ['id'] 
-			   } )
-			res.send(productjson[8].categorias[0].name);
-			res.send(productjson);
+			const titulo = "Productos área Artística";
+			Product.findAll({
+				include: [{
+				  model: Categorie,
+				  as :"categorias",
+				  where: { 
+					id: 2
+				  },
+				  attributes: ['id']
+				}]
+			  })
+			  .then(function(data) {
+				res.render('homeProducts',{products : data, titulo,itemCarrito : req.session.itemCarrito});
+			  });
+			 
+			//res.send(productjson[8].categorias[0].name);
+			
 	    }catch(error){
             console.log(error);
         }
 	},
 	tecnico: async(req, res) => {
 		try{
-			const titulo = "Productos en Oferta";
-			const brand = await Brand.findAll();
-            const productjson = await Product.findAll({
-				order: [["id"]],
-				where : {[Op.not]: [{promocion : null}]} 	
-			});
-			res.render('homeProducts',{products : productjson, titulo,itemCarrito : req.session.itemCarrito});
+			const titulo = "Productos área Técnica";
+			Product.findAll({
+				include: [{
+				  model: Categorie,
+				  as :"categorias",
+				  where: { 
+					id: 3
+				  },
+				  attributes: ['id']
+				}]
+			  })
+			  .then(function(data) {
+				res.render('homeProducts',{products : data, titulo,itemCarrito : req.session.itemCarrito});
+			  });
+			 
+			//res.send(productjson[8].categorias[0].name);
+			
 	    }catch(error){
             console.log(error);
         }
 	},
-
 	// Detail - Detail from one product
 	detail: async(req, res) => {
 	try{
