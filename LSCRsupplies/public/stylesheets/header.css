@@ -82,7 +82,17 @@
 }
 .a , .b {
     box-shadow: 5px 8px 8px #888888;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
 }
+#g {
+    margin-bottom: 0; 
+}
+span{
+    margin:0; 
+}
+
 @media (max-width:768px){
     .header {
         font-size: 13px;
@@ -94,6 +104,8 @@
     }
     .liMenu {
         width: 100%;
+        display: flex;
+        flex-wrap: wrap;
         text-align: center;
         padding: 5px;
         color: blue;
@@ -129,6 +141,7 @@
         justify-items: center;
         border-radius: 5px;
         box-shadow: yellowgreen;
+     
     }
     .liMenu1{
         display: flex;
@@ -145,8 +158,12 @@
         text-align: center;
         padding: 5px;
         font-size: 15px;
+        display: flex;
+        flex-wrap: wrap;
         
     }
+    
+    
 }
 @media (min-width:768px) {
     .header{
@@ -254,3 +271,5 @@
         box-shadow: 5px 8px 8px #642e2e;
     }
 }
+
+

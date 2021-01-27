@@ -10,12 +10,9 @@
 .preguntasContainer{
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
 	width: 100%;
 	font-family:'Raleway', sans-serif;
     color: #36465d;
-    margin: 50px;
-    padding-right: 100px;
     background-color: rgb(255, 255, 255,0.6);
 }
 
@@ -29,17 +26,29 @@
 }
 
 .pregunta{
-    padding: 15px;
+    display: flex;
     flex-wrap: wrap;
     width: 100%;
-}
-
-
-h3{
-    display: block;
+    white-space: justify; 
+    font-size: 3.5vh;
    
+
 }
-p{
-    padding-bottom: 5px;
-    padding-top: 5px;
+h3{
+    display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	font-family:'Raleway', sans-serif;
+    color: #36465d; 
+    
+}
+
+.pregunta{
+    padding: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: justify;
+    font-size: 3.5vh;
 }
