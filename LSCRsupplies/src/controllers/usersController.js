@@ -99,6 +99,8 @@ const usersController = {
       },
       processLogin: async (req, res) => {
         try{ 
+          sumaCarrito=[];
+          console.log("proces login"+sumaCarrito);
           let newUser = req.body.email;
           usuarioPass = req.body.password;
           let checkExistingEmail = await User.findAll(
@@ -114,6 +116,9 @@ const usersController = {
               req.session.itemCarrito = 0;
               req.session.carritoActivo = 0;
               req.session.idPedido =0;
+              req.session.itemNew= 0;
+              
+              console.log("suma carrito logueado"+ sumaCarrito);
               /* busqueda en carrito, si existe en estado 0 (activo) */
               const itemCarrito = await Card.count({
                 where : {iduser : checkExistingEmail[0].id,
@@ -133,6 +138,7 @@ const usersController = {
                 req.session.admin= true;
               }
             }else{
+              
               res.render("userlogin", {allData: newUser, errorMsg: " La contraseña es incorrecta",itemCarrito : req.session.itemCarrito});
             }
             
@@ -140,6 +146,7 @@ const usersController = {
               res.cookie("recordarme", checkExistingEmail.email, {maxAge : 1000*60*60*60*24});
             }
           }else{
+           
             res.render("userlogin", {allData: newUser, errorMsg: " Email no existe (Registrese)",itemCarrito : req.session.itemCarrito});
           }
         }
@@ -150,6 +157,9 @@ const usersController = {
       },
 
       logout: (req,res,next)=>{
+        
+        pedido= true;
+        sumaCarrito=[];
         req.session.destroy();
         res.redirect("/")
       },

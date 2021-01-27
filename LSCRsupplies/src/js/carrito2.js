@@ -6,7 +6,6 @@ const pago = document.querySelector(".pago");
 const pagarCarrito = document.querySelector(".pagarCarrito");
 var codigoCarrito = document.querySelector(".codigoCarrito");
 codigoCarrito = (codigoCarrito.textContent.replace("Detalle de mi carrito:","")).trim();
-console.log(codigoCarrito);
 var sub = (subTotal.textContent.replace("Subtotal",""));
 var nuevasub= Number(sub.replace("$",""));
 arrayCantidad =[];

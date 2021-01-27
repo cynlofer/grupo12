@@ -1,5 +1,6 @@
 const {body} = require("express-validator");
 var path = require("path");
+const Swal = require('sweetalert2');
 module.exports= {
     usuario: [
         /* body("first_name")
@@ -39,6 +40,20 @@ module.exports= {
             }
         })
         .withMessage("No es Administrador")  
+    ],
+    session :[
+        body("email")
+        .custom(function(value,{req},res,next){
+            if (req.session.email){
+                console.log("validatos logueado");
+                return true;
+            }else{
+                console.log("validatos no  logueado")
+                
+                return false;
+            }
+        })
+        .withMessage("Debes loguearte para activar carrito de compras")  
     ]
 
 };

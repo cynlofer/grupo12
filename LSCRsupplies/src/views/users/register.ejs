@@ -10,7 +10,7 @@
     <div class="container">
 
         <!--formulario de registro-->
-  <section class=formulario__registro>  
+   <section class=formulario__registro>  
     <div class="formulario">
        <div class="container__titulo">
          <p>Registrate en nuestra Tienda!</p>
@@ -21,67 +21,41 @@
        </div>
    </div>
     <section class="grid__container">
-    
 
    <!--datos para registro-->
    <div class= "datos">  
-          <form action="/users/register" method="post" name="formulario__registro" enctype="multipart/form-data">
-            <% if (typeof errorMsg != "undefined") { %>
-               <p style="color: orangered"><%=errorMsg%></p>
-           <% } %> 
-            <p>
-               <label for="first_name">Nombre:</label><br>
-              <Input type="text" name="first_name" maxlength="45" required 
-              <% if (typeof allData != "undefined"){ %>value="<%=allData.first_name%>"<%}%>>
-            </p>
-       
-            <p>
-               <label for="last_name">Apellido:</label><br>
-              <Input type="text" name="last_name" maxlength="45" required
-              <% if (typeof allData != "undefined"){ %>value="<%=allData.last_name%>"<%}%>>
-              </p>
-            
-            <p>
-               <label for="email">Email:</label><br>
-              <Input type="email" name="email" maxlength="30" value="" required
-              <% if (typeof allData != "undefined"){ %>value="<%=allData.email%>"<%}%>>
-           </p>
-          
-           <p>
-               <label for="password">Contraseña:</label><br>
-              <Input type="password" name="password" maxlength="30" required>
-           <p>
-            <p>
-               <input id="file" type="file" name="imagen" width="200px"/>
-               <hr>
-               <div class="imgUser" id="preview"></div>
-            </p>
-<!-- 
-            <p>
-               <label for="contraseña">Repetir contraseña:</label><br>
-               <Input type="password" name="repetir__contraseña" required>
-            <p>
-            
-           
-           <p>
-              
-              <h5 class="checkbox__terminos__input">He leído y acepto Los terminos y condiciones</h5>
-              <input  type="checkbox" name="register__terminos" value="">
-           </p>
+      <form action="/users/register" method="post" name="formulario__registro" enctype="multipart/form-data">
+         <% if (typeof errorMsg != "undefined") { %>
+            <p style="color: orangered"><%=errorMsg%></p>
+      <% } %> 
+      <p>
+         <label for="first_name">Nombre:</label><br>
+      <Input type="text" name="first_name" maxlength="45" required 
+      <% if (typeof allData != "undefined"){ %>value="<%=allData.first_name%>"<%}%>>
+      </p>
 
-           <p>
-               <h5 class="checkbox__newsletter">Me gustaria recibir noticias sobre productos de LCS Supplies. </h5>
-               <input  type="checkbox" name="newsletter" value="">
-               
-           </p> -->
-
-         <!--recaptcha-->
-
-         <!-- <script src='https://www.google.com/recaptcha/api.js'></script>
+      <p>
+         <label for="last_name">Apellido:</label><br>
+      <Input type="text" name="last_name" maxlength="45" required
+      <% if (typeof allData != "undefined"){ %>value="<%=allData.last_name%>"<%}%>>
+      </p>
       
-   <div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div> -->
-   <!--Botton Registrarme-->
-<div class="registrarme">
+      <p>
+         <label for="email">Email:</label><br>
+      <Input type="email" name="email" maxlength="30" value="" required
+      <% if (typeof allData != "undefined"){ %>value="<%=allData.email%>"<%}%>>
+      </p>
+      
+      <p>
+            <label for="password">Contraseña:</label><br>
+         <Input type="password" name="password" maxlength="30" required>
+      <p>
+      <p>
+         <input id="file" type="file" name="imagen" width="200px"/>
+         <hr>
+         <div class="imgUser" id="preview"></div>
+      </p>
+   <div class="registrarme">
    <button class="boton__registrarme" type="submit" id="registro" label= "Registrarme">
     <span class="registrarme" >Registrarme</span>
    </form>
@@ -90,18 +64,16 @@
 </div>
 <!--Imagen LCS Supplies-->
 
-<div class="imagen">
+  <div class="imagen">
+    <img class= "register__image" src="/images/imagen_register.png" alt="Imagen LCS Supplies" width="450px" heigth= "450px">
 
-   <img class= "register__image" src="/images/imagen_register.png" alt="Imagen LCS Supplies" width="450px" heigth= "450px">
-
-   
-</div>
-</section>
+  </div>
+  </section>
        
-</section>
+  </section>
 
   
-</section>      
+  </section>      
 
   <!-- Footer del sitio-->
   <%- include('partials/footer') %>

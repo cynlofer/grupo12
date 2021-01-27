@@ -5,7 +5,7 @@
 <body>
   <!-- Header -->
   <%- include('partials/header') %>
-  <!-- /Header -->
+  <!-- /Header -->    
   <!--Caja principal Product Detail-->
   <div class="contenedorPrincipalSuperior ">
     <!--Contenedor Lateral Izquierdo-->
@@ -82,8 +82,8 @@
         </article>  
       </section>
       <div class="ancho_100">
-          <a href="/products/carrito" class="buy-now-button ">AGREGAR AL CARRITO</a>
-          <a href="/products/mycart" class="buy-now-button">COMPRAR AHORA</a>
+          <a href="/products/carrito" class="buy-now-button " >AGREGAR AL CARRITO</a>
+          <!-- <a href="/products/mycart" class="buy-now-button">COMPRAR AHORA</a> -->
           <hr>
           <% if(admin) { %>
             <div class='editar_eliminar'>
@@ -97,7 +97,6 @@
           <% if (typeof errorMsg != "undefined") { %>
             <p style="color: red; padding-left: 10px"><%=errorMsg%></p>
           <% } %> 
-          
       </div>  
     </div>
     </div>

@@ -8,6 +8,7 @@ const { map } = require('../app');
 var moment = require('moment');
 var sumaCarrito=[];
 var pedido= true;      
+console.log("entrando en controller");
 const controller = {
 	// Root - Show all products
 	index: async(req, res) => {
@@ -51,9 +52,6 @@ const controller = {
 			  .then(function(data) {
 				res.render('homeProducts',{products : data, titulo,itemCarrito : req.session.itemCarrito});
 			  });
-			 
-			//res.send(productjson[8].categorias[0].name);
-			
 	    }catch(error){
             console.log(error);
         }
@@ -74,9 +72,6 @@ const controller = {
 			  .then(function(data) {
 				res.render('homeProducts',{products : data, titulo,itemCarrito : req.session.itemCarrito});
 			  });
-			 
-			//res.send(productjson[8].categorias[0].name);
-			
 	    }catch(error){
             console.log(error);
         }
@@ -84,14 +79,16 @@ const controller = {
 	// Detail - Detail from one product
 	detail: async(req, res) => {
 	try{
-		
 		let admin = false;
 		if(req.session.admin){
 			admin = true;
 		}
 		carrito={};
 		const prod_detal = await Product.findByPk(req.params.id,{include:{all:true}});
-		if (req.session.email){
+		if(req.session.itemCarrito === 0){
+			sumaCarrito=[];
+		}
+		if (req.session.email != undefined){
 				if((req.session.itemCarrito != 0) & ((req.session.carritoActivo) <1)) {
 					const datosCarrito = await Card.findAll({  //trae datos de carrito activo pasa a var 
 						where : {estado : 0,
@@ -138,6 +135,8 @@ const controller = {
 					};
 				};
 				//guarda con los datos del formulario detalle posible item de carrito
+				req.session.carritoActivo= 6;
+				req.session.itemNew= 1;
 				carrito = { 
 				productid: Number(prod_detal.id),
 				nombre : prod_detal.name,
@@ -150,8 +149,11 @@ const controller = {
 				estado : 0
 			};
 		    
+		}else{
+			sumaCarrito=[];
+			
 		};
-		res.render('productDetail',{producto : prod_detal, admin,itemCarrito : req.session.itemCarrito});
+		res.render('productDetail',{producto : prod_detal, admin,itemCarrito : req.session.itemCarrito, alerta: req.session.email});
 	}catch(error){
 		console.log(error);
 	}
@@ -211,7 +213,6 @@ const controller = {
 	edit: async(req, res) => {
 		try{
 			if (req.session.admin){
-				//console.log(req.params);
 				const productToEdit = await Product.findByPk(req.params.id,{include:{all:true}});
 				const brand = await Brand.findAll();
 				const colores= await Color.findAll();
@@ -221,7 +222,7 @@ const controller = {
 				res.render("products/productsEdit", {productToEdit : productToEdit,brand,colores,payment,shipping,categorie ,itemCarrito : req.session.itemCarrito});
 			}else{
 				const prod_detal = await Product.findByPk(req.params.id,{include:{all:true}});
-				res.render('productDetail',{producto : prod_detal, errorMsg: "Su usuario no es Administrador",itemCarrito : req.session.itemCarrito});
+				res.render('productDetail',{producto : prod_detal, errorMsg: "Su usuario no es Administrador",itemCarrito : req.session.itemCarrito,alerta: req.session.email});
 			}
 
 		}catch(error){
@@ -285,7 +286,7 @@ const controller = {
 				res.redirect("/"); 
 			}else{
 				const prod_detal = await Product.findByPk(req.params.id,{include:{all:true}});
-				res.render('productDetail',{producto : prod_detal, errorMsg: "Su usuario no es Administrador",itemCarrito : req.session.itemCarrito});
+				res.render('productDetail',{producto : prod_detal, errorMsg: "Su usuario no es Administrador",itemCarrito : req.session.itemCarrito,alerta: req.session.email});
 			}
 		}catch(error){
             console.log(error);
@@ -294,42 +295,43 @@ const controller = {
 	// carrito de compras
 	mycart :async (req, res) => {
 		try {
-			if (req.session.email){
+			if (req.session.email != undefined){
 				var subtotal = 0;
-				if((req.session.itemCarrito != 0) & ((req.session.carritoActivo) <1)) {
+				if(req.session.itemCarrito != 0) {
 					const datosCart = await Card.findAll({  //trae datos de carrito activo pasa a var 
 						where : {estado : 0,
 							     iduser : req.session.iduser}
 					});
-					req.session.idPedido = datosCart[0].idpedido; //asigna numero carrito session
-					//elimina el carrito identificado con ese numero, daros guardados en datosCarrito
-					await Card.destroy({
-						where :{idpedido : req.session.idPedido,
-								 iduser : req.session.iduser},
-						force : true 
-					});
-					var provCarrito = [];  //inicializa carrito provisorio
-					// asigna datos del carrito proveniente de tabla a var provisoria
-					datosCart.map( element => 
-						provCarrito.push({
-						"productid" : element.productid,
-						"nombre" : element.nombre,
-						"precio" : element.precio,
-						"imagen" : element.imagen,
-						"iduser" : element.iduser,
-						"cantidad" : element.cantidad,
-						"fecha" :  element.fecha,
-						"idpedido" : element.idpedido,
-						"estado" : 0})
+					if(datosCart.length>0){
+						req.session.idPedido = datosCart[0].idpedido; //asigna numero carrito session
+						//elimina el carrito identificado con ese numero, datos guardados en datosCarrito
+						await Card.destroy({
+							where :{idpedido : req.session.idPedido,
+									 iduser : req.session.iduser},
+							force : true 
+						});
+						var provCarrito = [];  //inicializa carrito provisorio
+						// asigna datos del carrito proveniente de tabla a var provisoria
+						datosCart.map( element => 
+							provCarrito.push({
+							"productid" : element.productid,
+							"nombre" : element.nombre,
+							"precio" : element.precio,
+							"imagen" : element.imagen,
+							"iduser" : element.iduser,
+							"cantidad" : element.cantidad,
+							"fecha" :  element.fecha,
+							"idpedido" : element.idpedido,
+							"estado" : 0})
 						)
-					sumaCarrito = provCarrito; //asigna array provisoria a sumarrito array general de carrito
-					req.session.carritoActivo= 5; // pone un valor diferente de 0 para que no vuelva entrar en if
-				}
+						sumaCarrito = provCarrito; //asigna array provisoria a sumarrito array general de carrito
+						req.session.carritoActivo= 5; // pone un valor diferente de 0 para que no vuelva entrar en if
+						var newLocal = await Card.bulkCreate(sumaCarrito);
+					};
+				};
 				sumaCarrito.forEach((carrito)=>{
 					subtotal = carrito.precio + subtotal;
-					 
-				})
-				const newLocal = await Card.bulkCreate(sumaCarrito);
+				});
 				res.render("myCart",{carrito : sumaCarrito, subtotal,itemCarrito : req.session.itemCarrito});
 			}else{
 				res.render("userlogin",{itemCarrito : req.session.itemCarrito});
@@ -338,13 +340,28 @@ const controller = {
 			console.log(error);
 		}
 	},
-	carrito : (req, res) => {
-			if (req.session.email){
+	carrito : async(req, res) => {
+			resultado = validationResult(req);
+			if (req.session.email != undefined){
 				var resultad = sumaCarrito.find(element=> element.productid === carrito.productid);
 				if(resultad){
-					console.log("item repetido  "+resultad.cantidad);
-					console.log(resultad.productid);
-					console.log(sumaCarrito.cantidad);
+					var changedCart= await Card.findAll({  //trae datos de carrito activo pasa a var 
+						where : {productid : resultad.productid,
+									iduser : req.session.iduser,
+									estado :0
+								}
+					});
+					if(changedCart.length>0){
+						await Card.update({
+							cantidad: changedCart[0].cantidad+1,
+						}, {
+							where: {
+								    productid : changedCart[0].productid,
+									iduser : req.session.iduser,
+									estado :0
+							}
+						});
+					}
 					sumaCarrito.map(element =>{
 						if(element.productid === carrito.productid){
 							element.cantidad = element.cantidad+1;
@@ -353,9 +370,10 @@ const controller = {
 				}else{
 					req.session.itemCarrito = req.session.itemCarrito +1;
 					sumaCarrito.push(carrito);
+					const newCart = await Card.create(carrito);
 				}
 			}else{
-				console.log(" Error en carrito agregar");
+				console.log(" no esta logueado");
 			};
 			res.redirect("/products/");	
 	},
@@ -378,8 +396,6 @@ const controller = {
 				},
 				force : true 
 			});		
-				
-			req.session.idPedido=0;
 			carrito= {};
 			sumaCarrito =[];
 			pedido= true; 
@@ -395,17 +411,19 @@ const controller = {
 			
 			carrito= {};
 			sumaCarrito =[];
-			req.session.itemCarrito =0;
 			await Card.destroy({
 				where :{ idpedido : req.session.idPedido,
-						 iduser : req.session.iduser},
-				force : true 
-			});
-			res.redirect("/");
-		} catch (error) {
+					iduser : req.session.iduser},
+					force : true 
+				});
+				req.session.itemCarrito =0;
+				req.session.carritoActivo=0;
+			    pedido= true; 
+				res.redirect("/");
+			} catch (error) {
+				
+			}
 			
-		}
-		
     }
 };
 
