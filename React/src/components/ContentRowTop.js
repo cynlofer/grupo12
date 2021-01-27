@@ -10,7 +10,7 @@ let productInDataBase = {
 }
 
 let amount ={
-    color:   "success",
+    color:   "info",
     titulo: "Amount in products",
     valor: 546,
     icono: "fa-dollar-sign",
@@ -18,7 +18,7 @@ let amount ={
 }
 
 let user = {
-    color:   "warning",
+    color:   "success",
     titulo: "Users quantity",
     valor: 38,
     icono: "fa-user-check",
