@@ -117,28 +117,19 @@ const usersController = {
               req.session.carritoActivo = 0;
               req.session.idPedido =0;
               req.session.itemNew= 0;
-              
-              console.log("suma carrito logueado"+ sumaCarrito);
               /* busqueda en carrito, si existe en estado 0 (activo) */
               const itemCarrito = await Card.count({
                 where : {iduser : checkExistingEmail[0].id,
                        estado : 0},
                        distinct : "id"        //este atributo permite usar el metodo count en ID
-                
               });
-              console.log("encontro carrito con estos items:"+itemCarrito);
               if(itemCarrito != 0){
-                console.log("entre a if itemca carrito postlogin");
                 req.session.itemCarrito = itemCarrito;
-                console.log("req.session deprocess login items"+req.session.itemCarrito);
-                /* fin busqueda carrito */
-
               }
               if(admin.includes(emailUsuarioEncontrado)){
                 req.session.admin= true;
               }
             }else{
-              
               res.render("userlogin", {allData: newUser, errorMsg: " La contraseña es incorrecta",itemCarrito : req.session.itemCarrito});
             }
             
@@ -146,7 +137,6 @@ const usersController = {
               res.cookie("recordarme", checkExistingEmail.email, {maxAge : 1000*60*60*60*24});
             }
           }else{
-           
             res.render("userlogin", {allData: newUser, errorMsg: " Email no existe (Registrese)",itemCarrito : req.session.itemCarrito});
           }
         }
@@ -155,27 +145,21 @@ const usersController = {
         }
         res.redirect("/");
       },
-
       logout: (req,res,next)=>{
-        
         pedido= true;
         sumaCarrito=[];
         req.session.destroy();
         res.redirect("/")
       },
-
       /* GET preguntasFrecuentes */
       view: (req,res,next)=>{
       res.render('partials/preguntasFrecuentes',{itemCarrito : req.session.itemCarrito})
   
      },
-
      /* GET quienesSomos */
      who: (req,res,next)=>{
       res.render('partials/quienesSomos',{itemCarrito : req.session.itemCarrito})
-  
      },
-
     };
 
 

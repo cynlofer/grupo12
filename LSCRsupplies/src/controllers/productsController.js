@@ -8,7 +8,6 @@ const { map } = require('../app');
 var moment = require('moment');
 var sumaCarrito=[];
 var pedido= true;      
-console.log("entrando en controller");
 const controller = {
 	// Root - Show all products
 	index: async(req, res) => {
@@ -96,11 +95,6 @@ const controller = {
 					});
 					req.session.idPedido = datosCarrito[0].idpedido; //asigna numero carrito session
 					//elimina el carrito identificado con ese numero, daros guardados en datosCarrito
-					await Card.destroy({
-						where :{idpedido : req.session.idPedido,
-								 iduser : req.session.iduser},
-						force : true 
-					});
 					var provCarrito = [];  //inicializa carrito provisorio
 					// asigna datos del carrito proveniente de tabla a var provisoria
 					datosCarrito.map( element => 
@@ -174,8 +168,7 @@ const controller = {
 			}
 			}catch(error){
 			console.log(error);
-		}
-		
+		}		
 	},
 
 	// Create -  Method to store
