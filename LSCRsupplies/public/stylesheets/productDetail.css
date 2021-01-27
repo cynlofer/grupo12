@@ -82,9 +82,7 @@
   flex-wrap: wrap;
   background-color:rgb(228, 213, 185,0.3);
   padding: 10px;
-  width: 95%;
-  height: 100vh; 
-  margin: auto;
+  width: 100%;
   flex-direction: row;  
   box-sizing: border-box; 
 }
@@ -100,28 +98,48 @@
   height: 96vh;
 }
 .contenedorImagenPrincipal {
- background-color: white;
+ background-color: rgb(228, 213, 185,0.3); ; 
  width: 100%;
  margin: 10px; 
  box-sizing: border-box; 
  padding-top: 10px;
+ border-radius: 5%;
 }
 #imagenPrincipal{
   display: block;
   margin: auto; 
-  width: 57%;
-  height: 42vh;
+  width: 65%;
+  border-radius: 5%;
+  margin-bottom: 10px;
+  height: 50vh;
 
 }
 .contenedorImagenesSecundarias {
- background-color:rgb(228, 213, 185,0.3); 
-  width: 100%;
-  box-sizing: border-box; 
-  padding: 10px;
-  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  background-color: rgb(228, 213, 185,0.3); ; 
+ width: 100%;
+ margin: 10px; 
+ box-sizing: border-box; 
+ padding-top: 10px;
+ border-radius: 5%;
+
+ 
 }
 
-
+#imagenSecundaria {
+  height: 40vh;
+  margin: 0;
+  flex-direction: column;
+  width: 29%;
+  height: 20vh;
+  margin-left: 15px; 
+  border-radius: 5%;
+  white-space: pre;
+  ;
+  
+}
 /*contendorLateralDerecho*/
 
 .contenedorLateralDerecho {
@@ -236,14 +254,6 @@ color: orange;
   font-size: 1.2em;
   
 }
-/*.contenedorLateralDerecho2 {
-  width: 50%;
-  background-color: white;
-  height: 50vh;
-  border: #E97E5A solid 3px;
-
-}*/
-
 .contenedorSimilares{
   background-color:rgb(228, 213, 185,0.3);
   width: 100%;
@@ -260,86 +270,9 @@ color: orange;
   Media Queries
 ==================================== */
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
 
-  #imagenSecundaria {
-    width: 21.1%;
-    height: 20vh;
-    margin: 10px;
-    margin-top: 20px;
-  }
-	.header {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	
-	.main-nav {
-		display: flex;
-	}
-	
-	.bannerCentral {
-		display: flex;
-		flex-flow: row wrap;
-		width: 100%
-	}
-	
-	.productosRelacionados {
-		width: 40%;
-		margin: auto;
-	}
-	
-	.productosRelacionados img {
-		width: 100%;
-	}
-	
-	.bannerSecciones{
-		width: 40%;
-	}
-	
-	.bannerSecciones img {
-		width: 100%;
-	}
-	
+ 
+
 }
 
-@media (min-width: 1025px) {
-	.header {
-		display: flex; 
-		background-image: url("../images/fondo-header.png");
-		background-size: cover;
-	}
-
-	.logo {
-		width: 100%;
-		display: flex;
-		background-color:transparent;
-		margin-top: -2px;
-	  }
-
-	.header img {
-		width: 50%
-	}
-
-	.main-nav {
-		display: flex;
-		flex-direction: row;
-		order: 0;
-	}
-
-	.main-content {
-		display: flex;
-	}
-	
-	.login-bar {
-		display: flex;
-		flex-direction: row;
-		order: 1;
-	}
-	
-	.login-content {
-		display: flex;;
-	}
-
-	
-}
