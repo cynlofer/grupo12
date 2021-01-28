@@ -17,7 +17,11 @@ const controller = {
             const productjson = await Product.findAll({
 				order: [["id"]],	  
 			});
-			res.render('homeProducts',{products : productjson, titulo,itemCarrito : req.session.itemCarrito});
+			let admin = false;
+			if(req.session.admin){
+				admin = true;
+			}
+			res.render('homeProducts',{products : productjson, titulo,itemCarrito : req.session.itemCarrito,admin});
 	    }catch(error){
             console.log(error);
         }
@@ -30,13 +34,15 @@ const controller = {
 				order: [["id"]],
 				where : {[Op.not]: [{promocion : 0 }]} 	
 			});
-			res.render('homeProducts',{products : productjson, titulo,itemCarrito : req.session.itemCarrito});
+			let admin = false;
+			res.render('homeProducts',{products : productjson, titulo,itemCarrito : req.session.itemCarrito,admin});
 	    }catch(error){
             console.log(error);
         }
 	},
 	arte: async(req, res) => {
 		try{
+			let admin = false;
 			const titulo = "Productos área Artística";
 			Product.findAll({
 				include: [{
@@ -49,7 +55,7 @@ const controller = {
 				}]
 			  })
 			  .then(function(data) {
-				res.render('homeProducts',{products : data, titulo,itemCarrito : req.session.itemCarrito});
+				res.render('homeProducts',{products : data, titulo,itemCarrito : req.session.itemCarrito,admin});
 			  });
 	    }catch(error){
             console.log(error);
@@ -57,6 +63,7 @@ const controller = {
 	},
 	tecnico: async(req, res) => {
 		try{
+			let admin = false;
 			const titulo = "Productos área Técnica";
 			Product.findAll({
 				include: [{
@@ -69,7 +76,7 @@ const controller = {
 				}]
 			  })
 			  .then(function(data) {
-				res.render('homeProducts',{products : data, titulo,itemCarrito : req.session.itemCarrito});
+				res.render('homeProducts',{products : data, titulo,itemCarrito : req.session.itemCarrito,admin});
 			  });
 	    }catch(error){
             console.log(error);
