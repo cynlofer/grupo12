@@ -13,7 +13,7 @@ function LastProductInDb(props){
                     </div>
                     <div className="card-body">
                         <div className="text-center">
-                            <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 25+'rem'}} src={'http://localhost:5000/images/products'+ props.images} alt="imagen"/>
+                            <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 25+'rem'}} src={'http://localhost:5000/images/products/'+ props.images} alt="imagen"/>
                         </div>
                         <p>{props.descripcion}</p>
                         <h5>Titulo: {props.name}</h5>

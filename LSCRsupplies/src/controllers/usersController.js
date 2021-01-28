@@ -10,7 +10,7 @@ var {body, validationResult, check, cookie} = require ('express-validator');
 //Sequelize 
 const {Product, User, Brand,Card}= require("../database/models");
 const {Op} = require('sequelize');
-const admin=["ginoca30@gmail.com","lorisepu@hotmail.com","cynlofer@gmail.com","perezsandy775@gmail.com"];
+var admin=["ginoca30@gmail.com","cynlofer@gmail.com","perezsandy775@gmail.com"];
 //console.log(admin);
 const usersController = {
       /* GET register. */
@@ -83,13 +83,48 @@ const usersController = {
       actualizar: async (req, res, next) => {
         try {
           const userID = req.params.id;
+          /* console.log(req.body.emailNew);
+          console.log(req.session.admin);
+          if(admin){
+            let newUser = req.body;
+            if(req.body.emailNew){
+              let checkExistingEmail = await User.findAll(
+                {where: 
+                  {email: req.body.emailNew}
+                });
+                console.log(checkExistingEmail[0]);
+              if (checkExistingEmail[0] === undefined){
+                console.log("lo encontre");
+                const nuevoUser = await User.create();
+                await nuevoUser.update(
+                  { image:"",
+                    password: bcrypt.hashSync("usuario", 10),
+                    email : req.body.emailNew,
+                    admin : Number(req.body.admin),
+                    first_name : "",
+                    last_name : ""
+                   }, //what going to be updated
+                  { where: { id: (nuevoUser.id) }});
+                  res.redirect("/");
+              }else{
+                const saveChanges = await User.findByPk(userID);
+                await saveChanges.update({
+                  password:  bcrypt.hashSync("usuario", 10),
+                  admin : req.body.admin
+                 })
+                res.redirect("/");
+              }
+
+            }
+          }; */
           const saveChanges = await User.findByPk(userID);
           await saveChanges.update({
             id : userID,
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10)
+            password: req.body.email,
+            admin : req.body.admin
            })
           res.redirect("/"); 
 
@@ -100,9 +135,8 @@ const usersController = {
       processLogin: async (req, res) => {
         try{ 
           sumaCarrito=[];
-          console.log("proces login"+sumaCarrito);
           let newUser = req.body.email;
-          usuarioPass = req.body.password;
+          usuarioPass = (req.body.password);
           let checkExistingEmail = await User.findAll(
             {where: 
               {email: newUser}

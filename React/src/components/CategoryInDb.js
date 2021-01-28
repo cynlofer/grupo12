@@ -11,15 +11,13 @@ class CategoryInDb extends Component{
             categorias : [],
         }
     }
- componentDisMount(){
-
+ componentDidMount(){
     fetch('/api/products/categorias')
     .then(respuesta=>{
          return respuesta.json()
     })
     .then(categorias =>{
-
-        this.setState({categorias: categorias.respuesta})
+        this.setState({categorias: categorias.resultados})
         console.log(categorias)
     })
     .catch(error => console.log(error))
@@ -40,8 +38,8 @@ return (
 
 <div className="card-body">
     <div className="row-categories">
-        {this.state.categorias.map((categoria, index)=>{
-            return < Category {...categoria} key={index} />
+        {this.state.categorias.map((valor, index)=>{
+            return < Category {...valor} key={index} />
 
             
         })}

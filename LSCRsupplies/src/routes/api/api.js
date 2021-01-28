@@ -6,6 +6,7 @@ const productsResource = require('../../request/productsResource');
 const productsController=require('../../controllers/api/apiController')
 
 router.get('/products',apiController.index);
+router.get('/products/one',apiController.one);
 router.get('/card',apiController.card);
 router.get('/products/brands',apiController.brands);
 router.get("/",function(req,res){

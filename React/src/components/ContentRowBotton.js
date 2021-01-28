@@ -15,14 +15,15 @@ class ContentRowBotton extends Component{
     }
     componentDidMount(){
                    
-        fetch('/api/products')
+        fetch('/api/products/one')
         .then(respuesta=>{
             return respuesta.json()
         })
         .then(producto =>{
             
             this.setState({producto: producto.resultados})
-            console.log(producto.resultados)
+
+            console.log(producto.resultados);
 
         })
         .catch(error => console.log(error))

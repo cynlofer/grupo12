@@ -27,6 +27,31 @@ index: async(req, res) => {
         console.log(error);
     }
 },
+one: async(req, res) => {
+    try{
+        const productjson = await Product.findAll({
+            where : {id : 11,
+}
+        });
+        if (productjson.length >0) {
+            let respuesta = {
+            metadata:{
+              status:200,
+              cantidad:productjson.length
+            },
+            resultados:productjson
+            
+        }
+        res.json(respuesta);
+        }else{
+            res.status(400)
+            res.json({"message": "Tabla vacia"}) 
+        }
+
+    }catch(error){
+        console.log(error);
+    }
+},
 brands : async(req, res) => {
     try{
         const productjson = await Brand.findAll({
@@ -95,7 +120,6 @@ card: async(req, res) => {
 postCarrito: async(req,res)=>{
     try {
         const  datosApi = req.body;
-        //console.log(datosApi);
         if(datosApi != []){
 
             const prodPedido = await Card.findAll({
@@ -126,13 +150,14 @@ categorias : async(req, res) => {
             order: [["id"]]
         
         });
+        console.log(productjson)
         if (productjson.length >0) {
             let respuesta = {
             metadata:{
               status:200,
               cantidad:productjson.length
             },
-            resultados:productjson
+            resultados:productjson,
             
         }
         res.json(respuesta);
