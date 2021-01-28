@@ -35,7 +35,7 @@ function ContentRowTop(){
         <div className="row">
             {
                 cardProps.map((producto,index)=>{
-                    return <SmallCard  {...producto}  key= {index}/>
+                    return <SmallCard  {...producto}  key= {index}/> 
                 })
             }      
         </div>

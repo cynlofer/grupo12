@@ -1,17 +1,53 @@
-import React from 'react';
+import React, {Component} from 'react';
 import LastProductInDb from './LastProductInDb';
 import CategoryInDb from './CategoryInDb';
 
-function ContentRowBotton(){
-    return (
-        <React.Fragment>
-        {/*<!-- Content Row -->*/}
-        <div className="row">
+
+class ContentRowBotton extends Component{
+    constructor(){
+        super();
+
+        this.state = {
+
+            producto : [],
+
+        }
+    }
+    componentDidMount(){
+                   
+        fetch('/api/products')
+        .then(respuesta=>{
+            return respuesta.json()
+        })
+        .then(producto =>{
+            
+            this.setState({producto: producto.resultados})
+            console.log(producto.resultados)
+
+        })
+        .catch(error => console.log(error))
+    }
+    render(){
+
+        return (
+            <React.Fragment>
+            {/*<!-- Content Row -->*/}
+            <div className="row row-botton">
+
             {/*<!-- Last Product in DB -->*/}
-            <LastProductInDb />    
-            <CategoryInDb />
-        </div>
-        </React.Fragment>
-    )
+            {
+                 this.state.producto.map((valor, index)=>{
+                    return <LastProductInDb {...valor} key= {index} />
+                })
+
+            }
+            
+            <CategoryInDb/>       
+
+            </div>
+            
+         </React.Fragment>
+        )
+    }
 }
 export default ContentRowBotton;

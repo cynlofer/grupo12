@@ -15,7 +15,7 @@ router.get("/",function(req,res){
 router.post("/product/prueba",(req,res)=>{
     console.log("en api de routes");
 });
-
+router.get('/products/categorias',apiController.categorias);
 
 router.post('/card',apiController.postCarrito);
 

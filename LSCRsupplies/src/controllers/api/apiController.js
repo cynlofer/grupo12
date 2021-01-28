@@ -1,12 +1,13 @@
 
-const {Product, Brand, Color, Deliverie, Payment, salesDetail, Card}= require("../../database/models");
+const {Product, Brand, Categorie, Color, Deliverie, Payment, salesDetail, Card}= require("../../database/models");
 
 const controller = {
 index: async(req, res) => {
     try{
         const productjson = await Product.findAll({
             order: [["id"]]
-        });
+        }
+        );
         if (productjson.length >0) {
             let respuesta = {
             metadata:{
@@ -117,7 +118,33 @@ postCarrito: async(req,res)=>{
     } catch (error) {
         console.log(error);
     }
-}
+},
+
+categorias : async(req, res) => {
+    try{
+        const productjson = await Categorie.findAll({
+            order: [["id"]]
+        
+        });
+        if (productjson.length >0) {
+            let respuesta = {
+            metadata:{
+              status:200,
+              cantidad:productjson.length
+            },
+            resultados:productjson
+            
+        }
+        res.json(respuesta);
+        }else{
+            res.status(400)
+            res.json({"message": "Tabla vacia"}) 
+        }
+
+    }catch(error){
+        console.log(error);
+    }
+},
 };
 
 module.exports = controller;
