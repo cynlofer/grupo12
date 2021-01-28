@@ -52,13 +52,14 @@
     
   a {
       text-decoration: none;
-    }
+  }
+  
     @media (min-width: 1024px)
     {
         .header {
             width: 1024px; 
             font-family:'Raleway', sans-serif;
-            color: #36465d;
+            
             align-items: center;
         }
     }
