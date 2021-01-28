@@ -3,23 +3,23 @@ import SmallCard from './SmallCard';
 
 let productInDataBase = {
     color:   "danger",
-    titulo: "Products in Data Base",
-    valor: 550,
+    titulo: "Productos en la Base de Datos",
+    valor: 12,
     icono: "fa-clipboard-list",
     moneda: false 
 }
 
 let amount ={
     color:   "info",
-    titulo: "Amount in products",
-    valor: 546,
+    titulo: "Ventas Totales",
+    valor: 17500,
     icono: "fa-dollar-sign",
     moneda: true
 }
 
 let user = {
     color:   "success",
-    titulo: "Users quantity",
+    titulo: "Cantidad de Usuarios",
     valor: 38,
     icono: "fa-user-check",
     moneda: false
