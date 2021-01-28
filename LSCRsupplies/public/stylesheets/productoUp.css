@@ -209,6 +209,26 @@ textarea.form-input {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
 }
 
+.action-button-edit{
+    color: #36465d;
+    padding:0px 10px;
+    text-align: center;
+    padding: 2px;
+     justify-content: right;
+     align-items: center;
+     margin: 25px;
+     font-size: 20px;
+     background: rgb(51, 153, 204, 0.4);
+     border-radius: 5px;
+     font-size: 16px;
+     padding: 5px;
+     margin: 20px;
+     
+}
+
+
+
+
 @media (min-width: 576px){
     .containerProd {
         max-width: 540px;
