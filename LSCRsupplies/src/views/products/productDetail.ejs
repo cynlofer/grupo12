@@ -50,7 +50,7 @@
           <hr>
           <% if(admin) { %>
             <div class='editar_eliminar'>
-              <a href= <%= "/products/" + producto.id + "/edit" %> class="action-button edit">EDITAR PRODUCTO</a>
+              <a href= <%= "/products/" + producto.id + "/edit" %> class="action-button edit">EDITAR</a>
               <form action="/products/<%= producto.id %>?_method=delete" method="POST" style="display: inline-flex">
                 <button type="submit" class="action-button delete">ELIMINAR</button>
               </form>
