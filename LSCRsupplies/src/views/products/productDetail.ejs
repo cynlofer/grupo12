@@ -24,63 +24,26 @@
     <!--Contenedor Lateral Derecho-->
     <div class="contenedorLateralDerecho">
       <section id="nombreProducto">
-        <h1 class="h1 carritoName" >
+        <h1 class="h1 carritoName" id="h1">
           <%= producto.name %>
           <div class="sharethis-inline-share-buttons"></div>
         </h1>
         
       </section>
       <section class="contenedorPrecio">
-        <form id="form">
-          <p class="clasificacion">
-           <input id="radio1" type="radio" name="estrellas" value="5"><!--
-          --><label class="label1" for="radio1">★</label><!--
-          --><input id="radio2" type="radio" name="estrellas" value="4"><!--
-          --><label class="label1" for="radio2">★</label><!--
-          --><input id="radio3" type="radio" name="estrellas" value="3"><!--
-          --><label class="label1" for="radio3">★</label><!--
-          --><input id="radio4" type="radio" name="estrellas" value="2"><!--
-          --><label class="label1" for="radio4">★</label><!--
-          --><input id="radio5" type="radio" name="estrellas" value="1"><!--
-          --><label class="label1" for="radio5">★</label>
-          </p>
-        </form>
+       
           <h1 class="h1 carritoPrice">$ <%= producto.price %> </h1> 
           <h2 class="h1"><small>Marca  <%= producto.Brand.name %>  </small> </h2>
       </section>
      
-
-      <section id="variacionesProducto">
-        <article class="colores">
-          <label class="select" for="select">Colores</label>
-          <select class="desplegable" name="select">
-            <option value="Color1"> </option> 
-            <option value="Color2" s></option>
-            <option value="Color3"></option>
-            <option value="Color3"></option>
-            <option value="Color3"></option>
-            <option value="Color3"></option>
-          </select>
+      
+        <section class="contenedorLateralIzquierdo2">
+          <%= producto.descripcion %>
+        </section>
+          
     
-        
-          <label class="select" for="select">Numeración</label>
-          <select class="desplegable" name="select">
-            <option value=" Numero1">#1</option> 
-            <option value="Numero2" selected>#2</option>
-            <option value="Numero3">#3</option>
-          </select>
-          <label class="select" for="select">Cantidad</label>
-          <select class="desplegable" name="select">
-            <option value="1" selected>1</option> 
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option> 
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">Mas de 6</option>
-          </select>
-        </article>  
-      </section>
+
+      
       <div class="ancho_100">
           <a href="/products/carrito" class="buy-now-button " >AGREGAR AL CARRITO</a>
           <!-- <a href="/products/mycart" class="buy-now-button">COMPRAR AHORA</a> -->
@@ -98,40 +61,10 @@
             <p style="color: red; padding-left: 10px"><%=errorMsg%></p>
           <% } %> 
       </div>  
+      <div class="espacio"></div>
     </div>
-    </div>
-    <div class="contenedorPrincipalSuperior">
-    <section class="contenedorLateralIzquierdo2">
-      <p class="h1">Descripción del Producto</p>
-      <%= producto.descripcion %>
-    </section>
-    <section class="contenedorSimilares">
-        <p class="h1">Productos Relacionados</p>
-      
-        <div class='relacionados'>
-        
-          <div class= 'caja'>
-            <img class="marcador__kuretake" src="/images/marcador-kuretake_01.jpg" alt="Marcador marcador_kuretake" width="100%" heigth= "100%">
-          </div>
-
-          <div class= 'caja'>
-           <img class="marcador__kuretake" src="/images/marcador-kuretake_01.jpg" alt="Marcador marcador_kuretake" width="100%" heigth= "100%">
-          </div>
-
-          <div class= 'caja'>
-           <img class="marcador__kuretake" src="/images/marcador-kuretake_01.jpg" alt="Marcador marcador_kuretake" width="100%" heigth= "100%">
-          </div>
-
-          <div class= 'caja'>
-            <img class="marcador__kuretake" src="/images/marcador-kuretake_01.jpg" alt="Marcador marcador_kuretake" width="100%" heigth= "100%">
-          </div>
-         
-      </div>  
-    </section>    
-   </div>
-
     
-  </div>
+   
   
 
     <!-- Footer del sitio-->

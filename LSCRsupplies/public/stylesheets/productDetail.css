@@ -7,26 +7,33 @@
 }
 /* css detail agregado */
 .ancho_100{
-  width: 100%;
-  background-color:rgb(228, 213, 185,0.3); 
-  margin: 10px;
+  width: 80%;
+  background-color:rgba(41, 40, 40, 0.3);
+  height: 9vh; 
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 50px;
+  border-radius: 5%
 }
 .body {
   width:100%; 
 }
+
 .buy-now-button {
   
-  background-color: rgb(51, 153, 204);
+  background-color: rgba(51, 153, 204, 0.712);
   font-size: 1.6em;
   color: white;
+  font-weight: bolder;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 15px;
   border-radius: 8px;
   border: none;
-  margin: 10px;
-  
+  text-decoration: none;
+  width: 100%;
+  border-radius: 7%
 }
 
 .action-button {
@@ -81,10 +88,10 @@
   display: flex;
   flex-wrap: wrap;
   background-color:rgb(228, 213, 185,0.3);
-  padding: 10px;
   width: 100%;
   flex-direction: row;  
   box-sizing: border-box; 
+  height: 150vh;
 }
 
 /*contendor Lateral Izquierdo*/
@@ -104,6 +111,7 @@
  box-sizing: border-box; 
  padding-top: 10px;
  border-radius: 5%;
+ box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 #imagenPrincipal{
   display: block;
@@ -112,18 +120,20 @@
   border-radius: 5%;
   margin-bottom: 10px;
   height: 50vh;
+  
 
 }
 .contenedorImagenesSecundarias {
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
-  background-color: rgb(228, 213, 185,0.3); ; 
+  background-color: rgb(228, 213, 185,0.3); 
  width: 100%;
  margin: 10px; 
  box-sizing: border-box; 
  padding-top: 10px;
  border-radius: 5%;
+ box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2)
 
  
 }
@@ -141,42 +151,57 @@
   
 }
 /*contendorLateralDerecho*/
-
+.espacio{
+  height: 25vh;
+}
 .contenedorLateralDerecho {
-  background-color:whitesmoke;  
+  background-color:whitesmoke;
   display: flex;
   flex-wrap: wrap;
   width: 50%;
   box-sizing: border-box; 
   height: 96vh;
   
+  
 }
 #nombreProducto{
-  background-color: rgb(51, 153, 204,0.6);
+  background-color:rgba(228, 213, 185, 0.616);
   width: 100%;
-  height: 8vh;
+  height: 10vh;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box; 
-  margin: 10px;
+  border-radius: 5%;
+
 }
 .h1 {
-  font-size: 2em;
-  background-color:rgba(250, 250, 250, 0.6);
+  font-size: 1.5em;
+  background-color:rgb(228, 213, 185,0.3); 
+  border-radius: 5%;
   display: block;
   margin: auto;
   width: 100%;
   text-align: center;
+  background-color: white;
 }
-
-.contenedorPrecio{
-  background-color: rgb(228, 213, 185,0.3);
+#h1 {
+  background-color:rgba(228, 213, 185, 0.123);
   width: 100%;
-  height: 20vh;
+  height: 10vh;
+  font-size: 2em;
+}
+.span{
+  color: white;
+}
+.contenedorPrecio{
+  background-color: rgba(248, 243, 233, 0.3);
+  width: 100%;
+  height: 5vh;
   flex-wrap: wrap;
   box-sizing: border-box; 
-  margin:10px;
+font-size: 1.5em;
+border-radius: 7%
 }
 
 /*Estrellas CSS*/
@@ -250,8 +275,13 @@ color: orange;
   background-color:rgb(228, 213, 185,0.3);
   /*height: 50vh;*/
   border: rgb(228, 213, 185) solid 3px;
+  color:black;
   padding:25px ;
-  font-size: 1.2em;
+  font-size: 1.3em;
+  height: 24vh;
+  white-space: justify;
+  margin: 0;
+  border-radius: 7%;
   
 }
 .contenedorSimilares{
@@ -270,9 +300,54 @@ color: orange;
   Media Queries
 ==================================== */
 
-@media (min-width: 768px) {
-
- 
-
+@media (max-width:425px) {
+.contenedorLateralIzquierdo,.contenedorLateralDerecho{
+  width: 100%;
+  height: 115vh;
+  font-size: 0.8em;
 }
-
+.contenedorImagenesSecundarias{
+  margin: auto;
+}
+#imagenSecundaria{
+  margin-left: 30px;
+  width: 40%;
+  height:150px;
+}
+}
+@media (max-width:375px) {
+  .contenedorLateralIzquierdo,.contenedorLateralDerecho{
+    width: 100%;
+    height: 100vh;
+    font-size: 0.8em;
+  }
+  .contenedorImagenesSecundarias{
+    margin: auto;
+  }
+  #imagenSecundaria{
+    margin-left: 30px;
+    width: 40%;
+    height:120px;
+  }
+  #imagenPrincipal{
+    height:250px;
+    width: 70%;
+  }
+  .contenedorImagenPrincipal{
+    height: 280px;
+  }
+  .ancho_100{
+    width: 80%;
+    background-color:rgba(41, 40, 40, 0.3);
+    height: 9vh; 
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 45px;
+    border-radius: 5%
+  }
+  }
+  @media (max-width:768px){
+    *{
+      font-size:0.95em;
+    }
+  }
